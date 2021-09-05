@@ -12536,7 +12536,8 @@ vue-inbrowser-compiler-utils@^4.41.0:
   dependencies:
     camelcase "^5.3.1"
 
-"vue-loader-v16@npm:vue-loader@^16.1.0", vue-loader@^16.0.0, vue-loader@^16.5.0:
+vue-loader-v16@^16.5.0, "vue-loader-v16@npm:vue-loader@^16.1.0", vue-loader@^16.0.0, vue-loader@^16.5.0:
+  name vue-loader-v16
   version "16.5.0"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-16.5.0.tgz#09c4e0712466899e34b99a686524f19165fb2892"
   integrity sha512-WXh+7AgFxGTgb5QAkQtFeUcHNIEq3PGVQ8WskY5ZiFbWBkOwcCPRs4w/2tVyTbh2q6TVRlO3xfvIukUtjsu62A==
