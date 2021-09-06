@@ -33,6 +33,8 @@ article {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-row {

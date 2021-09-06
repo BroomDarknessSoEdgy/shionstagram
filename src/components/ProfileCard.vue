@@ -46,6 +46,8 @@ div {
     align-items: stretch;
     box-sizing: border-box;
     flex-shrink: 0;
+    max-width: 935px;
+    margin: auto;
     margin-bottom: 44px;
 }
 
@@ -112,7 +114,6 @@ button {
 }
 
 .description {
-    display: block;
     flex-grow: 1;
 }
 </style>

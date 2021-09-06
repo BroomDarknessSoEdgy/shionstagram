@@ -1,5 +1,6 @@
 {
   "name": "shionstagram",
+    "homepage": "https://cenmya.github.io/shionstagram/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,10 +8,12 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "gh-pages": "^3.2.3",
     "vue": "^3.0.0"
   },
   "devDependencies": {
