@@ -1,6 +1,6 @@
 {
   "name": "shionstagram",
-    "homepage": "https://cenmya.github.io/shionstagram/",
+  "homepage": "https://cenmya.github.io/shionstagram/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
