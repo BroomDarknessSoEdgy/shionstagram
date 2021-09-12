@@ -2,7 +2,7 @@
     <el-form>
         <el-form-item>
             <el-upload
-            action="http://127.0.0.1:3000/image"
+            :action='actionUrl'
             list-type="picture-card"
             :on-preview="handlePictureCardPreview"
             :on-success="handleSuccesfulUpload"
@@ -40,6 +40,7 @@ export default {
       dialogImageUrl: '',
       dialogVisible: false,
       image: undefined,
+      actionUrl: `${config.origin}/image`
   }),
   methods: {
       handlePictureCardPreview(file) {
