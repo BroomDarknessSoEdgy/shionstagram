@@ -1,11 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Profile from '../views/Profile.vue'
+import Submit from '../views/Submit.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    props: () => ({
+      admin: false,
+      token: null,
+    })
   },
   {
     path: '/admin',
@@ -15,6 +20,11 @@ const routes = [
       token: route.query.token,
       admin: true,
     }) 
+  },
+  {
+    path: '/submit',
+    name: 'Submit',
+    component: Submit
   }
 ]
 

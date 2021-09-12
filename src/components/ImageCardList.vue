@@ -2,8 +2,8 @@
     <article>
         <div class="image-row" :key="index" v-for="(subset, index) in imageSet">
             <div :key="image.id" v-for="image in subset">
-                <div class="admin-menu">
-                    <button v-on:click="() => hideItem(image.id)"></button>   
+                <div v-if="admin" class="admin-menu">
+                    <button v-on:click="() => hideItem(image.id)">Hide</button>   
                 </div>
                 <image-card :src="image.location" />
             </div>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import config from '../config';
 import ImageCard from './ImageCard.vue'
 
 export default {
@@ -26,8 +27,11 @@ export default {
   },
   methods: {
       hideItem: function (id) {
-        fetch('https://shionstagram.com/api/admin/message', {
+        fetch(`${config.origin}/api/admin/message`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 token: this.token,
                 id,

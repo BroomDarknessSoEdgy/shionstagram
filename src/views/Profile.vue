@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import config from '../config';
 import SiteHeader from '../components/SiteHeader.vue'
 import ProfileCard from '../components/ProfileCard.vue'
 import ImageCardList from '../components/ImageCardList.vue'
@@ -20,7 +21,7 @@ export default {
           if (!this.token) location.replace('/api/connect/discord');
       }
 
-      fetch('https://shionstagram.com/api/messages')
+      fetch(`${config.origin}/messages`)
         .then(response => response.json())
         .then(data => {
             this.rawMessages = data.rows;
