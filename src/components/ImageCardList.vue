@@ -27,7 +27,7 @@ export default {
   },
   methods: {
       hideItem: function (id) {
-        fetch(`${config.origin}/api/admin/message`, {
+        fetch(`${config.origin}/admin/message`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
