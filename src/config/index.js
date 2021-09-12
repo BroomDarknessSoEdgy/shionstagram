@@ -1,3 +1,3 @@
 export default {
-    origin: 'http://localhost:3000'
+    origin: 'https://shionstagram.com/api'
 }
