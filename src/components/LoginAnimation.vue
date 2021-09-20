@@ -1,5 +1,7 @@
 <template>
-	<div ref="loginAnimation" class="login-animation"></div>
+	<div class="login-animation">
+		<div ref="loginForm" class="login-form"></div>
+	</div>
 </template>
 
 <script>
@@ -9,9 +11,8 @@ import animation from "../assets/login_animation/login_form.json";
 export default {
 	name: "LoginAnimation",
 	mounted() {
-		console.log(animation);
 		lottie.loadAnimation({
-			container: this.$refs.loginAnimation,
+			container: this.$refs.loginForm,
 			animationData: animation,
 			renderer: "svg",
 			loop: true,
@@ -23,13 +24,17 @@ export default {
 
 <style scoped>
 .login-animation {
-	background-color: #fff;
-	width: 100%;
-	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	display: block;
 	overflow: hidden;
-	transform: translate3d(0, 0, 0);
-	text-align: center;
-	opacity: 1;
+}
+
+.login-form svg {
+	width: 30rem;
+	height: 30rem;
 }
 </style>
