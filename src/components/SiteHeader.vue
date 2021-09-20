@@ -1,13 +1,11 @@
 <template>
 	<header>
-		<nav>
-			<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
+		<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
 
-			<div class="mock-search">
-				<input type="text" placeholder="Search" />
-			</div>
-			<div class="nav-icons">Icons</div>
-		</nav>
+		<div class="mock-search">
+			<input type="text" placeholder="Search" />
+		</div>
+		<div class="nav-icons">Icons</div>
 	</header>
 </template>
 
@@ -20,16 +18,11 @@ export default {
 
 <style scoped>
 header {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	width: 100%;
 	padding: 1.5rem;
 	background-color: #fff;
-}
-
-nav {
-	max-width: 1140px;
-	margin: auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav-logo {
