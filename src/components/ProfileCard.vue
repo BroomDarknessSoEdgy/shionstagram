@@ -38,8 +38,9 @@ export default {
 <style scoped>
 .profile-card {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 18rem 1fr;
 	width: 100%;
+	margin-bottom: 3rem;
 }
 
 .avatar-wrapper {
@@ -67,15 +68,17 @@ section {
 h2 {
 	font-size: 2rem;
 	font-weight: 300;
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 }
 
 ul {
-	display: grid;
-	width: 100%;
-	grid-template-columns: repeat(3, 1fr);
+	display: flex;
 	list-style: none;
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+li {
+	margin-right: 2.5rem;
 }
 
 li span {

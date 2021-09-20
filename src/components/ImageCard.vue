@@ -1,36 +1,43 @@
 <template>
-    <div class="image-card-wrapper">
-        <el-image fit="cover" class="image" sizes="293px" :src="src" lazy />
-    </div>
+	<div class="image-card-wrapper">
+		<img fit="cover" :src="src" loading="lazy" />
+	</div>
 </template>
 
 <script>
-import { ElImage } from 'element-plus'
-
 export default {
-  name: 'ImageCard',
-  props: {
-      src: String,
-  },
-  components: {
-      ElImage
-  }
-}
+	name: "ImageCard",
+	props: {
+		src: String,
+	},
+};
 </script>
 
 <style scoped>
 .image-card-wrapper {
-    margin-right: 28px;
-    flex: 1 0 0%;
-    display: block;
-    width: 293px;
-    height: 293px;
-    overflow: hidden;
+	position: relative;
+	height: 0;
+	padding-bottom: 100%;
 }
 
-.image {
-    width: 100%;
-    height: 100%;
+img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
+@supports (aspect-ratio: 1/1) {
+	.image-card-wrapper {
+		padding-bottom: 0;
+		height: auto;
+	}
+	img {
+		position: static;
+		aspect-ratio: 1/1;
+	}
+}
 </style>
