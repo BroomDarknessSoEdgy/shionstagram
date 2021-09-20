@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Profile from "../views/Profile.vue";
 import Submit from "../views/Submit.vue";
-import Preload from "../views/Preload.vue";
 
 const routes = [
 	{
@@ -26,11 +25,6 @@ const routes = [
 		path: "/submit",
 		name: "Submit",
 		component: Submit,
-	},
-	{
-		path: "/preload",
-		name: "preload",
-		component: Preload,
 	},
 ];
 

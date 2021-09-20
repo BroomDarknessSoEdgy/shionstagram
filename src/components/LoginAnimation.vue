@@ -23,6 +23,11 @@ let loop = false;
 
 export default {
 	name: "LoginAnimation",
+	props: {
+		callback: {
+			type: Function,
+		},
+	},
 	mounted() {
 		lottie.loadAnimation({
 			container: this.$refs.loginBg,
@@ -62,8 +67,11 @@ export default {
 			},
 		});
 		transition.onComplete = () => {
-			lottie.destroy();
+			this.callback();
 		};
+	},
+	unmounted() {
+		lottie.destroy();
 	},
 };
 </script>
@@ -77,6 +85,7 @@ export default {
 	bottom: 0;
 	display: block;
 	overflow: hidden;
+	z-index: 999;
 }
 
 .login-animation {
