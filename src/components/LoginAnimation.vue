@@ -25,7 +25,7 @@ export default {
 		lottie.loadAnimation({
 			container: this.$refs.loginBg,
 			animationData: bgAnimation,
-			loop: true,
+			loop: false,
 			renderer: "svg",
 			rendererSettings: {
 				preserveAspectRatio: "xMidYMid slice",
@@ -34,12 +34,12 @@ export default {
 		lottie.loadAnimation({
 			container: this.$refs.loginForm,
 			animationData: formAnimation,
-			loop: true,
+			loop: false,
 		});
 		lottie.loadAnimation({
 			container: this.$refs.loginCursor,
 			animationData: cursorAnimation,
-			loop: true,
+			loop: false,
 			renderer: "svg",
 			rendererSettings: {
 				preserveAspectRatio: "xMidYMid slice",
@@ -48,7 +48,7 @@ export default {
 		const transition = lottie.loadAnimation({
 			container: this.$refs.loginTransition,
 			animationData: transitionAnimation,
-			loop: true,
+			loop: false,
 			renderer: "svg",
 			rendererSettings: {
 				preserveAspectRatio: "xMidYMid slice",
