@@ -19,13 +19,15 @@ import formAnimation from "../assets/login_animation/login_form.json";
 import cursorAnimation from "../assets/login_animation/login_cursor.json";
 import transitionAnimation from "../assets/login_animation/login_transition.json";
 
+let loop = false;
+
 export default {
 	name: "LoginAnimation",
 	mounted() {
 		lottie.loadAnimation({
 			container: this.$refs.loginBg,
 			animationData: bgAnimation,
-			loop: false,
+			loop: loop,
 			renderer: "svg",
 			rendererSettings: {
 				preserveAspectRatio: "xMidYMid slice",
@@ -34,21 +36,26 @@ export default {
 		lottie.loadAnimation({
 			container: this.$refs.loginForm,
 			animationData: formAnimation,
-			loop: false,
+			loop: loop,
+			renderer: "svg",
+			rendererSettings: {
+				preserveAspectRatio: "none",
+			},
 		});
 		lottie.loadAnimation({
 			container: this.$refs.loginCursor,
 			animationData: cursorAnimation,
-			loop: false,
+			loop: loop,
 			renderer: "svg",
 			rendererSettings: {
 				preserveAspectRatio: "xMidYMid slice",
 			},
 		});
+		// binding to a variable, that we can call a function on completion
 		const transition = lottie.loadAnimation({
 			container: this.$refs.loginTransition,
 			animationData: transitionAnimation,
-			loop: false,
+			loop: loop,
 			renderer: "svg",
 			rendererSettings: {
 				preserveAspectRatio: "xMidYMid slice",
@@ -92,17 +99,21 @@ export default {
 
 .login-container {
 	position: relative;
+	max-height: 100%;
 }
 
 .login-form {
-	width: 100%;
-	max-width: 30rem;
+	max-width: 100%;
+	max-height: calc(100vh - 2rem);
+	aspect-ratio: 520 / 791;
 }
+
 .login-cursor {
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
+	overflow: visible;
 }
 </style>
