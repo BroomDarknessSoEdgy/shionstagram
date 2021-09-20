@@ -23,6 +23,7 @@ header {
 	width: 100%;
 	padding: 1.5rem;
 	background-color: #fff;
+	align-items: center;
 }
 
 .nav-logo {
