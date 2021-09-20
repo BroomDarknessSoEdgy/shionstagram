@@ -2,6 +2,7 @@
 	<main>
 		<profile-card
 			:avatarSrc="avatarSrc"
+			alt="Shion's profile picture"
 			:name="name"
 			:stat1="stat1"
 			:stat2="stat2"

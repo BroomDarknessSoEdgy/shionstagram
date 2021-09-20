@@ -26,6 +26,7 @@ export default {
 	name: "ProfileCard",
 	props: {
 		avatarSrc: String,
+		alt: String,
 		name: String,
 		stat1: Number,
 		stat2: Number,
