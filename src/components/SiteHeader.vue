@@ -1,10 +1,9 @@
 <template>
 	<header>
-		<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
+		<img class="nav-logo" src="../assets/images/logo.png" alt="" />
 
-		<div class="mock-search">
-			<input type="text" placeholder="Search" />
-		</div>
+		<input class="mock-search" type="text" placeholder="Search" />
+
 		<div class="nav-icons">Icons</div>
 	</header>
 </template>
@@ -29,6 +28,10 @@ header {
 .nav-logo {
 	height: 2rem;
 	justify-self: left;
+}
+
+.mock-search {
+	justify-self: center;
 }
 
 .nav-icons {

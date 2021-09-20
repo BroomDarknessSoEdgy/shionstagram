@@ -69,6 +69,12 @@ export default {
 </script>
 
 <style scoped>
+main {
+	margin: 3rem auto;
+	max-width: 1140px;
+	padding: 0 1rem;
+}
+
 .card-list {
 	display: flex;
 	justify-content: center;
