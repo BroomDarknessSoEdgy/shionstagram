@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<main>
 		<profile-card
 			:avatarSrc="avatarSrc"
 			:name="name"
@@ -7,15 +7,11 @@
 			:stat2="stat2"
 			:stat3="stat3"
 			:description="description"
-		></profile-card>
+		/>
 		<div class="card-list">
-			<image-card-list
-				:imageSet="imageSet"
-				:admin="admin"
-				:token="token"
-			></image-card-list>
+			<image-card-list :imageSet="imageSet" :admin="admin" :token="token" />
 		</div>
-	</div>
+	</main>
 </template>
 
 <script>
