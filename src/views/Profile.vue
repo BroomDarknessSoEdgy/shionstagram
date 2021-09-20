@@ -29,7 +29,7 @@ export default {
 		fetch(`${config.origin}/messages`)
 			.then((response) => response.json())
 			.then((data) => {
-				this.rawMessages = data.rows;
+				this.imageSet = data.rows;
 			});
 	},
 	components: {
@@ -47,32 +47,18 @@ export default {
 		stat1: 0,
 		stat2: 1000000,
 		stat3: 0,
-		description: "Murasaki Shion Shionstagram account.",
-		rawMessages: [],
+		description:
+			"Murasaki Shion Shionstagram account. Commodo aliqua sunt laborum irure aliqua ipsum. Nisi duis quis do et. Duis nisi cupidatat adipisicing esse Lorem ipsum sunt sint eu minim duis duis reprehenderit velit.",
+		imageSet: [],
 	}),
-	computed: {
-		imageSet: function () {
-			const images = [[]];
-			let row = 0;
-			this.rawMessages.forEach((message, i) => {
-				if (i % 3 === 0) {
-					images.push([message]);
-					row = row + 1;
-				} else {
-					images[row].push(message);
-				}
-			});
-			return images;
-		},
-	},
 };
 </script>
 
 <style scoped>
 main {
-	margin: 3rem auto;
-	max-width: 1140px;
-	padding: 0 1rem;
+	margin: auto;
+	max-width: 60rem;
+	padding: 3rem 1rem;
 }
 
 .card-list {
