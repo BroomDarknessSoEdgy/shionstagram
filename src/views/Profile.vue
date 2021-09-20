@@ -43,10 +43,10 @@ export default {
 	data: () => ({
 		avatarSrc:
 			"https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj",
-		name: "Shion Murasaki",
-		stat1: "0 posts",
-		stat2: "1,000,000 followers",
-		stat3: "0 following",
+		name: "murasakishionch",
+		stat1: 0,
+		stat2: 1000000,
+		stat3: 0,
 		description: "Murasaki Shion Shionstagram account.",
 		rawMessages: [],
 	}),

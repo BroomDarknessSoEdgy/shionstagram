@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<img class="nav-logo" src="../assets/images/logo.png" alt="" />
+		<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
 
 		<input class="mock-search" type="text" placeholder="Search" />
 
@@ -20,7 +20,7 @@ header {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	width: 100%;
-	padding: 1.5rem;
+	padding: 1rem;
 	background-color: #fff;
 	align-items: center;
 }
@@ -31,6 +31,13 @@ header {
 }
 
 .mock-search {
+	border: 1px solid rgba(0, 0, 0, 0.34);
+	height: 2rem;
+	min-width: 10rem;
+	width: 75%;
+	border-radius: 0.25rem;
+	padding: 0.5rem;
+	background: transparent;
 	justify-self: center;
 }
 

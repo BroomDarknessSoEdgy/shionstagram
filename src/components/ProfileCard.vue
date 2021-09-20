@@ -1,121 +1,94 @@
 <template>
-    <div class="profile-card-wrapper">
-        <Avatar :src="avatarSrc" />
-        <section>
-            <div class="fist-line">
-                <h2>{{name}}</h2>
-                <button class="follow-button">Follow</button>
-                <button class="context-button">...</button>
-            </div>
-            <ul class="second-line">
-                <li class="first-li">{{stat1}}</li>
-                <li class="second-li">{{stat2}}</li>
-                <li>{{stat3}}</li>
-            </ul>
-            <div class="description">{{description}}</div>
-        </section>
-    </div>
+	<div class="profile-card">
+		<div class="avatar-wrapper">
+			<img class="avatar-img" :alt="alt" :src="avatarSrc" />
+		</div>
+		<section class="profile-body">
+			<h2>{{ name }}</h2>
+			<ul class="profile-stats">
+				<li>
+					<span>{{ stat1 }}</span> post
+				</li>
+				<li>
+					<span>{{ stat2 }}</span> followers
+				</li>
+				<li>
+					<span>{{ stat3 }}</span> following
+				</li>
+			</ul>
+			<div class="description">{{ description }}</div>
+		</section>
+	</div>
 </template>
 
 <script>
-import Avatar from './Avatar'
-
 export default {
-  name: 'ProfileCard',
-  components: {
-      Avatar,
-  },
-  props: {
-      avatarSrc: String,
-      name: String,
-      stat1: String,
-      stat2: String,
-      stat3: String,
-      description: String,
-  }
-}
+	name: "ProfileCard",
+	props: {
+		avatarSrc: String,
+		name: String,
+		stat1: Number,
+		stat2: Number,
+		stat3: Number,
+		description: String,
+	},
+};
 </script>
 
 <style scoped>
-div {
-    display: flex;
+.profile-card {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 100%;
 }
 
-.profile-card-wrapper {
-    flex-direction: row;
-    align-items: stretch;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    max-width: 935px;
-    margin: auto;
-    margin-bottom: 44px;
+.avatar-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.avatar-img {
+	height: 10rem;
+	width: 10rem;
+	border-radius: 50%;
 }
 
 section {
-    display: flex;
-    flex-basis: 30px;
-    flex-grow: 2;
-    flex-direction: column;
-    padding: 0;
+	display: flex;
+	flex-basis: 30px;
+	flex-grow: 2;
+	flex-direction: column;
+	padding: 0;
 }
 
 h2 {
-    font-weight: 300;
-    font-size: 28px;
-    line-height: 32px;
-    margin: -5px, 0, -6px;
-    white-space: nowrap;
-    margin: 0 0 4px;
+	font-size: 2rem;
+	font-weight: 300;
+	margin-bottom: 1rem;
 }
 
-.first-line {
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 20px;
-    white-space: nowrap;
+ul {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(3, 1fr);
+	list-style: none;
+	margin-bottom: 1rem;
 }
 
-.second-line {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    white-space: nowrap;
-    margin-bottom: 20px;
-    list-style: none;
-    padding: 0;
-}
-
-.first-li {
-    margin-right: 40px;
-}
-
-.second-li {
-    margin-right: 40px;
+li span {
+	font-weight: bold;
 }
 
 button {
-    font-size: 14px;
-    line-height: 18px;
-    appearance: none;
-    padding: 5px 9px;
-    background: 0 0;
-    border-radius: 4px;
-    margin: 0;
-}
-
-.follow-button {
-    margin-left: 20px;
-
-}
-
-.context-button {
-    margin-left: 5px;
-    padding: 8px;
-}
-
-.description {
-    flex-grow: 1;
+	font-size: 14px;
+	line-height: 18px;
+	appearance: none;
+	padding: 5px 9px;
+	background: 0 0;
+	border-radius: 4px;
+	margin: 0;
 }
 </style>
-
-
