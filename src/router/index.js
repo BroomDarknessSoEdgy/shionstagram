@@ -1,10 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Profile from "../views/Profile.vue";
 import Submit from "../views/Submit.vue";
+import Index from "../views/Index.vue";
 
 const routes = [
 	{
 		path: "/",
+		name: "Index",
+		component: Index,
+	},
+	{
+		path: "/profile",
 		name: "Profile",
 		component: Profile,
 		props: () => ({
