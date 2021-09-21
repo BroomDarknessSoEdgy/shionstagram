@@ -4,8 +4,6 @@
 			<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
 		</router-link>
 
-		<input class="mock-search" type="text" placeholder="Search" />
-
 		<div class="nav-icons">
 			<router-link to="/">
 				<img class="icon" src="../assets/icons/Reels.svg" />
@@ -35,12 +33,12 @@ export default {
 
 <style scoped>
 header {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	width: 100%;
-	padding: 0.5rem 2rem;
-	background-color: #fff;
+	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0.5rem 3rem;
+	background-color: #fff;
 }
 
 a {
@@ -52,22 +50,10 @@ a {
 	justify-self: left;
 }
 
-.mock-search {
-	border: 1px solid rgba(0, 0, 0, 0.34);
-	height: 2rem;
-	min-width: 10rem;
-	width: 75%;
-	border-radius: 0.25rem;
-	padding: 0.5rem;
-	background: transparent;
-	justify-self: center;
-}
-
 .nav-icons {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	justify-self: right;
 }
 
 .profile-img {
