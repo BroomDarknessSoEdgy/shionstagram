@@ -1,10 +1,16 @@
 <template>
 	<header>
-		<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
+		<router-link to="/">
+			<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
+		</router-link>
 
 		<input class="mock-search" type="text" placeholder="Search" />
 
-		<div class="nav-icons">Icons</div>
+		<div class="nav-icons">
+			<router-link to="/">Feed</router-link>
+			<router-link to="/profile">Profile</router-link>
+			<router-link to="/submit">Submit</router-link>
+		</div>
 	</header>
 </template>
 
@@ -43,5 +49,11 @@ header {
 
 .nav-icons {
 	justify-self: right;
+}
+a {
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	margin-left: 1rem;
 }
 </style>
