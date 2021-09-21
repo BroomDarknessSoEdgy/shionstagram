@@ -6,17 +6,27 @@
 				alt=""
 			/>
 			<div class="profile-info">
-				<h3>murasakishionch</h3>
+				<h4>Murasaki Shion</h4>
 				<p>Tokyo, Japan</p>
 			</div>
 		</div>
 		<nav>
-			<ul>
-				<li><a href="#">Feed</a></li>
-				<li><a href="#">Video</a></li>
-				<li><a href="#">Favorites</a></li>
-				<li><a href="#">Create</a></li>
-			</ul>
+			<router-link to="/">
+				<img class="icon" src="../assets/icons/Home.svg" />
+				<span>Feed</span>
+			</router-link>
+			<router-link to="/profile">
+				<img class="icon" src="../assets/icons/Reels.svg" />
+				<span>Reels</span>
+			</router-link>
+			<router-link to="/profile">
+				<img class="icon" src="../assets/icons/Heart.svg" />
+				<span>Favorites</span>
+			</router-link>
+			<router-link to="/profile">
+				<img class="icon" src="../assets/icons/Add.svg" />
+				<span>Create</span>
+			</router-link>
 		</nav>
 	</aside>
 </template>
@@ -24,9 +34,12 @@
 <style scoped>
 aside {
 	background: #fff;
-	padding: 1rem;
+	padding: 1rem 3rem 3rem 1rem;
 	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
 	border-radius: 0.5rem;
+	height: max-content;
+	position: sticky;
+	top: 2rem;
 }
 
 .profile {
@@ -41,19 +54,41 @@ aside {
 	border-radius: 50%;
 }
 
-nav ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+.profile-info {
+	margin-left: 1rem;
 }
 
-li {
-	margin-bottom: 1rem;
+nav {
+	padding-left: 1rem;
 }
 
-li a {
+nav a {
+	position: relative;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	margin-bottom: 1.5rem;
+}
+
+nav a:last-of-type {
+	margin-bottom: 0;
+}
+
+span {
 	color: var(--purple-600);
 	font-weight: 700;
 	text-decoration: none;
+	margin-left: 1rem;
+}
+
+.router-link-active::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -1rem;
+	width: 4px;
+	height: 100%;
+	background: var(--purple-600);
+	border-radius: 999px;
 }
 </style>
