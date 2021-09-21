@@ -20,7 +20,6 @@
 import config from "../config";
 import ProfileCard from "../components/ProfileCard.vue";
 import ImageCardList from "../components/ImageCardList.vue";
-import LoginAnimation from "../components/LoginAnimation.vue";
 
 export default {
 	name: "Profile",
@@ -38,16 +37,10 @@ export default {
 	components: {
 		ProfileCard,
 		ImageCardList,
-		LoginAnimation,
 	},
 	props: {
 		token: String,
 		admin: Boolean,
-	},
-	methods: {
-		animationFinished() {
-			this.isAnimationPlaying = false;
-		},
 	},
 	data: () => ({
 		avatarSrc:
@@ -59,7 +52,6 @@ export default {
 		description:
 			"Murasaki Shion Shionstagram account. Commodo aliqua sunt laborum irure aliqua ipsum. Nisi duis quis do et. Duis nisi cupidatat adipisicing esse Lorem ipsum sunt sint eu minim duis duis reprehenderit velit.",
 		imageSet: [],
-		isAnimationPlaying: true,
 	}),
 };
 </script>
