@@ -43,6 +43,10 @@ header {
 	align-items: center;
 }
 
+a {
+	width: max-content;
+}
+
 .nav-logo {
 	height: 2rem;
 	justify-self: left;
