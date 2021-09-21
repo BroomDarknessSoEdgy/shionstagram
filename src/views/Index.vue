@@ -33,4 +33,10 @@ main {
 		padding: 3rem 2rem;
 	}
 }
+
+@media screen and (min-width: 1200px) {
+	main {
+		padding: 3rem 3rem;
+	}
+}
 </style>

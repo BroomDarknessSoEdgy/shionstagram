@@ -34,18 +34,18 @@
 <style scoped>
 aside {
 	background: #fff;
-	padding: 1rem 3rem 3rem 1rem;
+	padding: 1rem 3rem 2rem 1rem;
 	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
 	border-radius: 0.5rem;
 	height: max-content;
 	position: sticky;
-	top: 2rem;
+	top: 6.5rem;
 }
 
 .profile {
 	display: flex;
 	align-items: center;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 }
 
 .profile img {
@@ -67,11 +67,17 @@ nav a {
 	display: flex;
 	align-items: center;
 	text-decoration: none;
+	padding: 0.25rem 0;
 	margin-bottom: 1.5rem;
 }
 
 nav a:last-of-type {
 	margin-bottom: 0;
+}
+
+.icon {
+	height: 1.5rem;
+	width: 1.5rem;
 }
 
 span {

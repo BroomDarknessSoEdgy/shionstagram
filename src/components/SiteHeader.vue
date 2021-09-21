@@ -39,7 +39,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 0.5rem 3rem;
+	padding: 0.5rem 1rem;
 	background-color: #fff;
 }
 
@@ -72,5 +72,17 @@ a {
 	font-weight: bold;
 	color: #444;
 	text-decoration: none;
+}
+
+@media screen and (min-width: 960px) {
+	header {
+		padding: 0.5rem 2rem;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	header {
+		padding: 0.5rem 3rem;
+	}
 }
 </style>
