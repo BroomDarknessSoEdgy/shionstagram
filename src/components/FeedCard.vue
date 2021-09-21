@@ -9,7 +9,7 @@
 				<h4 class="name">Synalra</h4>
 				<p class="location">Finland, Mars</p>
 			</div>
-			<img src="../assets/icons/more.svg" />
+			<img class="more" src="../assets/icons/more.svg" />
 		</div>
 		<div class="card-body">
 			<img src="../assets/images/placeholder.jpg" />
@@ -30,13 +30,21 @@
 	display: flex;
 	align-items: center;
 	background-color: #fff;
-	padding: 0.5rem;
+	padding: 0.5rem 1rem;
 }
 
 .avatar {
 	width: 3rem;
 	height: 3rem;
 	border-radius: 50%;
+}
+
+.sender {
+	margin-left: 0.5rem;
+}
+
+.more {
+	margin-left: auto;
 }
 
 .location {
