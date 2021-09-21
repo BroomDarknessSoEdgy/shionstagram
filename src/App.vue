@@ -61,6 +61,10 @@ body {
 	height: 100%;
 }
 
+img {
+	display: block;
+}
+
 #app {
 	font-family: "Manrope", sans-serif;
 	/* font-family: 'Lato', sans-serif; */
