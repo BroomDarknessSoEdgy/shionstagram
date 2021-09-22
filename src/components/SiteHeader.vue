@@ -4,6 +4,12 @@
 			<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
 		</router-link>
 
+		<!-- changes language -->
+		<select name="locale" v-model="locale">
+			<option value="ja">ja</option>
+			<option value="en">en</option>
+		</select>
+
 		<div class="nav-icons">
 			<router-link to="/">
 				<img class="icon" src="../assets/icons/Reels.svg" />
@@ -25,9 +31,21 @@
 </template>
 
 <script>
+import { watch } from "vue";
+import { useI18n } from "vue-i18n";
+
 export default {
 	name: "SiteHeader",
-	props: {},
+	// TODO: fix this scuffed code, cause it's reusing code from main.js?
+	setup() {
+		const { locale, t } = useI18n({
+			useScope: "global",
+		});
+		watch(locale, (newVal) => {
+			sessionStorage.setItem("locale", newVal);
+		});
+		return { locale, t };
+	},
 };
 </script>
 
