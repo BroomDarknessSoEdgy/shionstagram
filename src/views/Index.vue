@@ -46,7 +46,7 @@ main {
 
 @media screen and (min-width: 1200px) {
 	main {
-		padding: 3rem 5.5rem 3rem 3rem;
+		padding: 3rem 9.5rem 3rem 3rem;
 	}
 }
 </style>

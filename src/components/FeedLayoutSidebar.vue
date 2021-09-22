@@ -10,7 +10,7 @@
 aside {
 	position: fixed;
 	top: 3.5rem;
-	right: 2rem;
+	right: 1rem;
 	bottom: 0;
 	display: none;
 	flex-direction: column;
@@ -26,6 +26,13 @@ aside img {
 @media screen and (min-width: 960px) {
 	aside {
 		display: flex;
+		right: 2rem;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	aside {
+		right: 4rem;
 	}
 }
 </style>
