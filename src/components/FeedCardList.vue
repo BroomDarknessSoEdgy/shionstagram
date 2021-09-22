@@ -1,23 +1,6 @@
 <template>
 	<section>
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
-		<FeedCard />
+		<FeedCard v-for="num in imgData" v-bind:key="num" :imgNum="num" />
 	</section>
 </template>
 
@@ -28,6 +11,12 @@ export default {
 	components: {
 		FeedCard,
 	},
+	data: () => ({
+		// 20 random numbers between 600-700 for random image from api
+		imgData: Array.from({ length: 20 }, () =>
+			Math.round(Math.random() * (700 - 600) + 600)
+		),
+	}),
 };
 </script>
 

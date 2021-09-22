@@ -12,10 +12,20 @@
 			<img class="more" src="../assets/icons/more.svg" />
 		</div>
 		<div class="card-body">
-			<img src="../assets/images/placeholder.jpg" />
+			<img :src="`https://picsum.photos/${imgNum}`" />
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+	props: {
+		imgNum: {
+			type: Number,
+		},
+	},
+};
+</script>
 
 <style scoped>
 .card {
