@@ -18,14 +18,23 @@ export default {
 		SiteHeader,
 		LoginAnimation,
 	},
+	// TODO: check if there's a better way of creating the callback
 	methods: {
 		animationFinished() {
 			this.isAnimationPlaying = false;
 		},
 	},
 	data: () => ({
-		isAnimationPlaying: true,
+		isAnimationPlaying: false,
 	}),
+	mounted: function () {
+		// checks cookies to see if it's the first time user is accessing page
+		// and plays the animation if it is
+		if (window.document.cookie.indexOf("firstTime") === -1) {
+			this.isAnimationPlaying = true;
+			window.document.cookie = "firstTime=true";
+		}
+	},
 };
 </script>
 
