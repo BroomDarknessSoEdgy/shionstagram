@@ -35,10 +35,23 @@ export default {
 /* card grid */
 section {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+	grid-template-columns: 1fr;
 	grid-gap: 2rem;
 	width: 100%;
 }
+
+@media screen and (min-width: 1060px) {
+	section {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	section {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
 .admin-menu {
 	padding: 15px;
 }
