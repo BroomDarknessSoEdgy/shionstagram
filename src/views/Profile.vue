@@ -1,6 +1,5 @@
 <template>
 	<main>
-		<login-animation :callback="animationFinished" v-if="isAnimationPlaying" />
 		<profile-card
 			:avatarSrc="avatarSrc"
 			alt="Shion's profile picture"
