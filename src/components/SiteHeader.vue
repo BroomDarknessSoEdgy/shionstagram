@@ -59,6 +59,7 @@ header {
 	width: 100%;
 	padding: 0.5rem 1rem;
 	background-color: #fff;
+	z-index: 1;
 }
 
 a {

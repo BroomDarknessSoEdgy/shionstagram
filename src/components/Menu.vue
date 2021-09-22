@@ -38,8 +38,13 @@ aside {
 	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
 	border-radius: 0.5rem;
 	height: max-content;
-	position: sticky;
-	top: 6.5rem;
+}
+
+@media screen and (min-width: 650px) {
+	aside {
+		position: sticky;
+		top: 6.5rem;
+	}
 }
 
 .profile {
