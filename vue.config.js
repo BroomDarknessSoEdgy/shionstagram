@@ -1,4 +1,5 @@
 const postcssPresetEnv = require("postcss-preset-env");
+const cssNano = require("cssnano");
 
 module.exports = {
 	publicPath: "/",
@@ -14,6 +15,9 @@ module.exports = {
 						features: {
 							"custom-properties": false,
 						},
+					}),
+					cssNano({
+						preset: "default",
 					}),
 				],
 			},
