@@ -4,13 +4,12 @@
 			<img class="nav-logo" src="../assets/images/Logo.png" alt="" />
 		</router-link>
 
-		<!-- changes language -->
-		<select name="locale" v-model="locale">
-			<option value="ja">ja</option>
-			<option value="en">en</option>
-		</select>
-
 		<div class="nav-icons">
+			<!-- changes language -->
+			<select name="locale" v-model="locale">
+				<option value="ja">ja</option>
+				<option value="en">en</option>
+			</select>
 			<router-link to="/">
 				<img class="icon" src="../assets/icons/Reels.svg" />
 			</router-link>
