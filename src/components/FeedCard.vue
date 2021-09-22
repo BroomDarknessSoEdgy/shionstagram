@@ -12,7 +12,8 @@
 			<img class="more" src="../assets/icons/more.svg" />
 		</div>
 		<div class="card-body">
-			<img :src="`https://picsum.photos/${imgNum}`" />
+			<!-- TODO: Add sender name to alt -->
+			<img :src="`https://picsum.photos/${imgNum}`" loading="lazy" alt="" />
 		</div>
 	</div>
 </template>
