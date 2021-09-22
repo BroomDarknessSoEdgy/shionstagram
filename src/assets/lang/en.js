@@ -1,5 +1,8 @@
 module.exports = {
-	ui: {
-		welcome: "Welcome",
+	menu: {
+		feed: "Feed",
+		reels: "Reels",
+		favorites: "Favorites",
+		create: "Create",
 	},
 };

@@ -13,19 +13,19 @@
 		<nav>
 			<router-link to="/">
 				<img class="icon" src="../assets/icons/Home.svg" />
-				<span>Feed</span>
+				<span>{{ $t("menu.feed") }}</span>
 			</router-link>
 			<router-link to="/profile">
 				<img class="icon" src="../assets/icons/Reels.svg" />
-				<span>Reels</span>
+				<span>{{ $t("menu.reels") }}</span>
 			</router-link>
 			<router-link to="/profile">
 				<img class="icon" src="../assets/icons/Heart.svg" />
-				<span>Favorites</span>
+				<span>{{ $t("menu.favorites") }}</span>
 			</router-link>
 			<router-link to="/profile">
 				<img class="icon" src="../assets/icons/Add.svg" />
-				<span>Create</span>
+				<span>{{ $t("menu.create") }}</span>
 			</router-link>
 		</nav>
 	</aside>

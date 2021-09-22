@@ -1,5 +1,8 @@
 module.exports = {
-	ui: {
-		welcome: "Welcome (but japanese)",
+	menu: {
+		feed: "Feed (but JP)",
+		reels: "Reels jp",
+		favorites: "Favorites jp",
+		create: "Create jp",
 	},
 };
