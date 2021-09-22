@@ -5,11 +5,11 @@
 		</router-link>
 
 		<div class="nav-icons">
-			<!-- changes language -->
 			<select name="locale" v-model="locale">
 				<option value="ja">ja</option>
 				<option value="en">en</option>
 			</select>
+
 			<router-link to="/">
 				<img class="icon" src="../assets/icons/Reels.svg" />
 			</router-link>
@@ -74,6 +74,15 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+select {
+	font-family: "Manrope", sans-serif;
+	font-weight: bold;
+	color: #5c5c5c;
+	padding: 0.25rem 0.5rem;
+	border: 2px solid #5c5c5c;
+	border-radius: 0.25rem;
 }
 
 .profile-img {
