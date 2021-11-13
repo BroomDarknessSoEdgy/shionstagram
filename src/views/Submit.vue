@@ -8,11 +8,11 @@
                             <h2>{{ $t("submit.message_form_title") }}</h2>
                         </el-form-item> 
                         <el-form-item :label="$t('submit.twitter_id')">
-                            <el-input placeholder="" v-model="form.twitter"></el-input>
+                            <el-input placeholder="@shiokko" v-model="form.twitter"></el-input>
                             <div>{{ $t("submit.twitter_id_instructions") }}</div>
                         </el-form-item>
                         <el-tabs v-model="form.chosenMediaType">
-                            <el-tab-pane label="Image" name="image">
+                            <el-tab-pane :label="$t('submit.image')" name="image">
                                 <el-form-item :label="$t('submit.image')">
                                     <el-upload
                                     :action='actionUrl'
@@ -31,7 +31,7 @@
                                     </el-dialog>
                                 </el-form-item>
                             </el-tab-pane>
-                            <el-tab-pane label="Text" name="text">
+                            <el-tab-pane :label="$t('submit.text')" name="text">
                                 <el-form-item :label="$t('submit.text_message')">
                                     <el-input
                                         v-model="form.message"
