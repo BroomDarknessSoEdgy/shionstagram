@@ -7,11 +7,12 @@ module.exports = {
 	},
 	submit: {
 		message_form_title: "Message Submission Form",
-		name: "Name",
 		twitter_id: "Twitter ID",
+		twitter_id_instructions: "Input Twitter ID in the format @shiokko.",
 		text_message: "Text Message",
 		image: "Image",
-		image_submit_instructions: "jpeg/png/gif files supported. File size limit 5mb.",
+		image_instructions: "jpeg/png/gif files supported. File size limit 5mb.",
+		text_instructions: "Max. 280 characters (Tweet size limit).",
 		submit: "Submit",
 	}
 };
