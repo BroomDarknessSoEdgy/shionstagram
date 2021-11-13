@@ -17,9 +17,10 @@ module.exports = {
 		submit: "Submit",
 		submission_received: "Submission Received",
 		thanks_for_submission: "Thank you for submitting to Shiongram!",
-		try_again_or_contact: "Sorry! The submission failed. Please try again or contact us at @something.",
+		try_again_or_contact: "Sorry! Please try again or contact us at {'@'}something.",
 		submission_failed: "Submission Failed",
 		try_again: "Try Again",
-		submit_another_message: "Submit Another Message"
+		submit_another_message: "Submit Another Message",
+		general_instructions: "Image or text is required.",
 	}
 };

@@ -66,6 +66,7 @@
                         </el-tabs>
                         <el-form-item>
                             <el-button :loading="isSubmitPending" type="primary" plain @click="onSubmit('form')">{{ $t("submit.submit") }}</el-button>
+                            <div>{{ $t("submit.general_instructions") }}</div>
                         </el-form-item>
                     </el-form>
                 </el-card>
@@ -155,17 +156,21 @@ export default {
                         mediaType: this.form.chosenMediaType
                     })
                     })
-                    .then(async () => {
+                    .then(async response => {
                         this.isSubmitPending = false;
-                        this.isSubmitSuccess = true;
+                        if(response.ok) {
+                            this.isSubmitSuccess = true;
+                        } else {
+                            this.isSubmitError = true;
+                        }
                     })
                     .catch(async () => {
                         this.isSubmitPending = false;
                         this.isSubmitError = true;
                     });
             } else {
-            this.isSubmitPending = false;
-              return false
+                this.isSubmitPending = false;
+                return false
             }
         });
 
