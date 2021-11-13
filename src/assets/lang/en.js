@@ -8,7 +8,7 @@ module.exports = {
 	submit: {
 		message_form_title: "Message Submission Form",
 		twitter_id: "Twitter ID",
-		twitter_id_instructions: "Twitter ID in the format @shiokko.",
+		twitter_id_instructions: "Twitter ID in the format {'@'}shiokko.",
 		text_message: "Text Message",
 		text: "Text",
 		image: "Image",
