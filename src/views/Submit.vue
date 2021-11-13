@@ -23,11 +23,11 @@
                             <el-button type="primary" size="medium" @click="onSubmitAgain">{{ $t('submit.try_again') }}</el-button>
                         </template>
                     </el-result>
-                    <el-form v-if="!isSubmitSuccess && !isSubmitError" label-width="120px">
+                    <el-form ref="form" :model="form" :rules="rules" v-if="!isSubmitSuccess && !isSubmitError" label-width="120px">
                         <el-form-item>
                             <h2>{{ $t("submit.message_form_title") }}</h2>
                         </el-form-item> 
-                        <el-form-item :label="$t('submit.twitter_id')">
+                        <el-form-item :label="$t('submit.twitter_id')" prop="twitter" required>
                             <el-input placeholder="@shiokko" v-model="form.twitter"></el-input>
                             <div>{{ $t("submit.twitter_id_instructions") }}</div>
                         </el-form-item>
@@ -65,7 +65,7 @@
                             </el-tab-pane>
                         </el-tabs>
                         <el-form-item>
-                            <el-button :loading="isSubmitPending" type="primary" plain @click="onSubmit">{{ $t("submit.submit") }}</el-button>
+                            <el-button :loading="isSubmitPending" type="primary" plain @click="onSubmit('form')">{{ $t("submit.submit") }}</el-button>
                         </el-form-item>
                     </el-form>
                 </el-card>
@@ -102,12 +102,21 @@ export default {
       isSubmitError: false,
       dialogImageUrl: '',
       dialogVisible: false,
-      image: undefined,
       actionUrl: `${config.origin}/image`,
       form: {
           twitter: '',
           chosenMediaType: 'image',
-          message: ''
+          message: '',
+          image: undefined,
+      },
+      rules: {
+          twitter: [
+              {
+                required: true,
+                message: 'Please input Twitter ID.',
+                trigger: 'blur',
+              }
+          ]
       }
   }),
   methods: {
@@ -116,44 +125,50 @@ export default {
           this.dialogVisible = true
       },
       handleSuccesfulUpload(response) {
-          console.log(response);
-          this.image = response.id;
-          console.log(this.image);
+          this.form.image = response.id;
       },
       onSubmitAgain() {
           this.isSubmitSuccess = false;
           this.isSubmitError = false;
       },
-      onSubmit() {
+      onSubmit(formName) {
         this.isSubmitPending = true;
         if(this.form.chosenMediaType === 'image') {
-            this.form.message = undefined;
+            this.form.message = undefined;            
         }
 
         if(this.form.chosenMediaType === 'text') {
-            this.image = undefined;
+            this.form.image = undefined;
         }
+        
+        this.$refs[formName].validate((valid) => {
+            if (valid) {
+                fetch(`${config.origin}/message`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        image: this.form.image,
+                        twitter: this.form.twitter,
+                        message: this.form.message,
+                        mediaType: this.form.chosenMediaType
+                    })
+                    })
+                    .then(async () => {
+                        this.isSubmitPending = false;
+                        this.isSubmitSuccess = true;
+                    })
+                    .catch(async () => {
+                        this.isSubmitPending = false;
+                        this.isSubmitError = true;
+                    });
+            } else {
+            this.isSubmitPending = false;
+              return false
+            }
+        });
 
-        fetch(`${config.origin}/message`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                image: this.image,
-                twitter: this.form.twitter,
-                message: this.form.message,
-                mediaType: this.form.chosenMediaType
-            })
-        })
-            .then(async () => {
-                this.isSubmitPending = false;
-                this.isSubmitSuccess = true;
-            })
-            .catch(async () => {
-                this.isSubmitPending = false;
-                this.isSubmitError = true;
-            });
       }
   }
 }
