@@ -15,5 +15,11 @@ module.exports = {
 		image_instructions: "jpeg/png/gif files supported. File size limit 5mb.",
 		text_instructions: "Max. 280 characters (Tweet size limit).",
 		submit: "Submit",
+		submission_received: "Submission Received",
+		thanks_for_submission: "Thank you for submitting to Shiongram!",
+		try_again_or_contact: "Sorry! The submission failed. Please try again or contact us at @something.",
+		submission_failed: "Submission Failed",
+		try_again: "Try Again",
+		submit_another_message: "Submit Another Message"
 	}
 };

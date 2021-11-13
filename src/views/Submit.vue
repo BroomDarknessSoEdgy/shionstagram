@@ -3,7 +3,27 @@
         <el-row justify="center">
             <el-col span="12">
                 <el-card>
-                    <el-form label-width="120px">
+                    <el-result
+                            v-if="isSubmitSuccess"    
+                            icon="success"
+                            :title="$t('submit.submission_received')"
+                            :sub-title="$t('submit.thanks_for_submission')"
+                    >
+                        <template #extra>
+                            <el-button type="primary" size="medium" @click="onSubmitAgain">{{ $t('submit.submit_another_message') }}</el-button>
+                        </template>
+                    </el-result>
+                    <el-result
+                        v-if="isSubmitError"
+                        icon="error"
+                        :title="$t('submit.submission_failed')"
+                        :sub-title="$t('submit.try_again_or_contact')"
+                    >
+                        <template #extra>
+                            <el-button type="primary" size="medium" @click="onSubmitAgain">{{ $t('submit.try_again') }}</el-button>
+                        </template>
+                    </el-result>
+                    <el-form v-if="!isSubmitSuccess && !isSubmitError" label-width="120px">
                         <el-form-item>
                             <h2>{{ $t("submit.message_form_title") }}</h2>
                         </el-form-item> 
@@ -45,7 +65,7 @@
                             </el-tab-pane>
                         </el-tabs>
                         <el-form-item>
-                            <el-button type="primary" plain @click="onSubmit">{{ $t("submit.submit") }}</el-button>
+                            <el-button :loading="isSubmitPending" type="primary" plain @click="onSubmit">{{ $t("submit.submit") }}</el-button>
                         </el-form-item>
                     </el-form>
                 </el-card>
@@ -57,7 +77,7 @@
 <script>
 import config from '../config';
 import ImageCard from '../components/ImageCard.vue'
-import { ElForm, ElFormItem, ElUpload, ElButton, ElInput, ElDialog, ElRow, ElCol, ElTabs, ElTabPane, ElCard } from 'element-plus'
+import { ElForm, ElFormItem, ElUpload, ElButton, ElInput, ElDialog, ElRow, ElCol, ElTabs, ElTabPane, ElCard, ElResult } from 'element-plus'
 
 export default {
   name: 'Submit',
@@ -73,9 +93,13 @@ export default {
       ElTabs,
       ElTabPane,
       ElCard,
+      ElResult,
       ImageCard,
   },
   data: () => ({
+      isSubmitPending: false,
+      isSubmitSuccess: false,
+      isSubmitError: false,
       dialogImageUrl: '',
       dialogVisible: false,
       image: undefined,
@@ -88,14 +112,20 @@ export default {
   }),
   methods: {
       handlePictureCardPreview(file) {
-          this.dialogImageUrl = file.response.rows[0].location; 
+          this.dialogImageUrl = file.response.location; 
           this.dialogVisible = true
       },
       handleSuccesfulUpload(response) {
-          this.image = response.rows[0].id;
+          console.log(response);
+          this.image = response.id;
           console.log(this.image);
       },
+      onSubmitAgain() {
+          this.isSubmitSuccess = false;
+          this.isSubmitError = false;
+      },
       onSubmit() {
+        this.isSubmitPending = true;
         if(this.form.chosenMediaType === 'image') {
             this.form.message = undefined;
         }
@@ -116,8 +146,13 @@ export default {
                 mediaType: this.form.chosenMediaType
             })
         })
-            .then(async response => {
-                console.log(await response.json());
+            .then(async () => {
+                this.isSubmitPending = false;
+                this.isSubmitSuccess = true;
+            })
+            .catch(async () => {
+                this.isSubmitPending = false;
+                this.isSubmitError = true;
             });
       }
   }
