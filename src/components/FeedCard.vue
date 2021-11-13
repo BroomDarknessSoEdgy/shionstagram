@@ -13,7 +13,7 @@
 		</div>
 		<div class="card-body">
 			<!-- TODO: Add sender name to alt -->
-			<img :src="`https://picsum.photos/${imgNum}`" loading="lazy" alt="" />
+			<img :src="location" loading="lazy" alt="" />
 		</div>
 	</div>
 </template>
@@ -21,6 +21,9 @@
 <script>
 export default {
 	props: {
+		location: {
+			type: String,
+		},
 		imgNum: {
 			type: Number,
 		},

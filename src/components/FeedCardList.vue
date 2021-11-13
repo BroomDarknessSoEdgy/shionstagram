@@ -1,10 +1,11 @@
 <template>
 	<section>
-		<FeedCard v-for="num in imgData" v-bind:key="num" :imgNum="num" />
+		<FeedCard v-for="img in imgData" v-bind:key="img.id" :location="img.location" />
 	</section>
 </template>
 
 <script>
+import config from "../config";
 import FeedCard from "./FeedCard.vue";
 
 export default {
@@ -12,11 +13,16 @@ export default {
 		FeedCard,
 	},
 	data: () => ({
-		// 20 random numbers between 600-700 for random image from api
-		imgData: Array.from({ length: 20 }, () =>
-			Math.round(Math.random() * (700 - 600) + 600)
-		),
+		imgData: undefined,
 	}),
+	mounted() {
+		fetch(`${config.origin}/messages`)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				this.imgData = data.filter(img => img.location !== null);
+		});
+	}
 };
 </script>
 

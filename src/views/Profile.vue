@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import config from "../config";
 import ProfileCard from "../components/ProfileCard.vue";
 import ImageCardList from "../components/ImageCardList.vue";
 
@@ -27,11 +26,6 @@ export default {
 			if (!this.token) location.replace("/api/connect/discord");
 		}
 
-		fetch(`${config.origin}/messages`)
-			.then((response) => response.json())
-			.then((data) => {
-				this.imageSet = data.rows;
-			});
 	},
 	components: {
 		ProfileCard,
