@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section v-if="posts.length != 0">
 		<FeedCard
 			v-for="post in posts.filter((post) => post.location != null)"
 			v-bind:key="post.id"
@@ -30,7 +30,7 @@ export default {
 		ExpandedPost,
 	},
 	data: () => ({
-		posts: {},
+		posts: [],
 		expanded: false,
 		expandedId: -1,
 	}),
