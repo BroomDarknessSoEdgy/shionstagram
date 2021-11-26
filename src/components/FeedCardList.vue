@@ -1,28 +1,46 @@
 <template>
 	<section>
-		<FeedCard v-for="img in imgData" v-bind:key="img.id" :location="img.location" />
+		<FeedCard
+			v-for="post in posts.filter((post) => post.location != null)"
+			v-bind:key="post.id"
+			:location="post.location"
+			v-on:click="
+				() => {
+					expanded = true;
+					expandedId = post.id;
+				}
+			"
+		/>
 	</section>
+	<ExpandedPost
+		:post="posts.filter((post) => post.id == expandedId)[0]"
+		v-if="expanded"
+		v-on:click="expanded = !expanded"
+	/>
 </template>
 
 <script>
 import config from "../config";
 import FeedCard from "./FeedCard.vue";
+import ExpandedPost from "./ExpandedPost.vue";
 
 export default {
 	components: {
 		FeedCard,
+		ExpandedPost,
 	},
 	data: () => ({
-		imgData: undefined,
+		posts: {},
+		expanded: false,
+		expandedId: -1,
 	}),
 	mounted() {
 		fetch(`${config.origin}/messages`)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
-				this.imgData = data.filter(img => img.location !== null);
-		});
-	}
+				this.posts = data;
+			});
+	},
 };
 </script>
 

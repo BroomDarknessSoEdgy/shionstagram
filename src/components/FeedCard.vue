@@ -24,9 +24,6 @@ export default {
 		location: {
 			type: String,
 		},
-		imgNum: {
-			type: Number,
-		},
 	},
 };
 </script>
