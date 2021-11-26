@@ -38,13 +38,14 @@ export default {
 	border-radius: 0.5rem;
 	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
 	overflow: hidden;
+	background-color: var(--purple-800);
 }
 
 .card-header {
 	display: flex;
 	align-items: center;
-	background-color: #fff;
 	padding: 0.5rem 1rem;
+	background-color: #ffffff;
 }
 
 .avatar {
