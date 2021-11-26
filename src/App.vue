@@ -40,12 +40,12 @@ export default {
 
 <style>
 :root {
-	--purple-300: hsl(292, 41%, 18%);
-	--purple-400: hsl(292, 33%, 34%);
-	--purple-500: hsl(292, 37%, 46%);
+	--purple-300: hsl(292, 30%, 30%);
+	--purple-400: hsl(292, 30%, 40%);
+	--purple-500: hsl(292, 30%, 56%);
 	--purple-600: hsl(292, 23%, 56%);
 	--purple-700: hsl(292, 20%, 68%);
-	--purple-800: hsl(292, 100%, 87%);
+	--purple-800: hsl(287, 30%, 88%);
 }
 
 body {
