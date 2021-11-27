@@ -33,9 +33,10 @@ export default {
 	display: flex;
 	flex-direction: column;
 	border-radius: 0.5rem;
-	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 	overflow: hidden;
 	background-color: var(--purple-800);
+	cursor: pointer;
 }
 
 .card-header {

@@ -12,10 +12,11 @@
 			"
 		/>
 	</section>
+	<!-- filtering each time may be inefficient but good enough for now? -->
 	<ExpandedPost
 		:post="posts.filter((post) => post.id == expandedId)[0]"
 		v-if="expanded"
-		v-on:click="expanded = !expanded"
+		@onClickOff="minimizePost"
 	/>
 </template>
 
@@ -40,6 +41,11 @@ export default {
 			.then((data) => {
 				this.posts = data;
 			});
+	},
+	methods: {
+		minimizePost() {
+			this.expanded = !this.expanded;
+		},
 	},
 };
 </script>
