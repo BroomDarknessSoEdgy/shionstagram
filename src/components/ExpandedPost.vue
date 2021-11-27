@@ -18,6 +18,22 @@
 						<p class="location">Finland, Mars</p>
 					</div>
 				</header>
+				<div class="actions">
+					<img src="../assets/icons/Heart.svg" />
+					<img src="../assets/icons/Comment.svg" />
+					<img src="../assets/icons/Send.svg" />
+					<img class="mg-left-auto" src="../assets/icons/Bookmark.svg" />
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac nunc
+					condimentum, fringilla mi id, efficitur libero. Ut imperdiet mollis
+					leo id elementum. Phasellus commodo leo sem, vitae gravida nulla
+					iaculis ac. Nunc aliquam nec massa eget dictum. Cras non sodales
+					dolor. Suspendisse rutrum, tortor id gravida ornare, odio sapien
+					feugiat quam, eget accumsan ante odio sed arcu. Duis nec hendrerit
+					lacus, id facilisis elit. Aenean sollicitudin magna dignissim
+					scelerisque pellentesque.
+				</p>
 			</aside>
 		</div>
 	</div>
@@ -97,7 +113,7 @@ aside {
 	padding: 1rem;
 }
 
-aside header {
+header {
 	display: flex;
 	align-items: center;
 	padding-bottom: 1rem;
@@ -112,5 +128,16 @@ aside header {
 
 .sender {
 	margin-left: 0.5rem;
+}
+
+.actions {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+.mg-left-auto {
+	margin-left: auto;
 }
 </style>
