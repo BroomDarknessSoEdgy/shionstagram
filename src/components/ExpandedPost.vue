@@ -7,8 +7,9 @@
 		/>
 		<div class="modal-body">
 			<div class="content"><img :src="post.location" alt="" /></div>
-			<aside>
-				<header>
+
+			<header>
+				<div class="profile">
 					<img
 						class="avatar"
 						src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
@@ -17,13 +18,16 @@
 						<h4 class="name">Synalra</h4>
 						<p class="location">Finland, Mars</p>
 					</div>
-				</header>
+				</div>
 				<div class="actions">
 					<img src="../assets/icons/Heart.svg" />
 					<img src="../assets/icons/Comment.svg" />
 					<img src="../assets/icons/Send.svg" />
 					<img class="mg-left-auto" src="../assets/icons/Bookmark.svg" />
 				</div>
+			</header>
+
+			<section>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac nunc
 					condimentum, fringilla mi id, efficitur libero. Ut imperdiet mollis
@@ -34,7 +38,7 @@
 					lacus, id facilisis elit. Aenean sollicitudin magna dignissim
 					scelerisque pellentesque.
 				</p>
-			</aside>
+			</section>
 		</div>
 	</div>
 </template>
@@ -48,6 +52,21 @@ export default {
 </script>
 
 <style scoped>
+.modal-body::-webkit-scrollbar,
+.modal-body section::-webkit-scrollbar {
+	width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track,
+.modal-body section::-webkit-scrollbar-track {
+	background-color: var(--purple-700);
+}
+
+.modal-body::-webkit-scrollbar-thumb,
+.modal-body section::-webkit-scrollbar-thumb {
+	background: var(--purple-500);
+}
+
 .modal {
 	position: fixed;
 	display: flex;
@@ -73,10 +92,13 @@ export default {
 
 .modal-body {
 	display: grid;
-	grid-template-columns: 1fr minmax(25ch, 25%);
-	grid-template-rows: 100%;
+	grid-template-areas:
+		"profile"
+		"content"
+		"message";
+	grid-template-columns: 1fr;
+	grid-template-rows: auto minmax(25rem, 1fr) auto;
 	margin: 0 2rem;
-	overflow: hidden;
 	width: 100%;
 	max-width: 70rem;
 	max-height: 80%;
@@ -84,6 +106,7 @@ export default {
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 	border-radius: 0.5rem;
 	animation: fadeInUp 250ms ease-out;
+	overflow-y: auto;
 }
 
 @keyframes fadeInUp {
@@ -98,6 +121,7 @@ export default {
 }
 
 .content {
+	grid-area: content;
 	width: 100%;
 	height: 100%;
 }
@@ -108,16 +132,22 @@ export default {
 	height: 100%;
 }
 
-aside {
-	background: #fff;
-	padding: 1rem;
-}
-
 header {
+	position: sticky;
+	top: 0;
+	grid-area: profile;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	padding-bottom: 1rem;
 	border-bottom: var(--purple-700) 2px solid;
+	background: #fff;
+	padding: 1rem 1rem 0 1rem;
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.profile {
+	display: flex;
+	align-items: center;
 }
 
 .avatar {
@@ -139,5 +169,29 @@ header {
 
 .mg-left-auto {
 	margin-left: auto;
+}
+
+section {
+	grid-area: message;
+	background: #fff;
+	padding: 1rem;
+}
+
+@media screen and (min-width: 776px) {
+	.modal-body {
+		grid-template-areas:
+			"content profile"
+			"content message";
+		grid-template-columns: 1fr minmax(25ch, 25%);
+		grid-template-rows: auto 1fr;
+	}
+
+	header {
+		box-shadow: none;
+	}
+
+	section {
+		overflow-y: auto;
+	}
 }
 </style>
