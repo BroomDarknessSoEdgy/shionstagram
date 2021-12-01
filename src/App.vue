@@ -83,6 +83,18 @@ img {
 	color: var(--purple-600);
 }
 
+body::-webkit-scrollbar {
+	width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+	background-color: var(--purple-700);
+}
+
+body::-webkit-scrollbar-thumb {
+	background: var(--purple-500);
+}
+
 .fade-enter-active,
 .fade-leave-active {
 	transition: transform 350ms ease-out, opacity 350ms ease-out;
