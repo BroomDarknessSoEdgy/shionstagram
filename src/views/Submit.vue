@@ -151,18 +151,7 @@ export default {
           this.form.image = undefined;
       },
       handleSuccesfulUpload(response) {
-          this.form.image = response.id;
-      },
-      onSubmitAgain() {
-          this.isSubmitSuccess = false;
-          this.isSubmitError = false;
-      },
-      onSubmit(formName) {
-        this.isSubmitPending = true;
-        
-        this.$refs[formName].validate(async (valid) => {
-            if (valid) {
-                await this.$refs.imageUpload.submit();
+                this.form.image = response.id;
                 fetch(`${config.origin}/message`, {
                     method: 'POST',
                     headers: {
@@ -188,6 +177,18 @@ export default {
                         this.isSubmitPending = false;
                         this.isSubmitError = true;
                     });
+      },
+      onSubmitAgain() {
+          this.isSubmitSuccess = false;
+          this.isSubmitError = false;
+      },
+      onSubmit(formName) {
+        this.isSubmitPending = true;
+        
+        this.$refs[formName].validate(async (valid) => {
+            if (valid) {
+                await this.$refs.imageUpload.submit();
+
             } else {
                 this.isSubmitPending = false;
                 return false
