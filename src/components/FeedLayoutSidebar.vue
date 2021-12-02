@@ -23,16 +23,22 @@ aside img {
 	padding-bottom: 1rem;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 768px) {
 	aside {
 		display: flex;
+		right: 1rem;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	aside {
 		right: 2rem;
 	}
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
 	aside {
-		right: 4rem;
+		right: 3rem;
 	}
 }
 </style>

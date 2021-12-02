@@ -177,12 +177,12 @@ section {
 	padding: 1rem;
 }
 
-@media screen and (min-width: 776px) {
+@media screen and (min-width: 768px) {
 	.modal-body {
 		grid-template-areas:
 			"content profile"
 			"content message";
-		grid-template-columns: 1fr minmax(25ch, 25%);
+		grid-template-columns: 1fr minmax(30ch, 25%);
 		grid-template-rows: auto 1fr;
 	}
 

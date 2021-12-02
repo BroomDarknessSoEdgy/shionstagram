@@ -37,6 +37,13 @@ main {
 	}
 }
 
+@media screen and (min-width: 768px) {
+	main {
+		gap: 2rem;
+		padding: 3rem 3.5rem 3rem 2rem;
+	}
+}
+
 @media screen and (min-width: 960px) {
 	main {
 		gap: 2rem;
@@ -44,9 +51,9 @@ main {
 	}
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
 	main {
-		padding: 3rem 9.5rem 3rem 3rem;
+		padding: 3rem 7.5rem 3rem 3rem;
 	}
 }
 </style>

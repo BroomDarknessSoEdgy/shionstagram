@@ -34,7 +34,7 @@
 <style scoped>
 aside {
 	background: #fff;
-	padding: 1rem 3rem 2rem 1rem;
+	padding: 1rem 2rem 2rem 1rem;
 	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
 	border-radius: 0.5rem;
 	height: max-content;
@@ -101,5 +101,11 @@ span {
 	height: 100%;
 	background: var(--purple-600);
 	border-radius: 999px;
+}
+
+@media screen and (min-width: 768px) {
+	aside {
+		padding: 1rem 3rem 2rem 1rem;
+	}
 }
 </style>
