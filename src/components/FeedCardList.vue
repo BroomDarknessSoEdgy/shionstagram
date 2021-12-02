@@ -12,8 +12,8 @@
 			class="wrapper"
 		>
 			<button v-if="isAdmin" @click="hidePost(post.id)">{{$t("hide_submission")}}</button>
-			<ImageFeedCard v-if="post.location != null" :location="post.location" />
-			<TextFeedCard v-else :message="post.message" />
+			<ImageFeedCard v-if="post.location != null" :location="post.location" :name="post.name" :userLocation="post.user_location" />
+			<TextFeedCard v-else :message="post.message" :name="post.name" :userLocation="post.user_location" />
 		</div>
 	</section>
 	<!-- filtering each time may be inefficient but good enough for now? -->

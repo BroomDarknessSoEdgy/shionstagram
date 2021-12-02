@@ -6,8 +6,8 @@
 				src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
 			/>
 			<div class="sender">
-				<h4 class="name">Synalra</h4>
-				<p class="location">Finland, Mars</p>
+				<h4 class="name">{{name}}</h4>
+				<p class="location">{{userLocation}}</p>
 			</div>
 			<img class="more" src="../assets/icons/more.svg" />
 		</div>
@@ -21,9 +21,9 @@
 <script>
 export default {
 	props: {
-		location: {
-			type: String,
-		},
+		location: String,
+		name: String,
+		userLocation: String,
 	},
 };
 </script>

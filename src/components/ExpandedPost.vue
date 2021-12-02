@@ -16,7 +16,7 @@
 					/>
 					<div class="sender">
 						<h4 class="name">{{post.name}}</h4>
-						<p class="location">{{post.location}}</p>
+						<p class="location">{{post.user_location}}</p>
 					</div>
 				</div>
 				<div class="actions">
