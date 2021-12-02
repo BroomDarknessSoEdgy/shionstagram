@@ -59,7 +59,7 @@ export default {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-						token,
+						token: this.token,
 						id: postId,
 						approved: false
                     })
