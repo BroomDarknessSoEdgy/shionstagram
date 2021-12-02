@@ -60,6 +60,7 @@
                                     :on-preview="handlePictureCardPreview"
                                     :on-remove="handlePictureCardRemove"
                                     :on-success="handleSuccesfulUpload"
+                                    :on-change="handleOnChange"
                                     :multiple="false"
                                     :limit="1"
                                     :auto-upload="false"
@@ -111,6 +112,7 @@ export default {
       dialogImageUrl: '',
       dialogVisible: false,
       actionUrl: `${config.origin}/image`,
+      file: undefined,
       form: {
           twitter: '',
           chosenMediaType: 'image',
@@ -149,9 +151,16 @@ export default {
       },
       handlePictureCardRemove() {
           this.form.image = undefined;
+          this.file = undefined;
       },
       handleSuccesfulUpload(response) {
                 this.form.image = response.id;
+                this.handleMessageUpload();
+      },
+      handleOnChange(file) {
+          this.file = file;
+      },
+      handleMessageUpload() {
                 fetch(`${config.origin}/message`, {
                     method: 'POST',
                     headers: {
@@ -187,7 +196,11 @@ export default {
         
         this.$refs[formName].validate(async (valid) => {
             if (valid) {
-                await this.$refs.imageUpload.submit();
+                if(this.file !== undefined) {
+                    await this.$refs.imageUpload.submit();
+                } else {
+                    this.handleMessageUpload();
+                }
 
             } else {
                 this.isSubmitPending = false;

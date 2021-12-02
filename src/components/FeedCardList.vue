@@ -11,7 +11,7 @@
 			"
 			class="wrapper"
 		>
-			<button v-if="isAdmin" @click="hidePost(post.id)">{{$t("hide_submission")}}</button>
+			<button class="admin-button" v-if="isAdmin" @click="hidePost(post.id)">{{$t("hide_submission")}}</button>
 			<ImageFeedCard v-if="post.location != null" :location="post.location" :name="post.name" :userLocation="post.user_location" />
 			<TextFeedCard v-else :message="post.message" :name="post.name" :userLocation="post.user_location" />
 		</div>
@@ -100,7 +100,8 @@ section {
 	}
 }
 
-.admin-menu {
+.admin-button {
 	padding: 15px;
 }
+
 </style>

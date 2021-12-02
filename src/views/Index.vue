@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<Menu />
-		<FeedCardList :isAdmin="admin" :token="token" />
+		<FeedCardList :isAdmin="isAdmin" :token="token" />
 		<FeedLayoutSidebar />
 	</main>
 </template>
