@@ -23,6 +23,10 @@ aside img {
 	padding-bottom: 1rem;
 }
 
+/*
+	a few magic numbers are required to make this work,
+	make sure index.vue is changed as well
+*/
 @media screen and (min-width: 768px) {
 	aside {
 		display: flex;

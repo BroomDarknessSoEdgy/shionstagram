@@ -1,16 +1,19 @@
 <template>
-	<section v-if="posts.length != 0">
-		<FeedCard
-			v-for="post in posts.filter((post) => post.location != null)"
+	<section>
+		<div
+			v-for="post in posts"
 			v-bind:key="post.id"
-			:location="post.location"
 			v-on:click="
 				() => {
 					expanded = true;
 					expandedId = post.id;
 				}
 			"
-		/>
+			class="wrapper"
+		>
+			<ImageFeedCard v-if="post.location != null" :location="post.location" />
+			<TextFeedCard v-else :message="post.message" />
+		</div>
 	</section>
 	<!-- filtering each time may be inefficient but good enough for now? -->
 	<ExpandedPost
@@ -22,12 +25,14 @@
 
 <script>
 import config from "../config";
-import FeedCard from "./FeedCard.vue";
+import ImageFeedCard from "./ImageFeedCard.vue";
+import TextFeedCard from "./TextFeedCard.vue";
 import ExpandedPost from "./ExpandedPost.vue";
 
 export default {
 	components: {
-		FeedCard,
+		ImageFeedCard,
+		TextFeedCard,
 		ExpandedPost,
 	},
 	data: () => ({
