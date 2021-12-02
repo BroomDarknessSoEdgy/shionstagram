@@ -10,7 +10,7 @@ module.exports = {
 	},
 	submit: {
 		message_form_title: "Shion 1 Million Subscribers Submission",
-		form_description: "Welcome to international Shiokko 1 million celebration project! You can submit a message with illustration to Shion using this form! The message will be displayed on the 1 million subscribers project website after approval.",
+		form_description: "Welcome to international Shiokko 1 million celebration project! You can submit a message with illustration to Shion using this form! The message will be displayed on the 1 million subscribers project website.",
 		twitter_id: "Twitter ID",
 		twitter_id_instructions: "Twitter ID in the format {'@'}shiokko.",
 		name: "Nickname",
