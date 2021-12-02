@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Profile from "../views/Profile.vue";
 import Submit from "../views/Submit.vue";
 import Index from "../views/Index.vue";
 
@@ -10,21 +9,12 @@ const routes = [
 		component: Index,
 	},
 	{
-		path: "/profile",
-		name: "Profile",
-		component: Profile,
-		props: () => ({
-			admin: false,
-			token: null,
-		}),
-	},
-	{
 		path: "/admin",
 		name: "Admin",
-		component: Profile,
+		component: Index,
 		props: (route) => ({
 			token: route.query.token,
-			admin: true,
+			isAdmin: true,
 		}),
 	},
 	{

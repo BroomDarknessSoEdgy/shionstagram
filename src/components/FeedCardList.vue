@@ -11,6 +11,7 @@
 			"
 			class="wrapper"
 		>
+			<button v-if="isAdmin" @click="hidePost(post.id)">{{$t("hide_submission")}}</button>
 			<ImageFeedCard v-if="post.location != null" :location="post.location" />
 			<TextFeedCard v-else :message="post.message" />
 		</div>
@@ -51,7 +52,30 @@ export default {
 		minimizePost() {
 			this.expanded = !this.expanded;
 		},
+		hidePost(postId) {
+                fetch(`${config.origin}/admin/message`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+						token,
+						id: postId,
+						approved: false
+                    })
+                    })
+                    .then(() => {
+						alert("Submission hidden");
+                    })
+                    .catch(() => {
+						alert("Hiding submission failed.");
+                    });
+		}
 	},
+	props: {
+		token: String,
+		isAdmin: Boolean
+	}
 };
 </script>
 

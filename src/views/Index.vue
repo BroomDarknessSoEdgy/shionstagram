@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<Menu />
-		<FeedCardList />
+		<FeedCardList :isAdmin="admin" :token="token" />
 		<FeedLayoutSidebar />
 	</main>
 </template>
@@ -13,6 +13,16 @@ import FeedLayoutSidebar from "../components/FeedLayoutSidebar.vue";
 
 export default {
 	name: "Index",
+	mounted() {
+		if (this.isAdmin) {
+			if (!this.token) location.replace("/api/connect/discord");
+		}
+
+	},
+	props: {
+		token: String,
+		isAdmin: Boolean,
+	},
 	components: {
 		Menu,
 		FeedCardList,

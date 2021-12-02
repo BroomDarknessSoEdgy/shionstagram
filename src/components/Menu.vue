@@ -6,8 +6,8 @@
 				alt=""
 			/>
 			<div class="profile-info">
-				<h4>Murasaki Shion</h4>
-				<p>Tokyo, Japan</p>
+				<h4>{{$t('murasaki_shion')}}</h4>
+				<p>{{$t('virtual_tokyo_japan')}}</p>
 			</div>
 		</div>
 		<nav>

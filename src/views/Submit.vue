@@ -3,6 +3,12 @@
         <el-row justify="center">
             <el-col span="12">
                 <el-card>
+                    <template #header>
+                        <h2>{{ $t("submit.message_form_title") }}</h2>
+                        <p class="form_description">
+                                {{ $t("submit.form_description") }}
+                        </p>
+                    </template>
                     <el-result
                             v-if="isSubmitSuccess"    
                             icon="success"
@@ -24,24 +30,40 @@
                         </template>
                     </el-result>
                     <el-form ref="form" :model="form" :rules="rules" v-if="!isSubmitSuccess && !isSubmitError" label-width="120px">
-                        <el-form-item>
-                            <h2>{{ $t("submit.message_form_title") }}</h2>
-                        </el-form-item> 
                         <el-form-item :label="$t('submit.twitter_id')" prop="twitter" required>
                             <el-input placeholder="@shiokko" v-model="form.twitter"></el-input>
                             <div>{{ $t("submit.twitter_id_instructions") }}</div>
                         </el-form-item>
-                        <el-tabs v-model="form.chosenMediaType">
-                            <el-tab-pane :label="$t('submit.image')" name="image">
+                        <el-form-item :label="$t('submit.name')" prop="name" required>
+                            <el-input :placeholder="$t('submit.name_example')" v-model="form.name"></el-input>
+                            <div>{{ $t("submit.name_instructions") }}</div>
+                        </el-form-item>
+                        <el-form-item :label="$t('submit.location')" prop="location">
+                            <el-input :placeholder="$t('submit.location_example')" v-model="form.location"></el-input>
+                            <div>{{ $t("submit.location_instructions") }}</div>
+                        </el-form-item>
+                                <el-form-item :label="$t('submit.text_message')" required>
+                                    <el-input
+                                        v-model="form.message"
+                                        :rows="4"
+                                        type="textarea"
+                                        show-word-limit
+                                        maxlength="500"
+                                    />
+                                    <div>{{ $t("submit.text_instructions") }}</div>
+                                </el-form-item>
                                 <el-form-item :label="$t('submit.image')">
                                     <el-upload
+                                    ref="imageUpload"
                                     :action='actionUrl'
                                     list-type="picture-card"
                                     :on-preview="handlePictureCardPreview"
+                                    :on-remove="handlePictureCardRemove"
                                     :on-success="handleSuccesfulUpload"
                                     :multiple="false"
                                     :limit="1"
-                                    accept="image/gif, image/jpeg, image/png"
+                                    :auto-upload="false"
+                                    accept="image/gif, image/jpeg, image/png, image/apng"
                                     >
                                         <i class="el-icon-plus"></i>
                                     </el-upload>
@@ -50,20 +72,7 @@
                                         <image-card :src="dialogImageUrl" />
                                     </el-dialog>
                                 </el-form-item>
-                            </el-tab-pane>
-                            <el-tab-pane :label="$t('submit.text')" name="text">
-                                <el-form-item :label="$t('submit.text_message')">
-                                    <el-input
-                                        v-model="form.message"
-                                        :rows="4"
-                                        type="textarea"
-                                        show-word-limit
-                                        maxlength="280"
-                                    />
-                                    <div>{{ $t("submit.text_instructions") }}</div>
-                                </el-form-item>
-                            </el-tab-pane>
-                        </el-tabs>
+
                         <el-form-item>
                             <el-button :loading="isSubmitPending" type="primary" plain @click="onSubmit('form')">{{ $t("submit.submit") }}</el-button>
                             <div>{{ $t("submit.general_instructions") }}</div>
@@ -78,7 +87,7 @@
 <script>
 import config from '../config';
 import ImageCard from '../components/ImageCard.vue'
-import { ElForm, ElFormItem, ElUpload, ElButton, ElInput, ElDialog, ElRow, ElCol, ElTabs, ElTabPane, ElCard, ElResult } from 'element-plus'
+import { ElForm, ElFormItem, ElUpload, ElButton, ElInput, ElDialog, ElRow, ElCol, ElCard, ElResult } from 'element-plus'
 
 export default {
   name: 'Submit',
@@ -91,8 +100,6 @@ export default {
       ElDialog,
       ElRow,
       ElCol,
-      ElTabs,
-      ElTabPane,
       ElCard,
       ElResult,
       ImageCard,
@@ -107,6 +114,7 @@ export default {
       form: {
           twitter: '',
           chosenMediaType: 'image',
+          name: '',
           message: '',
           image: undefined,
       },
@@ -117,6 +125,20 @@ export default {
                 message: 'Please input Twitter ID.',
                 trigger: 'blur',
               }
+          ],
+          name: [
+              {
+                required: true,
+                message: 'Please input nickname.',
+                trigger: 'blur',
+              }
+          ],
+          message: [
+              {
+                required: true,
+                message: 'Please input text message.',
+                trigger: 'blur',
+              }
           ]
       }
   }),
@@ -124,6 +146,9 @@ export default {
       handlePictureCardPreview(file) {
           this.dialogImageUrl = file.response.location; 
           this.dialogVisible = true
+      },
+      handlePictureCardRemove() {
+          this.form.image = undefined;
       },
       handleSuccesfulUpload(response) {
           this.form.image = response.id;
@@ -134,16 +159,10 @@ export default {
       },
       onSubmit(formName) {
         this.isSubmitPending = true;
-        if(this.form.chosenMediaType === 'image') {
-            this.form.message = undefined;            
-        }
-
-        if(this.form.chosenMediaType === 'text') {
-            this.form.image = undefined;
-        }
         
-        this.$refs[formName].validate((valid) => {
+        this.$refs[formName].validate(async (valid) => {
             if (valid) {
+                await this.$refs.imageUpload.submit();
                 fetch(`${config.origin}/message`, {
                     method: 'POST',
                     headers: {
@@ -153,7 +172,8 @@ export default {
                         image: this.form.image,
                         twitter: this.form.twitter,
                         message: this.form.message,
-                        mediaType: this.form.chosenMediaType
+                        name: this.form.name,
+                        location: this.form.location,
                     })
                     })
                     .then(async response => {
@@ -187,5 +207,9 @@ main {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 1fr;
+}
+
+p {
+    max-width: 800px;
 }
 </style>

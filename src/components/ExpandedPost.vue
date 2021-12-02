@@ -15,8 +15,8 @@
 						src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
 					/>
 					<div class="sender">
-						<h4 class="name">Synalra</h4>
-						<p class="location">Finland, Mars</p>
+						<h4 class="name">{{post.name}}</h4>
+						<p class="location">{{post.location}}</p>
 					</div>
 				</div>
 				<div class="actions">
@@ -29,14 +29,7 @@
 
 			<section>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac nunc
-					condimentum, fringilla mi id, efficitur libero. Ut imperdiet mollis
-					leo id elementum. Phasellus commodo leo sem, vitae gravida nulla
-					iaculis ac. Nunc aliquam nec massa eget dictum. Cras non sodales
-					dolor. Suspendisse rutrum, tortor id gravida ornare, odio sapien
-					feugiat quam, eget accumsan ante odio sed arcu. Duis nec hendrerit
-					lacus, id facilisis elit. Aenean sollicitudin magna dignissim
-					scelerisque pellentesque.
+					{{post.message}}
 				</p>
 			</section>
 		</div>
