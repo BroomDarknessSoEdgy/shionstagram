@@ -6,7 +6,7 @@
 			v-on:click="$emit('onClickOff')"
 		/>
 		<div class="modal-body">
-			<div class="content"><img :src="post.location" alt="" /></div>
+			<div class="content"><img :src="post.pathToImage" alt="" /></div>
 
 			<header>
 				<div class="profile">

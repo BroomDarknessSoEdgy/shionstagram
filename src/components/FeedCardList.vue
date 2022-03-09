@@ -11,8 +11,7 @@
 			"
 			class="wrapper"
 		>
-			<button class="admin-button" v-if="isAdmin" @click="hidePost(post.id)">{{$t("hide_submission")}}</button>
-			<ImageFeedCard v-if="post.location != null" :location="post.location" :name="post.name" :userLocation="post.user_location" />
+			<ImageFeedCard v-if="post.pathToImage != null" :location="post.pathToImage" :name="post.name" :userLocation="post.user_location" />
 			<TextFeedCard v-else :message="post.message" :name="post.name" :userLocation="post.user_location" />
 		</div>
 	</section>
@@ -25,7 +24,6 @@
 </template>
 
 <script>
-import config from "../config";
 import ImageFeedCard from "./ImageFeedCard.vue";
 import TextFeedCard from "./TextFeedCard.vue";
 import ExpandedPost from "./ExpandedPost.vue";
@@ -37,45 +35,35 @@ export default {
 		ExpandedPost,
 	},
 	data: () => ({
-		posts: [],
+		posts: [
+		{
+			name: "Shiokko 1",
+			user_location: "Shionstagram 1",
+			pathToImage: "pathToImage",
+			"message": "Text part of the message 1.",
+		},
+		{
+			name: "Shiokko 2",
+			user_location: "Shionstagram 2",
+			pathToImage: "pathToImage",
+			"message": "Text part of the message 2.",
+		},
+		{
+			name: "Shiokko 3",
+			user_location: "Shionstagram 3",
+			pathToImage: "pathToImage",
+			"message": "Text part of the message 3.",
+		},
+		{
+			name: "Shiokko 4",
+			user_location: "Shionstagram 4",
+			pathToImage: "pathToImage",
+			"message": "Text part of the message 4.",
+		}
+		],
 		expanded: false,
 		expandedId: -1,
 	}),
-	mounted() {
-		fetch(`${config.origin}/messages`)
-			.then((response) => response.json())
-			.then((data) => {
-				this.posts = data;
-			});
-	},
-	methods: {
-		minimizePost() {
-			this.expanded = !this.expanded;
-		},
-		hidePost(postId) {
-                fetch(`${config.origin}/admin/message`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-						token: this.token,
-						id: postId,
-						approved: false
-                    })
-                    })
-                    .then(() => {
-						alert("Submission hidden");
-                    })
-                    .catch(() => {
-						alert("Hiding submission failed.");
-                    });
-		}
-	},
-	props: {
-		token: String,
-		isAdmin: Boolean
-	}
 };
 </script>
 
@@ -99,9 +87,4 @@ section {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
-
-.admin-button {
-	padding: 15px;
-}
-
 </style>
