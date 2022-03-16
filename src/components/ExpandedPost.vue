@@ -6,7 +6,18 @@
 			v-on:click="$emit('onClickOff')"
 		/>
 		<div class="modal-body">
-			<div class="content"><img :src="post.pathToImage" alt="" /></div>
+			<div v-if="post.src" class="content">
+				<img
+					class="main"
+					:src="require(`@/assets/submissions/${post.src}`)"
+					alt=""
+				/>
+				<img
+					class="bg"
+					:src="require(`@/assets/submissions/${post.src}`)"
+					alt=""
+				/>
+			</div>
 
 			<header>
 				<div class="profile">
@@ -15,8 +26,8 @@
 						src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
 					/>
 					<div class="sender">
-						<h4 class="name">{{post.name}}</h4>
-						<p class="location">{{post.user_location}}</p>
+						<h4 class="name">{{ post.name }}</h4>
+						<p class="location">{{ post.location }}</p>
 					</div>
 				</div>
 				<div class="actions">
@@ -29,7 +40,7 @@
 
 			<section>
 				<p>
-					{{post.message}}
+					{{ post.message }}
 				</p>
 			</section>
 		</div>
@@ -114,15 +125,29 @@ export default {
 }
 
 .content {
+	position: relative;
+	isolation: isolate;
 	grid-area: content;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.content .main {
+	object-fit: contain;
 	width: 100%;
 	height: 100%;
 }
 
-.content img {
-	object-fit: contain;
+.content .bg {
+	position: absolute;
+	z-index: -1;
+	object-fit: cover;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
+	filter: blur(1rem) brightness(0.8);
 }
 
 header {

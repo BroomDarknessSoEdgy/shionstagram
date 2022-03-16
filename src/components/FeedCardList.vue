@@ -11,13 +11,22 @@
 			"
 			class="wrapper"
 		>
-			<ImageFeedCard v-if="post.pathToImage != null" :location="post.pathToImage" :name="post.name" :userLocation="post.user_location" />
-			<TextFeedCard v-else :message="post.message" :name="post.name" :userLocation="post.user_location" />
+			<ImageFeedCard
+				v-if="post.src !== undefined"
+				:src="post.src"
+				:name="post.name"
+				:userLocation="post.location"
+			/>
+			<TextFeedCard
+				v-else
+				:message="post.message"
+				:name="post.name"
+				:userLocation="post.location"
+			/>
 		</div>
 	</section>
-	<!-- filtering each time may be inefficient but good enough for now? -->
 	<ExpandedPost
-		:post="posts.filter((post) => post.id == expandedId)[0]"
+		:post="posts[expandedId]"
 		v-if="expanded"
 		@onClickOff="minimizePost"
 	/>
@@ -36,34 +45,38 @@ export default {
 	},
 	data: () => ({
 		posts: [
-		{
-			name: "Shiokko 1",
-			user_location: "Shionstagram 1",
-			pathToImage: "pathToImage",
-			"message": "Text part of the message 1.",
-		},
-		{
-			name: "Shiokko 2",
-			user_location: "Shionstagram 2",
-			pathToImage: "pathToImage",
-			"message": "Text part of the message 2.",
-		},
-		{
-			name: "Shiokko 3",
-			user_location: "Shionstagram 3",
-			pathToImage: "pathToImage",
-			"message": "Text part of the message 3.",
-		},
-		{
-			name: "Shiokko 4",
-			user_location: "Shionstagram 4",
-			pathToImage: "pathToImage",
-			"message": "Text part of the message 4.",
-		}
-		],
+			{
+				name: "Shiokko 1",
+				location: "Shionstagram 1",
+				message: "Text part of the message 1.",
+			},
+			{
+				name: "Shiokko 2",
+				location: "Shionstagram 2",
+				message: "Text part of the message 2.",
+			},
+			{
+				name: "Shiokko 3",
+				location: "Shionstagram 3",
+				src: "placeholder.jpg",
+				message: "Text part of the message 3.",
+			},
+			{
+				name: "Shiokko 4",
+				location: "Shionstagram 4",
+				src: "placeholder.jpg",
+				message: "Text part of the message 4.",
+			},
+		].map((post, i) => ({ ...post, id: i })),
 		expanded: false,
 		expandedId: -1,
 	}),
+	methods: {
+		minimizePost() {
+			this.expanded = false;
+			this.expandedId = -1;
+		},
+	},
 };
 </script>
 

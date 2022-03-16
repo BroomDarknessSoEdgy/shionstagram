@@ -6,13 +6,12 @@
 				src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
 			/>
 			<div class="sender">
-				<h4 class="name">{{name}}</h4>
-				<p class="location">{{userLocation}}</p>
+				<h4 class="name">{{ name }}</h4>
+				<p class="location">{{ userLocation }}</p>
 			</div>
 			<img class="more" src="../assets/icons/more.svg" />
 		</div>
 		<div class="card-body">
-			<!-- TODO: Add sender name to alt -->
 			<p>{{ messagePreview }}</p>
 		</div>
 	</div>
@@ -75,13 +74,11 @@ export default {
 
 .card-body {
 	background-color: var(--purple-800);
-	background-image: radial-gradient(
-			at top left,
-			hsl(298, 63%, 66%),
-			transparent
-		),
-		radial-gradient(at top right, hsl(351, 70%, 60%), transparent),
-		radial-gradient(at bottom left, hsl(244, 44%, 60%), transparent);
+	background-image: linear-gradient(
+		135deg,
+		var(--purple-600) 0%,
+		hsl(318, 44%, 75%) 100%
+	);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	color: white;

@@ -6,14 +6,17 @@
 				src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
 			/>
 			<div class="sender">
-				<h4 class="name">{{name}}</h4>
-				<p class="location">{{userLocation}}</p>
+				<h4 class="name">{{ name }}</h4>
+				<p class="location">{{ location }}</p>
 			</div>
 			<img class="more" src="../assets/icons/more.svg" />
 		</div>
 		<div class="card-body">
-			<!-- TODO: Add sender name to alt -->
-			<img :src="location" loading="lazy" alt="" />
+			<img
+				:src="require(`@/assets/submissions/${src}`)"
+				loading="lazy"
+				:alt="`${name}'s image submission`"
+			/>
 		</div>
 	</div>
 </template>
@@ -21,9 +24,9 @@
 <script>
 export default {
 	props: {
-		location: String,
+		src: String,
 		name: String,
-		userLocation: String,
+		location: String,
 	},
 };
 </script>
