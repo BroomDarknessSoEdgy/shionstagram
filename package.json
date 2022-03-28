@@ -1,55 +1,49 @@
 {
-  "name": "shionstagram",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist",
-    "build-storybook": "build-storybook",
-    "storybook": "start-storybook -p 6006"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "lottie-web": "^5.7.13",
-    "vue": "^3.0.0",
-    "vue-i18n": "^9.1.7",
-    "vue-router": "^4.0.0-0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "vue-loader": "^16.5.0",
-    "vue-loader-v16": "^16.5.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
-  "homepage": "https://cenmya.github.io/shionstagram/"
+	"name": "shionstagram",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint",
+		"deploy": "gh-pages -d dist"
+	},
+	"dependencies": {
+		"core-js": "^3.6.5",
+		"element-plus": "^2.1.6",
+		"lottie-web": "^5.7.13",
+		"vue": "^3.0.0",
+		"vue-i18n": "^9.1.7",
+		"vue-router": "^4.0.0-0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.15.5",
+		"@vue/cli-plugin-babel": "~4.5.0",
+		"@vue/cli-plugin-eslint": "~4.5.0",
+		"@vue/cli-plugin-router": "~4.5.0",
+		"@vue/cli-service": "~4.5.0",
+		"@vue/compiler-sfc": "^3.0.0",
+		"babel-eslint": "^10.1.0",
+		"babel-loader": "^8.2.2",
+		"eslint": "^6.7.2",
+		"eslint-plugin-vue": "^7.0.0",
+		"postcss-preset-env": "^6.7.0",
+		"unplugin-element-plus": "^0.3.2",
+		"vue-loader": "^16.5.0"
+	},
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"node": true
+		},
+		"extends": [
+			"plugin:vue/vue3-essential",
+			"eslint:recommended"
+		],
+		"parserOptions": {
+			"parser": "babel-eslint"
+		},
+		"rules": {}
+	},
+	"homepage": "https://cenmya.github.io/shionstagram/"
 }
