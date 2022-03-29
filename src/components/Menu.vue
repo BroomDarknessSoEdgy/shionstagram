@@ -4,18 +4,20 @@
 			<img
 				src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
 				alt=""
+				class="picture"
 			/>
 			<div class="profile-info">
-				<h4>{{$t('murasaki_shion')}}</h4>
-				<p>{{$t('virtual_tokyo_japan')}}</p>
+				<h4>{{ $t("murasaki_shion") }}</h4>
+				<p>{{ $t("virtual_tokyo_japan") }}</p>
 			</div>
+			<img class="more" src="../assets/icons/Dropdown.svg" />
 		</div>
 		<nav>
 			<router-link to="/">
 				<img class="icon" src="../assets/icons/Home.svg" />
 				<span>{{ $t("menu.feed") }}</span>
 			</router-link>
-			<router-link to="/profile">
+			<router-link to="/soundboard">
 				<img class="icon" src="../assets/icons/Reels.svg" />
 				<span>{{ $t("menu.reels") }}</span>
 			</router-link>
@@ -23,7 +25,7 @@
 				<img class="icon" src="../assets/icons/Heart.svg" />
 				<span>{{ $t("menu.favorites") }}</span>
 			</router-link>
-			<router-link to="/profile">
+			<router-link to="/submit">
 				<img class="icon" src="../assets/icons/Add.svg" />
 				<span>{{ $t("menu.create") }}</span>
 			</router-link>
@@ -34,7 +36,7 @@
 <style scoped>
 aside {
 	background: #fff;
-	padding: 1rem 2rem 2rem 1rem;
+	padding: 1rem 1rem 2rem 1rem;
 	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
 	border-radius: 0.5rem;
 	height: max-content;
@@ -51,16 +53,19 @@ aside {
 	display: flex;
 	align-items: center;
 	margin-bottom: 2rem;
+	gap: 1rem;
 }
 
-.profile img {
-	width: 4rem;
-	height: 4rem;
+.profile .picture {
+	width: 3.5rem;
+	height: 3.5rem;
 	border-radius: 50%;
 }
 
-.profile-info {
-	margin-left: 1rem;
+.more {
+	height: 1rem;
+	width: 1rem;
+	margin-left: 1.5rem;
 }
 
 nav {
@@ -101,11 +106,5 @@ span {
 	height: 100%;
 	background: var(--purple-600);
 	border-radius: 999px;
-}
-
-@media screen and (min-width: 768px) {
-	aside {
-		padding: 1rem 3rem 2rem 1rem;
-	}
 }
 </style>

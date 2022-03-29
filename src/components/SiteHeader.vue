@@ -13,7 +13,7 @@
 			<router-link to="/">
 				<img class="icon" src="../assets/icons/Reels.svg" />
 			</router-link>
-			<router-link to="/profile">
+			<router-link to="/soundboard">
 				<img class="icon" src="../assets/icons/Notifiations.svg" />
 			</router-link>
 			<router-link to="/submit">

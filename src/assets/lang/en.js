@@ -8,21 +8,28 @@ module.exports = {
 		favorites: "Favorites",
 		create: "Create",
 	},
+	soundboard: {
+		history: "History",
+	},
 	submit: {
 		message_form_title: "Shion 1 Million Subscribers Submission",
-		form_description: "Welcome to international Shiokko 1 million celebration project! You can submit a message with illustration to Shion using this form! The message will be displayed on the 1 million subscribers project website.",
+		form_description:
+			"Welcome to international Shiokko 1 million celebration project! You can submit a message with illustration to Shion using this form! The message will be displayed on the 1 million subscribers project website.",
 		twitter_id: "Twitter ID",
 		twitter_id_instructions: "Twitter ID in the format {'@'}shiokko.",
 		name: "Nickname",
 		name_example: "Ultra Shiokko",
-		name_instructions: "Nickname will be displayed along with your message. It does not need to be your real name.",
+		name_instructions:
+			"Nickname will be displayed along with your message. It does not need to be your real name.",
 		location: "Location",
 		location_example: "Tokyo, Japan",
-		location_instructions: "Location will be displayed along with your message. It does not need to be your real location.",
+		location_instructions:
+			"Location will be displayed along with your message. It does not need to be your real location.",
 		text_message: "Text Message",
 		text: "Text",
 		image: "Image",
-		image_instructions: "Only one image can be added. Max. 5MB jpeg/png/gif/apng files.",
+		image_instructions:
+			"Only one image can be added. Max. 5MB jpeg/png/gif/apng files.",
 		text_instructions: "Max. 500 characters message to Shion.",
 		submit: "Submit",
 		submission_received: "Submission Received",
