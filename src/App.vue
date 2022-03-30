@@ -61,8 +61,10 @@ body {
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+* {
 	margin: 0;
-	padding: 0;
 }
 
 html,
@@ -70,14 +72,38 @@ body {
 	height: 100%;
 }
 
-img {
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
 	display: block;
 	max-width: 100%;
 }
 
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
 #app {
 	font-family: "Manrope", sans-serif;
-	/* font-family: 'Lato', sans-serif; */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: var(--purple-600);
