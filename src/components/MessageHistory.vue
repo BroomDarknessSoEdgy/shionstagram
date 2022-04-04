@@ -3,40 +3,28 @@
 		<h4>{{ $t("soundboard.history") }}</h4>
 		<div class="history">
 			<div class="profile">
-				<img
-					src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
-					alt=""
-				/>
+				<img src="../assets/images/messageHistory/aqua.png" alt="" />
 				<div class="profile-info">
 					<h4>{{ $t("soundboard.aqua.name") }}</h4>
 					<p>{{ $t("soundboard.aqua.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
-				<img
-					src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
-					alt=""
-				/>
+				<img src="../assets/images/messageHistory/marine.png" alt="" />
 				<div class="profile-info">
 					<h4>{{ $t("soundboard.marine.name") }}</h4>
 					<p>{{ $t("soundboard.marine.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
-				<img
-					src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
-					alt=""
-				/>
+				<img src="../assets/images/messageHistory/okayu.png" alt="" />
 				<div class="profile-info">
 					<h4>{{ $t("soundboard.okayu.name") }}</h4>
 					<p>{{ $t("soundboard.okayu.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
-				<img
-					src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
-					alt=""
-				/>
+				<img src="../assets/images/messageHistory/laplus.png" alt="" />
 				<div class="profile-info">
 					<h4>{{ $t("soundboard.laplus.name") }}</h4>
 					<p>
@@ -45,20 +33,14 @@
 				</div>
 			</div>
 			<div class="profile">
-				<img
-					src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
-					alt=""
-				/>
+				<img src="../assets/images/messageHistory/fubuki.png" alt="" />
 				<div class="profile-info">
 					<h4>{{ $t("soundboard.fubuki.name") }}</h4>
 					<p>{{ $t("soundboard.fubuki.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
-				<img
-					src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
-					alt=""
-				/>
+				<img src="../assets/images/messageHistory/chloe.png" alt="" />
 				<div class="profile-info">
 					<h4>{{ $t("soundboard.chloe.name") }}</h4>
 					<p>{{ $t("soundboard.chloe.message") }}</p>

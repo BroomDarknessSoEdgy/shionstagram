@@ -2,9 +2,7 @@
 	<main>
 		<Menu />
 		<div class="profile-card">
-			<div class="avatar-wrapper">
-				<img class="avatar-img" :alt="alt" :src="avatarSrc" />
-			</div>
+			<img class="avatar-img" :alt="alt" :src="avatarSrc" />
 			<section class="profile-body">
 				<h2>{{ name }}</h2>
 				<ul class="profile-stats">
@@ -44,7 +42,7 @@ export default {
 		stat2: 1000000,
 		stat3: 0,
 		description:
-			"Murasaki Shion Shionstagram account. Commodo aliqua sunt laborum irure aliqua ipsum. Nisi duis quis do et. Duis nisi cupidatat adipisicing esse Lorem ipsum sunt sint eu minim duis duis reprehenderit velit.",
+			"Murasaku Shion, a witch dressed in purple who has the power to make everyone smile. Also a genius who graduated from Harvard.",
 		imageSet: [],
 	}),
 };
@@ -83,37 +81,35 @@ main {
 }
 
 .profile-card {
-	display: grid;
-	grid-template-columns: 18rem 1fr;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 2rem;
 	width: 100%;
 	margin-bottom: 3rem;
 }
 
-.avatar-wrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
+.avatar-img {
+	flex-shrink: 0;
+	height: 8rem;
+	width: 8rem;
+	border-radius: 50%;
+	margin-top: 1rem;
 }
 
-.avatar-img {
-	height: 10rem;
-	width: 10rem;
-	border-radius: 50%;
+.profile-body {
+	max-width: 45ch;
 }
 
 section {
 	display: flex;
-	flex-basis: 30px;
-	flex-grow: 2;
 	flex-direction: column;
 	padding: 0;
 }
 
 h2 {
 	font-size: 2rem;
-	font-weight: 300;
+	font-weight: 500;
 	margin-bottom: 1.5rem;
 }
 
