@@ -39,6 +39,7 @@ export default {
 	aspect-ratio: 1;
 	border: none;
 	transition: transform 75ms ease-out;
+	background: transparent;
 }
 
 .sound-button.textOnly {
