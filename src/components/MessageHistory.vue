@@ -1,6 +1,6 @@
 <template>
 	<aside>
-		<h3>{{ $t("soundboard.history") }}</h3>
+		<h4>{{ $t("soundboard.history") }}</h4>
 		<div class="history">
 			<div class="profile">
 				<img
@@ -85,6 +85,7 @@ aside {
 }
 
 .profile {
+	position: relative;
 	display: flex;
 }
 
@@ -95,8 +96,23 @@ aside {
 }
 
 .profile-info {
-	margin-left: 1rem;
-	margin-top: 0.25rem;
+	position: relative;
+	margin-left: 0.5rem;
+	margin-top: -0.25rem;
+	padding: 0.5rem;
+}
+
+.profile-info::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.15);
+	opacity: 0;
+	border-radius: 0.5rem;
+	transition: opacity 250ms ease-out;
 }
 
 .profile-info p {
@@ -107,7 +123,20 @@ aside {
 	text-overflow: ellipsis;
 }
 
-.profile-info:hover p {
+.profile:hover .profile-info {
+	position: absolute;
+	top: 0;
+	left: 3.5rem;
+	background: white;
+	z-index: 1;
+	border-radius: 0.5rem;
+}
+
+.profile:hover .profile-info::after {
+	opacity: 1;
+}
+
+.profile:hover .profile-info p {
 	white-space: normal;
 }
 </style>

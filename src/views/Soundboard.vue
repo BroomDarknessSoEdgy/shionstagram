@@ -5,17 +5,21 @@
 			<MessageHistory />
 		</aside>
 		<section class="messages">
-			<h3>{{ $t("soundboard.messages") }}</h3>
-			<TransitionGroup class="sounds" name="sounds" tag="div">
-				<img
-					v-for="message in sentMessages"
-					:key="message.id"
-					:src="message.img"
-					alt=""
-				/>
-			</TransitionGroup>
+			<header>
+				<h4>{{ $t("soundboard.messages") }}</h4>
+			</header>
+			<div class="sounds" ref="sounds">
+				<TransitionGroup name="sounds">
+					<img
+						v-for="message in sentMessages"
+						:key="message.id"
+						:src="message.img"
+						alt=""
+					/>
+				</TransitionGroup>
+			</div>
 		</section>
-		<SoundSelector @send="(img) => addMessage(img)" :sounds="sounds" />
+		<SoundSelector @send="addMessage" :sounds="sounds" />
 	</main>
 </template>
 
@@ -42,6 +46,12 @@ export default {
 	methods: {
 		addMessage(message) {
 			this.sentMessages.push(message);
+
+			// wait for update before scrolling to bottom
+			setTimeout(() => {
+				const soundsContainer = this.$refs.sounds;
+				soundsContainer.scrollTop = soundsContainer.scrollHeight;
+			}, 5);
 		},
 	},
 };
@@ -74,9 +84,15 @@ section {
 }
 
 .messages {
-	padding: 1rem;
+	display: flex;
+	flex-direction: column;
 	height: min(80vh, 35rem);
-	overflow: auto;
+}
+
+.messages header {
+	background: white;
+	padding: 1rem 1.5rem;
+	border-bottom: var(--purple-700) 2px solid;
 }
 
 @media screen and (min-width: 650px) {
@@ -113,6 +129,27 @@ section {
 	flex-direction: column;
 	align-items: flex-end;
 	gap: 0.5rem;
+	padding: 1rem;
+	overflow-y: scroll;
+}
+
+.sounds::-webkit-scrollbar {
+	background-color: white;
+	width: 16px;
+}
+
+.sounds::-webkit-scrollbar-track {
+	background-color: white;
+}
+
+.sounds::-webkit-scrollbar-thumb {
+	background-color: var(--purple-700);
+	border-radius: 16px;
+	border: 4px solid white;
+}
+
+.sounds::-webkit-scrollbar-button {
+	display: none;
 }
 
 .sounds-enter-active,
