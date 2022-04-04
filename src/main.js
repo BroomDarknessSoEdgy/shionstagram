@@ -3,8 +3,8 @@ import App from "./App.vue";
 
 // Localisation
 import { createI18n } from "vue-i18n";
-import en from "./assets/lang/en";
-import ja from "./assets/lang/ja";
+import en from "./data/lang/en";
+import ja from "./data/lang/ja";
 
 import router from "./router";
 
