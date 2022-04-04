@@ -5,129 +5,25 @@
 			<MessageHistory />
 		</aside>
 		<section class="messages">
-			<h1>hello</h1>
-			<img
-				v-for="message in sentMessages"
-				:key="message.id"
-				:src="message.img"
-				alt=""
-			/>
+			<TransitionGroup class="sounds" name="sounds" tag="div">
+				<img
+					v-for="message in sentMessages"
+					:key="message.id"
+					:src="message.img"
+					alt=""
+				/>
+			</TransitionGroup>
 		</section>
 		<SoundSelector @send="(img) => addMessage(img)" :sounds="sounds" />
 	</main>
 </template>
 
 <script>
+import { sounds } from "../data/soundboard/sounds";
+
 import Menu from "../components/Menu.vue";
 import MessageHistory from "../components/MessageHistory.vue";
 import SoundSelector from "../components/SoundSelector.vue";
-
-const sounds = [
-	{
-		en: "Sounds",
-		jp: "Sounds (JP)",
-		buttons: [
-			{
-				en: "Yay",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-				img: "/sounds/logo.png",
-			},
-			{
-				en: "Yay",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Yay",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Yay",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Yay",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-		],
-	},
-	{
-		en: "Screams",
-		jp: "Screams (JP)",
-		buttons: [
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Nay!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-		],
-	},
-	{
-		en: "Quotes",
-		jp: "Quotes (JP)",
-		buttons: [
-			{
-				en: "Hey!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Hey!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-			{
-				en: "Hey!",
-				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-			},
-		],
-	},
-];
 
 export default {
 	name: "Soundboard",
@@ -194,5 +90,16 @@ section {
 	background-color: white;
 	border-radius: 0.5rem;
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.sounds-enter-active,
+.sounds-leave-active {
+	transition: transform 250ms ease-out, opacity 250ms ease-out;
+}
+
+.sounds-enter-from,
+.sounds-leave-to {
+	opacity: 0;
+	transform: translateY(0.5rem);
 }
 </style>
