@@ -7,7 +7,7 @@ export const sounds = [
 				en: "Yay",
 				jp: "Yatta",
 				src: "/sounds/yayyyy.mp3",
-				img: "/sounds/logo.png",
+				img: "/sounds/logo1.png",
 			},
 			{
 				en: "Yay",
