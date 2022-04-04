@@ -1,5 +1,6 @@
 <template>
 	<main>
+		<Menu />
 		<div class="profile-card">
 			<div class="avatar-wrapper">
 				<img class="avatar-img" :alt="alt" :src="avatarSrc" />
@@ -24,9 +25,13 @@
 </template>
 
 <script>
+import Menu from "../components/Menu.vue";
+
 export default {
 	name: "Profile",
-
+	components: {
+		Menu,
+	},
 	props: {
 		token: String,
 		admin: Boolean,
@@ -47,20 +52,43 @@ export default {
 
 <style scoped>
 main {
+	display: grid;
+	width: 100%;
 	margin: auto;
-	max-width: 60rem;
 	padding: 3rem 1rem;
+	gap: 2rem;
 }
+
+@media screen and (min-width: 650px) {
+	main {
+		grid-template-columns: max-content minmax(0, 55rem);
+	}
+}
+
+@media screen and (min-width: 768px) {
+	main {
+		gap: 2rem;
+		padding: 3rem 2rem;
+	}
+}
+@media screen and (min-width: 1440px) {
+	main {
+		padding: 3rem;
+	}
+}
+
 .card-list {
 	display: flex;
 	justify-content: center;
 }
+
 .profile-card {
 	display: grid;
 	grid-template-columns: 18rem 1fr;
 	width: 100%;
 	margin-bottom: 3rem;
 }
+
 .avatar-wrapper {
 	display: flex;
 	justify-content: center;
@@ -68,11 +96,13 @@ main {
 	width: 100%;
 	height: 100%;
 }
+
 .avatar-img {
 	height: 10rem;
 	width: 10rem;
 	border-radius: 50%;
 }
+
 section {
 	display: flex;
 	flex-basis: 30px;
@@ -80,22 +110,27 @@ section {
 	flex-direction: column;
 	padding: 0;
 }
+
 h2 {
 	font-size: 2rem;
 	font-weight: 300;
 	margin-bottom: 1.5rem;
 }
+
 ul {
 	display: flex;
 	list-style: none;
 	margin-bottom: 1.5rem;
 }
+
 li {
 	margin-right: 2.5rem;
 }
+
 li span {
 	font-weight: bold;
 }
+
 button {
 	font-size: 14px;
 	line-height: 18px;

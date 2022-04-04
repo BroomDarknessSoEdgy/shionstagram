@@ -123,16 +123,15 @@ body::-webkit-scrollbar-thumb {
 
 .fade-enter-active,
 .fade-leave-active {
-	transition: transform 350ms ease-out, opacity 350ms ease-out;
+	transition: opacity 250ms ease-out;
 }
 
 .fade-enter-active {
-	transition-delay: 350ms;
+	transition-delay: 250ms;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-	transform: translateY(2rem);
 	opacity: 0;
 }
 </style>

@@ -10,14 +10,11 @@
 				<option value="en">en</option>
 			</select>
 
-			<router-link to="/">
+			<router-link to="/soundboard">
 				<img class="icon" src="../assets/icons/Reels.svg" />
 			</router-link>
-			<router-link to="/soundboard">
-				<img class="icon" src="../assets/icons/Notifiations.svg" />
-			</router-link>
 			<router-link to="/submit">
-				<img class="icon" src="../assets/icons/Send.svg" />
+				<img class="icon" src="../assets/icons/Add.svg" />
 			</router-link>
 			<router-link to="/profile">
 				<img

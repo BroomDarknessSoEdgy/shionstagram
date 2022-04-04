@@ -53,7 +53,9 @@ aside {
 	display: flex;
 	align-items: center;
 	margin-bottom: 2rem;
+	margin-right: 1.5rem;
 	gap: 1rem;
+	width: 100%;
 }
 
 .profile .picture {
@@ -65,7 +67,7 @@ aside {
 .more {
 	height: 1rem;
 	width: 1rem;
-	margin-left: 1.5rem;
+	margin-left: auto;
 }
 
 nav {

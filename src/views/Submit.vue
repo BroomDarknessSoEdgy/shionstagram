@@ -1,141 +1,137 @@
 <template>
 	<main>
-		<el-col span="12">
-			<el-card>
-				<!-- header -->
-				<template #header>
-					<h2>{{ $t("submit.message_form_title") }}</h2>
-					<p class="form_description">
-						{{ $t("submit.form_description") }}
-					</p>
+		<Menu />
+		<el-card>
+			<!-- header -->
+			<template #header>
+				<h2>{{ $t("submit.message_form_title") }}</h2>
+				<p class="form_description">
+					{{ $t("submit.form_description") }}
+				</p>
+			</template>
+			<!-- flashed message -->
+			<el-result
+				v-if="isSubmitSuccess"
+				icon="success"
+				:title="$t('submit.submission_received')"
+				:sub-title="$t('submit.thanks_for_submission')"
+			>
+				<template #extra>
+					<el-button type="primary" size="medium" @click="onSubmitAgain">{{
+						$t("submit.submit_another_message")
+					}}</el-button>
 				</template>
-				<!-- flashed message -->
-				<el-result
-					v-if="isSubmitSuccess"
-					icon="success"
-					:title="$t('submit.submission_received')"
-					:sub-title="$t('submit.thanks_for_submission')"
-				>
-					<template #extra>
-						<el-button type="primary" size="medium" @click="onSubmitAgain">{{
-							$t("submit.submit_another_message")
-						}}</el-button>
-					</template>
-				</el-result>
-				<el-result
-					v-if="isSubmitError"
-					icon="error"
-					:title="$t('submit.submission_failed')"
-					:sub-title="$t('submit.try_again_or_contact')"
-				>
-					<template #extra>
-						<el-button type="primary" size="medium" @click="onSubmitAgain">{{
-							$t("submit.try_again")
-						}}</el-button>
-					</template>
-				</el-result>
-				<!-- Form -->
-				<el-form
-					ref="form"
-					:model="form"
-					:rules="rules"
-					v-if="!isSubmitSuccess && !isSubmitError"
-					label-width="120px"
-				>
-					<!-- twitter -->
-					<el-form-item
-						:label="$t('submit.twitter_id')"
-						prop="twitter"
-						required
+			</el-result>
+			<el-result
+				v-if="isSubmitError"
+				icon="error"
+				:title="$t('submit.submission_failed')"
+				:sub-title="$t('submit.try_again_or_contact')"
+			>
+				<template #extra>
+					<el-button type="primary" size="medium" @click="onSubmitAgain">{{
+						$t("submit.try_again")
+					}}</el-button>
+				</template>
+			</el-result>
+			<!-- Form -->
+			<el-form
+				ref="form"
+				:model="form"
+				:rules="rules"
+				v-if="!isSubmitSuccess && !isSubmitError"
+				label-width="120px"
+			>
+				<!-- twitter -->
+				<el-form-item :label="$t('submit.twitter_id')" prop="twitter" required>
+					<el-input placeholder="@shiokko" v-model="form.twitter" />
+					<div class="instructions">
+						{{ $t("submit.twitter_id_instructions") }}
+					</div>
+				</el-form-item>
+
+				<!-- name -->
+				<el-form-item :label="$t('submit.name')" prop="name" required>
+					<el-input
+						:placeholder="$t('submit.name_example')"
+						v-model="form.name"
+					/>
+					<div class="instructions">
+						{{ $t("submit.name_instructions") }}
+					</div>
+				</el-form-item>
+
+				<!-- location -->
+				<el-form-item :label="$t('submit.location')" prop="location">
+					<el-input
+						:placeholder="$t('submit.location_example')"
+						v-model="form.location"
+					></el-input>
+					<div class="instructions">
+						{{ $t("submit.location_instructions") }}
+					</div>
+				</el-form-item>
+
+				<!-- message -->
+				<el-form-item :label="$t('submit.text_message')" required>
+					<el-input
+						v-model="form.message"
+						:rows="4"
+						type="textarea"
+						show-word-limit
+						maxlength="500"
+					/>
+					<div class="instructions">
+						{{ $t("submit.text_instructions") }}
+					</div>
+				</el-form-item>
+
+				<!-- profile picture -->
+				<el-form-item :label="$t('submit.profile_picture')">
+					<el-input-number v-model="form.pfp" :min="1" :max="8" />
+				</el-form-item>
+
+				<!-- image -->
+				<el-form-item :label="$t('submit.image')">
+					<el-upload
+						ref="imageUpload"
+						:action="actionUrl"
+						list-type="picture-card"
+						:on-preview="handlePictureCardPreview"
+						:on-remove="handlePictureCardRemove"
+						:on-success="handleSuccesfulUpload"
+						:on-change="handleOnChange"
+						:multiple="false"
+						:limit="1"
+						:auto-upload="false"
+						accept="image/gif, image/jpeg, image/png, image/apng"
 					>
-						<el-input placeholder="@shiokko" v-model="form.twitter" />
-						<div class="instructions">
-							{{ $t("submit.twitter_id_instructions") }}
-						</div>
-					</el-form-item>
-
-					<!-- name -->
-					<el-form-item :label="$t('submit.name')" prop="name" required>
-						<el-input
-							:placeholder="$t('submit.name_example')"
-							v-model="form.name"
-						/>
-						<div class="instructions">
-							{{ $t("submit.name_instructions") }}
-						</div>
-					</el-form-item>
-
-					<!-- location -->
-					<el-form-item :label="$t('submit.location')" prop="location">
-						<el-input
-							:placeholder="$t('submit.location_example')"
-							v-model="form.location"
-						></el-input>
-						<div class="instructions">
-							{{ $t("submit.location_instructions") }}
-						</div>
-					</el-form-item>
-
-					<!-- message -->
-					<el-form-item :label="$t('submit.text_message')" required>
-						<el-input
-							v-model="form.message"
-							:rows="4"
-							type="textarea"
-							show-word-limit
-							maxlength="500"
-						/>
-						<div class="instructions">
-							{{ $t("submit.text_instructions") }}
-						</div>
-					</el-form-item>
-
-					<!-- profile picture -->
-					<el-form-item :label="$t('submit.profile_picture')">
-						<el-input-number v-model="form.pfp" :min="1" :max="8" />
-					</el-form-item>
-
-					<!-- image -->
-					<el-form-item :label="$t('submit.image')">
-						<el-upload
-							ref="imageUpload"
-							:action="actionUrl"
-							list-type="picture-card"
-							:on-preview="handlePictureCardPreview"
-							:on-remove="handlePictureCardRemove"
-							:on-success="handleSuccesfulUpload"
-							:on-change="handleOnChange"
-							:multiple="false"
-							:limit="1"
-							:auto-upload="false"
-							accept="image/gif, image/jpeg, image/png, image/apng"
-						>
-							<i class="el-icon-plus"></i>
-						</el-upload>
-						<div>{{ $t("submit.image_instructions") }}</div>
-						<el-dialog center v-model="dialogVisible">
-							<image-card :src="dialogImageUrl" />
-						</el-dialog>
-					</el-form-item>
-					<!-- submit -->
-					<el-form-item>
-						<el-button
-							:loading="isSubmitPending"
-							type="primary"
-							plain
-							@click="onSubmit('form')"
-							>{{ $t("submit.submit") }}</el-button
-						>
-						<div>{{ $t("submit.general_instructions") }}</div>
-					</el-form-item>
-				</el-form>
-			</el-card>
-		</el-col>
+						<i class="el-icon-plus"></i>
+					</el-upload>
+					<div>{{ $t("submit.image_instructions") }}</div>
+					<el-dialog center v-model="dialogVisible">
+						<image-card :src="dialogImageUrl" />
+					</el-dialog>
+				</el-form-item>
+				<!-- submit -->
+				<el-form-item>
+					<el-button
+						:loading="isSubmitPending"
+						type="primary"
+						plain
+						@click="onSubmit('form')"
+						>{{ $t("submit.submit") }}</el-button
+					>
+					<div>{{ $t("submit.general_instructions") }}</div>
+				</el-form-item>
+			</el-form>
+		</el-card>
 	</main>
 </template>
 
 <script>
 import ImageCard from "../components/ImageCard.vue";
+import Menu from "../components/Menu.vue";
 import {
 	ElForm,
 	ElFormItem,
@@ -143,7 +139,6 @@ import {
 	ElButton,
 	ElInput,
 	ElDialog,
-	ElCol,
 	ElCard,
 	ElResult,
 	ElInputNumber,
@@ -158,11 +153,11 @@ export default {
 		ElButton,
 		ElInput,
 		ElDialog,
-		ElCol,
 		ElCard,
 		ElResult,
 		ImageCard,
 		ElInputNumber,
+		Menu,
 	},
 	data: () => ({
 		isSubmitPending: false,
@@ -273,11 +268,31 @@ export default {
 
 <style scoped>
 main {
+	display: grid;
 	width: 100%;
-	max-width: 50rem;
 	margin: auto;
 	padding: 3rem 1rem;
+	gap: 2rem;
 }
+
+@media screen and (min-width: 650px) {
+	main {
+		grid-template-columns: max-content minmax(0, 50rem);
+	}
+}
+
+@media screen and (min-width: 768px) {
+	main {
+		gap: 2rem;
+		padding: 3rem 2rem;
+	}
+}
+@media screen and (min-width: 1440px) {
+	main {
+		padding: 3rem;
+	}
+}
+
 h2 {
 	margin-bottom: 0.75rem;
 }

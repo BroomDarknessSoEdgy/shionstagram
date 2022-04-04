@@ -25,7 +25,7 @@ export default {
 main {
 	position: relative;
 	width: 100%;
-	padding: 3rem 1rem 3rem 1rem;
+	padding: 3rem 1rem;
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 1fr;
