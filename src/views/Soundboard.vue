@@ -129,7 +129,7 @@ section {
 	flex-direction: column;
 	align-items: flex-end;
 	gap: 0.5rem;
-	padding: 1rem;
+	padding: 2rem 1rem;
 	overflow-y: scroll;
 }
 
