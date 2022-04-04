@@ -4,8 +4,8 @@ module.exports = {
 	hide_submission: "Hide Submission",
 	menu: {
 		feed: "Feed",
-		reels: "Reels",
-		favorites: "Favorites",
+		soundboard: "Soundboard",
+		profile: "Profile",
 		create: "Create",
 	},
 	soundboard: {

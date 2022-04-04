@@ -17,13 +17,13 @@
 				<img class="icon" src="../assets/icons/Home.svg" />
 				<span>{{ $t("menu.feed") }}</span>
 			</router-link>
-			<router-link to="/soundboard">
-				<img class="icon" src="../assets/icons/Reels.svg" />
-				<span>{{ $t("menu.reels") }}</span>
-			</router-link>
 			<router-link to="/profile">
 				<img class="icon" src="../assets/icons/Heart.svg" />
-				<span>{{ $t("menu.favorites") }}</span>
+				<span>{{ $t("menu.profile") }}</span>
+			</router-link>
+			<router-link to="/soundboard">
+				<img class="icon" src="../assets/icons/Reels.svg" />
+				<span>{{ $t("menu.soundboard") }}</span>
 			</router-link>
 			<router-link to="/submit">
 				<img class="icon" src="../assets/icons/Add.svg" />
