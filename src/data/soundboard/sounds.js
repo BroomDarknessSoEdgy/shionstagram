@@ -4,10 +4,21 @@ export const sounds = [
 		jp: "Sounds (JP)",
 		buttons: [
 			{
-				en: "Yay",
+				en: "Pokemon",
 				jp: "Yatta",
-				src: "/sounds/yayyyy.mp3",
-				img: "/sounds/logo1.png",
+				srcSet: [
+					"/sounds/pokemon/00_pkmn.ogg",
+					"/sounds/pokemon/01_pkmn.ogg",
+					"/sounds/pokemon/02_pkmn.ogg",
+					"/sounds/pokemon/03_pkmn.ogg",
+					"/sounds/pokemon/31_gugigubaba.ogg",
+					"/sounds/pokemon/62_chyau.ogg",
+					"/sounds/pokemon/63_kyon.ogg",
+					"/sounds/pokemon/64_Kyoon.ogg",
+					"/sounds/pokemon/90_pikachu.ogg",
+					"/sounds/pokemon/gogobo_gobobobobo.ogg",
+				],
+				img: "/sounds/pokemon/art.png",
 			},
 			{
 				en: "Yay",
