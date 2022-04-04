@@ -5,6 +5,7 @@
 			<MessageHistory />
 		</aside>
 		<section class="messages">
+			<h3>{{ $t("soundboard.messages") }}</h3>
 			<TransitionGroup class="sounds" name="sounds" tag="div">
 				<img
 					v-for="message in sentMessages"
@@ -56,9 +57,42 @@ main {
 	grid-template-columns: 1fr;
 }
 
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.sidebar > * {
+	position: static;
+}
+
+section {
+	background-color: white;
+	border-radius: 0.5rem;
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.messages {
+	padding: 1rem;
+	height: min(80vh, 35rem);
+	overflow: auto;
+}
+
 @media screen and (min-width: 650px) {
 	main {
 		grid-template-columns: auto 2fr 1fr;
+	}
+
+	.sidebar {
+		position: sticky;
+		top: 6.5rem;
+	}
+
+	.messages {
+		position: sticky;
+		top: 6.5rem;
+		height: 35rem;
 	}
 }
 
@@ -74,22 +108,11 @@ main {
 	}
 }
 
-.sidebar {
+.sounds {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
-	position: sticky;
-	top: 6.5rem;
-}
-
-.sidebar > * {
-	position: static;
-}
-
-section {
-	background-color: white;
-	border-radius: 0.5rem;
-	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+	align-items: flex-end;
+	gap: 0.5rem;
 }
 
 .sounds-enter-active,

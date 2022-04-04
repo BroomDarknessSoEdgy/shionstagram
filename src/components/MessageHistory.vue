@@ -8,8 +8,8 @@
 					alt=""
 				/>
 				<div class="profile-info">
-					<h4>Akutan（本物）</h4>
-					<p>あてしのこと好きすぎー</p>
+					<h4>{{ $t("soundboard.aqua.name") }}</h4>
+					<p>{{ $t("soundboard.aqua.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
@@ -18,8 +18,8 @@
 					alt=""
 				/>
 				<div class="profile-info">
-					<h4>Senchou</h4>
-					<p>Chu Chu ❤ ❤</p>
+					<h4>{{ $t("soundboard.marine.name") }}</h4>
+					<p>{{ $t("soundboard.marine.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
@@ -28,8 +28,8 @@
 					alt=""
 				/>
 				<div class="profile-info">
-					<h4>Okaton</h4>
-					<p>僕でよくない？</p>
+					<h4>{{ $t("soundboard.okayu.name") }}</h4>
+					<p>{{ $t("soundboard.okayu.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
@@ -38,8 +38,10 @@
 					alt=""
 				/>
 				<div class="profile-info">
-					<h4>Wagahai</h4>
-					<p>Valorantをしよう！！！！</p>
+					<h4>{{ $t("soundboard.laplus.name") }}</h4>
+					<p>
+						{{ $t("soundboard.laplus.message") }}
+					</p>
 				</div>
 			</div>
 			<div class="profile">
@@ -48,8 +50,8 @@
 					alt=""
 				/>
 				<div class="profile-info">
-					<h4>Coco</h4>
-					<p>シオン yo</p>
+					<h4>{{ $t("soundboard.fubuki.name") }}</h4>
+					<p>{{ $t("soundboard.fubuki.message") }}</p>
 				</div>
 			</div>
 			<div class="profile">
@@ -58,8 +60,8 @@
 					alt=""
 				/>
 				<div class="profile-info">
-					<h4>Botan</h4>
-					<p>結婚する？</p>
+					<h4>{{ $t("soundboard.chloe.name") }}</h4>
+					<p>{{ $t("soundboard.chloe.message") }}</p>
 				</div>
 			</div>
 		</div>
@@ -84,7 +86,6 @@ aside {
 
 .profile {
 	display: flex;
-	align-items: center;
 }
 
 .profile img {
@@ -95,6 +96,7 @@ aside {
 
 .profile-info {
 	margin-left: 1rem;
+	margin-top: 0.25rem;
 }
 
 .profile-info p {
@@ -103,5 +105,9 @@ aside {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.profile-info:hover p {
+	white-space: normal;
 }
 </style>

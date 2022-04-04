@@ -10,6 +10,32 @@ module.exports = {
 	},
 	soundboard: {
 		history: "History",
+		messages: "Messages",
+		aqua: {
+			name: "Minato Aqua",
+			message: "Shion-chan congrats on reaching 1 million!!",
+		},
+		marine: {
+			name: "Houshou Marine",
+			message: "Shion-tan!!! Congratulations! That's awesome!",
+		},
+		okayu: {
+			name: "Nekomata Okayu",
+			message: "Shion, congratulations!!",
+		},
+		laplus: {
+			name: "Laplus Darkness",
+			message: "Congrats",
+		},
+		fubuki: {
+			name: "Shirakami Fubuki",
+			message: "Shion-chan!!! Congratulations!!!!",
+		},
+		chloe: {
+			name: "Sakamata Chloe",
+			message:
+				"Shion-senpai!! That's amazing!!! Congratulations on getting 1 million!!!!!",
+		},
 	},
 	submit: {
 		message_form_title: "Shion 1 Million Subscribers Submission",

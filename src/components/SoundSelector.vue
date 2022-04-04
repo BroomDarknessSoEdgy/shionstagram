@@ -50,6 +50,7 @@ export default {
 <style scoped>
 section {
 	overflow: hidden;
+	height: max-content;
 }
 
 button {
@@ -62,7 +63,7 @@ button {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 1.5rem;
-	box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
+	border-bottom: var(--purple-700) 2px solid;
 }
 
 .tabs button {
@@ -104,6 +105,13 @@ button {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@media screen and (min-width: 650px) {
+	section {
+		position: sticky;
+		top: 6.5rem;
 	}
 }
 
