@@ -53,6 +53,7 @@ module.exports = {
 			"Location will be displayed along with your message. It does not need to be your real location.",
 		text_message: "Text Message",
 		text: "Text",
+		profile_picture: "Profile Picture",
 		image: "Image",
 		image_instructions:
 			"Only one image can be added. Max. 5MB jpeg/png/gif/apng files.",

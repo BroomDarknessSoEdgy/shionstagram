@@ -90,6 +90,11 @@
 						</div>
 					</el-form-item>
 
+					<!-- profile picture -->
+					<el-form-item :label="$t('submit.profile_picture')">
+						<el-input-number v-model="form.pfp" :min="1" :max="8" />
+					</el-form-item>
+
 					<!-- image -->
 					<el-form-item :label="$t('submit.image')">
 						<el-upload
@@ -141,6 +146,7 @@ import {
 	ElCol,
 	ElCard,
 	ElResult,
+	ElInputNumber,
 } from "element-plus";
 
 export default {
@@ -156,6 +162,7 @@ export default {
 		ElCard,
 		ElResult,
 		ImageCard,
+		ElInputNumber,
 	},
 	data: () => ({
 		isSubmitPending: false,
@@ -170,6 +177,7 @@ export default {
 			chosenMediaType: "image",
 			name: "",
 			message: "",
+			pfp: 1,
 			image: undefined,
 		},
 		rules: {
@@ -219,11 +227,11 @@ export default {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					image: this.form.image,
 					twitter: this.form.twitter,
-					message: this.form.message,
 					name: this.form.name,
 					location: this.form.location,
+					message: this.form.message,
+					image: this.form.image,
 				}),
 			})
 				.then(async (response) => {
