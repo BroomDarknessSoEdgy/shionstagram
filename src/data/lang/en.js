@@ -24,7 +24,7 @@ module.exports = {
 			message: "Shion, congratulations!!",
 		},
 		laplus: {
-			name: "Laplus Darkness",
+			name: "La+ Darknesss",
 			message: "Congrats",
 		},
 		fubuki: {
