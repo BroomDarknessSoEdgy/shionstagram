@@ -1,24 +1,76 @@
 <template>
 	<main>
 		<Menu />
-		<div class="profile-card">
-			<img class="avatar-img" :alt="alt" :src="avatarSrc" />
-			<section class="profile-body">
-				<h2>{{ name }}</h2>
-				<ul class="profile-stats">
-					<li>
-						<span>{{ stat1 }}</span> post
-					</li>
-					<li>
-						<span>{{ stat2 }}</span> followers
-					</li>
-					<li>
-						<span>{{ stat3 }}</span> following
-					</li>
-				</ul>
-				<div class="description">{{ description }}</div>
+		<section class="profile">
+			<section class="profile-card">
+				<img class="avatar-img" :alt="alt" :src="avatarSrc" />
+				<div class="profile-body">
+					<h2>{{ name }}</h2>
+					<ul class="profile-stats">
+						<li>
+							<span>{{ stat1 }}</span> post
+						</li>
+						<li>
+							<span>{{ stat2 }}</span> followers
+						</li>
+						<li>
+							<span>{{ stat3 }}</span> following
+						</li>
+					</ul>
+					<div class="description">{{ description }}</div>
+				</div>
 			</section>
-		</div>
+			<hr />
+			<section class="clip">
+				<iframe
+					width="560"
+					height="315"
+					src="https://www.youtube-nocookie.com/embed/AjbkMNO-JVQ"
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod neque
+					assumenda ipsum placeat cupiditate reiciendis deserunt laboriosam vel
+					esse dolorem, eaque dolores ullam dicta odio! Adipisci atque, saepe
+					maxime nisi ex eius dolor reiciendis at eveniet officia deserunt odit!
+					Consectetur doloremque reprehenderit ducimus repudiandae dignissimos
+					modi laudantium, quas suscipit nihil!
+				</p>
+			</section>
+			<hr />
+			<section class="credits">
+				<h3>Credits</h3>
+				<div class="credits-body">
+					<div class="credits-col">
+						<h4>Arsits</h4>
+						<ul>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+						</ul>
+					</div>
+					<div class="credits-col">
+						<h4>Arsits</h4>
+						<ul>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+						</ul>
+					</div>
+					<div class="credits-col">
+						<h4>Arsits</h4>
+						<ul>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</section>
 	</main>
 </template>
 
@@ -75,9 +127,9 @@ main {
 	}
 }
 
-.card-list {
-	display: flex;
-	justify-content: center;
+.profile {
+	color: var(--purple-300);
+	max-width: 55rem;
 }
 
 .profile-card {
@@ -85,9 +137,14 @@ main {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 2rem;
-	width: 100%;
-	max-width: 55rem;
+	width: max-content;
 	margin: 0 auto 3rem auto;
+	color: var(--purple-500);
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(6px);
+	border: 1px solid white;
+	padding: 2rem;
+	border-radius: 0.5rem;
 }
 
 .avatar-img {
@@ -99,33 +156,75 @@ main {
 }
 
 .profile-body {
-	max-width: 45ch;
-}
-
-section {
 	display: flex;
+	max-width: 45ch;
 	flex-direction: column;
 	padding: 0;
+}
+
+.profile-body ul {
+	display: flex;
+	list-style: none;
+	margin-bottom: 1.5rem;
+}
+
+.profile-body li {
+	margin-right: 2.5rem;
+}
+
+.profile-body li span {
+	font-weight: bold;
+}
+
+.clip {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 2rem;
+}
+
+.clip p {
+	max-width: 70ch;
+}
+
+.credits {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 2rem;
+}
+
+.credits-body {
+	display: flex;
+	gap: 2rem;
+}
+
+.credits-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 2rem;
+}
+
+hr {
+	width: 100%;
+	border: 0;
+	height: 2px;
+	background-color: var(--purple-500);
+	margin: 2rem 0;
+	border-radius: 999px;
 }
 
 h2 {
 	font-size: 2rem;
 	font-weight: 500;
 	margin-bottom: 1.5rem;
-}
-
-ul {
-	display: flex;
-	list-style: none;
-	margin-bottom: 1.5rem;
-}
-
-li {
-	margin-right: 2.5rem;
-}
-
-li span {
-	font-weight: bold;
 }
 
 button {
