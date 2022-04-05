@@ -1,7 +1,7 @@
 <template>
 	<main>
 		<Menu />
-		<el-card>
+		<el-card class="submit">
 			<!-- header -->
 			<template #header>
 				<h2>{{ $t("submit.message_form_title") }}</h2>
@@ -277,7 +277,7 @@ main {
 
 @media screen and (min-width: 650px) {
 	main {
-		grid-template-columns: max-content minmax(0, 50rem);
+		grid-template-columns: max-content 1fr;
 	}
 }
 
@@ -291,6 +291,12 @@ main {
 	main {
 		padding: 3rem;
 	}
+}
+
+.submit {
+	width: 100%;
+	max-width: 50rem;
+	margin: auto;
 }
 
 h2 {

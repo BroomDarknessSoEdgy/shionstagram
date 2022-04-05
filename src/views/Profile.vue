@@ -59,7 +59,7 @@ main {
 
 @media screen and (min-width: 650px) {
 	main {
-		grid-template-columns: max-content minmax(0, 55rem);
+		grid-template-columns: max-content 1fr;
 	}
 }
 
@@ -86,7 +86,8 @@ main {
 	flex-wrap: wrap;
 	gap: 2rem;
 	width: 100%;
-	margin-bottom: 3rem;
+	max-width: 55rem;
+	margin: 0 auto 3rem auto;
 }
 
 .avatar-img {

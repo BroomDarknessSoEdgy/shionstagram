@@ -29,49 +29,54 @@ export default {
 		},
 	},
 	mounted() {
-		lottie.loadAnimation({
-			container: this.$refs.loginBg,
-			animationData: bgAnimation,
-			loop: loop,
-			renderer: "svg",
-			rendererSettings: {
-				preserveAspectRatio: "xMidYMid slice",
-			},
-		});
-		lottie.loadAnimation({
-			container: this.$refs.loginForm,
-			animationData: formAnimation,
-			loop: loop,
-			renderer: "svg",
-			rendererSettings: {
-				preserveAspectRatio: "none",
-			},
-		});
-		lottie.loadAnimation({
-			container: this.$refs.loginCursor,
-			animationData: cursorAnimation,
-			loop: loop,
-			renderer: "svg",
-			rendererSettings: {
-				preserveAspectRatio: "xMidYMid slice",
-			},
-		});
-		// binding to a variable, that we can call a function on completion
-		const transition = lottie.loadAnimation({
-			container: this.$refs.loginTransition,
-			animationData: transitionAnimation,
-			loop: loop,
-			renderer: "svg",
-			rendererSettings: {
-				preserveAspectRatio: "xMidYMid slice",
-			},
-		});
-		transition.onComplete = () => {
-			this.callback();
-		};
+		this.playAnimation();
 	},
 	unmounted() {
 		lottie.destroy();
+	},
+	methods: {
+		playAnimation() {
+			lottie.loadAnimation({
+				container: this.$refs.loginBg,
+				animationData: bgAnimation,
+				loop: loop,
+				renderer: "svg",
+				rendererSettings: {
+					preserveAspectRatio: "xMidYMid slice",
+				},
+			});
+			lottie.loadAnimation({
+				container: this.$refs.loginForm,
+				animationData: formAnimation,
+				loop: loop,
+				renderer: "svg",
+				rendererSettings: {
+					preserveAspectRatio: "none",
+				},
+			});
+			lottie.loadAnimation({
+				container: this.$refs.loginCursor,
+				animationData: cursorAnimation,
+				loop: loop,
+				renderer: "svg",
+				rendererSettings: {
+					preserveAspectRatio: "xMidYMid slice",
+				},
+			});
+			// binding to a variable, that we can call a function on completion
+			const transition = lottie.loadAnimation({
+				container: this.$refs.loginTransition,
+				animationData: transitionAnimation,
+				loop: loop,
+				renderer: "svg",
+				rendererSettings: {
+					preserveAspectRatio: "xMidYMid slice",
+				},
+			});
+			transition.onComplete = () => {
+				this.callback();
+			};
+		},
 	},
 };
 </script>
