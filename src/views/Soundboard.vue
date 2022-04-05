@@ -14,6 +14,7 @@
 						v-for="message in sentMessages"
 						:key="message.id"
 						:src="message.img"
+						class="sound-art"
 						alt=""
 					/>
 				</TransitionGroup>
@@ -78,6 +79,7 @@ main {
 }
 
 section {
+	overflow: hidden;
 	background-color: white;
 	border-radius: 0.5rem;
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
@@ -150,6 +152,10 @@ section {
 
 .sounds::-webkit-scrollbar-button {
 	display: none;
+}
+
+.sound-art {
+	max-width: 10rem;
 }
 
 .sounds-enter-active,

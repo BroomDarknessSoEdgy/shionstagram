@@ -36,15 +36,26 @@ export default {
 
 <style>
 .sound-button {
+	display: flex;
+	justify-content: center;
 	aspect-ratio: 1;
 	border: none;
 	transition: transform 75ms ease-out;
-	background: transparent;
+	background: var(--purple-800);
+	border: 2px solid var(--purple-700);
+	padding: 0;
+	border-radius: 50%;
+	overflow: hidden;
 }
 
 .sound-button.textOnly {
-	background: rgb(218, 218, 218);
-	border-radius: 50%;
+	padding: 0.25rem;
+	align-items: center;
+}
+
+.sound-button.withImg {
+	padding: 0.125rem 0.125rem 0 0.125rem;
+	align-items: flex-end;
 }
 
 .sound-button:hover {
