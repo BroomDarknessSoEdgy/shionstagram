@@ -226,6 +226,7 @@ export default {
 					name: this.form.name,
 					location: this.form.location,
 					message: this.form.message,
+					pfp: this.form.pfp,
 					image: this.form.image,
 				}),
 			})
