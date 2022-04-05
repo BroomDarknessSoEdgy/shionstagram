@@ -128,7 +128,13 @@ main {
 }
 
 .profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	margin: 0 auto;
 	color: var(--purple-300);
+	width: 100%;
 	max-width: 55rem;
 }
 
@@ -138,7 +144,6 @@ main {
 	flex-wrap: wrap;
 	gap: 2rem;
 	width: max-content;
-	margin: 0 auto 3rem auto;
 	color: var(--purple-500);
 	background: rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(6px);
@@ -217,7 +222,6 @@ hr {
 	border: 0;
 	height: 2px;
 	background-color: var(--purple-500);
-	margin: 2rem 0;
 	border-radius: 999px;
 }
 
