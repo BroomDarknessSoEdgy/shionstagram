@@ -1,16 +1,29 @@
 module.exports = {
 	murasaki_shion: "Murasaki Shion",
 	virtual_tokyo_japan: "Tokyo, Japan",
-	hide_submission: "Hide Submission",
 	menu: {
 		feed: "Feed",
 		soundboard: "Soundboard",
 		profile: "Profile",
-		create: "Create",
+		submit: "Submit",
+	},
+	profile: {
+		posts: "posts",
+		followers: "followers",
+		following: "following",
+		bio: "Murasaki Shion is a Vtuber who debuted on August 17th 2018 as a member of Hololive's 2nd generation. She's a self proclaimed genius who graduated from Harvard and whose specialty is dark magic.\n\nShe's more commonly known as a brat who likes to make fun of people, but inside she's a really nice and kind girl who thinks a lot about others. Although her proficiency in dark magic has not been showcased, she certainly has the power to make everyone smile.",
+		clip_description:
+			'This project has been started with the passing thought of "Wouldn\'t it be funny to make something that Shion hates to celebrate her getting 1 million subcribers?" and so we went on making an Instagram-like site gathering messages of fans as well as other features for the witch we all deeply appreciate. We wanted to make something original that was more than just a place that gathered fan messages, and got the help of multiple artists for the soundboard. People from the EN Shiokko server also helped gathering fun sound clips. All in all, this is the result of fans, JP and overseas, who wanted to show their appreciation to Murasaki Shion who worked really hard to get where she is now. And again, congratulations for getting 1 million subscribers.',
+		credits: "Credits",
+		artists: "Artists",
+		developers: "Developers",
+		leads: "Leads",
+		assistants: "Assistants",
 	},
 	soundboard: {
 		history: "History",
 		messages: "Messages",
+		sounds: "Sounds",
 		aqua: {
 			name: "Minato Aqua",
 			message: "Shion-chan congrats on reaching 1 million!!",
@@ -41,31 +54,35 @@ module.exports = {
 		message_form_title: "Shion 1 Million Subscribers Submission",
 		form_description:
 			"Welcome to international Shiokko 1 million celebration project! You can submit a message with illustration to Shion using this form! The message will be displayed on the 1 million subscribers project website.",
+
 		twitter_id: "Twitter ID",
 		twitter_id_instructions: "Twitter ID in the format {'@'}shiokko.",
+
 		name: "Nickname",
 		name_example: "Ultra Shiokko",
 		name_instructions:
 			"Nickname will be displayed along with your message. It does not need to be your real name.",
+
 		location: "Location",
 		location_example: "Tokyo, Japan",
 		location_instructions:
 			"Location will be displayed along with your message. It does not need to be your real location.",
+
 		text_message: "Text Message",
-		text: "Text",
+		text_instructions: "Your message to Shion. Maximum of 500 characters.",
+
 		profile_picture: "Profile Picture",
+
 		image: "Image",
 		image_instructions:
 			"Only one image can be added. Max. 5MB jpeg/png/gif/apng files.",
-		text_instructions: "Max. 500 characters message to Shion.",
+
 		submit: "Submit",
 		submission_received: "Submission Received",
+
 		thanks_for_submission: "Thank you for submitting to Shiongram!",
-		try_again_or_contact:
-			"Sorry! Please try again or contact us at {'@'}something.",
-		submission_failed: "Submission Failed",
-		try_again: "Try Again",
-		submit_another_message: "Submit Another Message",
-		general_instructions: "Twitter ID, nickname and text message are required.",
+		submission_failed: "Submission failed",
+		try_again: "Try again",
+		submit_another_message: "Submit another message",
 	},
 };

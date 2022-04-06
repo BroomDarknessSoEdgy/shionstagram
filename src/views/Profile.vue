@@ -8,16 +8,16 @@
 					<h2>{{ name }}</h2>
 					<ul class="profile-stats">
 						<li>
-							<span>{{ posts }}</span> posts
+							<span>{{ posts }}</span> {{ $t("profile.posts") }}
 						</li>
 						<li>
-							<span>{{ followers }}</span> followers
+							<span>{{ followers }}</span> {{ $t("profile.followers") }}
 						</li>
 						<li>
-							<span>{{ following }}</span> following
+							<span>{{ following }}</span> {{ $t("profile.following") }}
 						</li>
 					</ul>
-					<div class="description">{{ description }}</div>
+					<div class="description">{{ $t("profile.bio") }}</div>
 					<div class="profile-socials">
 						<a
 							href="https://www.youtube.com/channel/UCXTpFs_3PqI41qX2d9tL2Rw"
@@ -45,17 +45,7 @@
 					allowfullscreen
 				></iframe>
 				<p>
-					This project has been started with the passing thought of "Wouldn't it
-					be funny to make something that Shion hates to celebrate her getting 1
-					million subcribers?" and so we went on making an Instagram-like site
-					gathering messages of fans as well as other features for the witch we
-					all deeply appreciate. We wanted to make something original that was
-					more than just a place that gathered fan messages, and got the help of
-					multiple artists for the soundboard. People from the EN Shiokko server
-					also helped gathering fun sound clips. All in all, this is the result
-					of fans, JP and overseas, who wanted to show their appreciation to
-					Murasaki Shion who worked really hard to get where she is now. And
-					again, congratulations for getting 1 million subscribers.
+					{{ $t("profile.clip_description") }}
 				</p>
 			</section>
 			<hr />
@@ -63,7 +53,7 @@
 				<h3>Credits</h3>
 				<div class="credits-body">
 					<div class="credits-col">
-						<h4>Arsits</h4>
+						<h4>{{ $t("profile.artists") }}</h4>
 						<ul>
 							<li>matthew tao</li>
 							<li>matthew tao</li>
@@ -71,7 +61,7 @@
 						</ul>
 					</div>
 					<div class="credits-col">
-						<h4>Arsits</h4>
+						<h4>{{ $t("profile.developers") }}</h4>
 						<ul>
 							<li>matthew tao</li>
 							<li>matthew tao</li>
@@ -79,7 +69,15 @@
 						</ul>
 					</div>
 					<div class="credits-col">
-						<h4>Arsits</h4>
+						<h4>{{ $t("profile.leads") }}</h4>
+						<ul>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+							<li>matthew tao</li>
+						</ul>
+					</div>
+					<div class="credits-col">
+						<h4>{{ $t("profile.assistants") }}</h4>
 						<ul>
 							<li>matthew tao</li>
 							<li>matthew tao</li>
@@ -111,8 +109,6 @@ export default {
 		posts: 0,
 		followers: "1M",
 		following: 0,
-		description:
-			"Murasaki Shion is a Vtuber who debuted on August 17th 2018 as a member of Hololive's 2nd generation. She's a self proclaimed genius who graduated from Harvard and whose specialty is dark magic.\n\nShe's more commonly known as a brat who likes to make fun of people, but inside she's a really nice and kind girl who thinks a lot about others. Although her proficiency in dark magic has not been showcased, she certainly has the power to make everyone smile.",
 	}),
 };
 </script>

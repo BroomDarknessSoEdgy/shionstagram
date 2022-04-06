@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<div class="tabs">
-			<h4>Sounds</h4>
+			<h4>{{ $t("soundboard.sounds") }}</h4>
 		</div>
 		<TransitionGroup class="sounds" name="sounds" tag="div">
 			<SoundButton

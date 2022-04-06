@@ -14,7 +14,11 @@
 		</div>
 		<nav>
 			<router-link to="/">
-				<img class="icon" src="../assets/icons/Home.svg" />
+				<img
+					class="icon"
+					src="../assets/icons/Home.svg"
+					style="transform: scale(1.15)"
+				/>
 				<span>{{ $t("menu.feed") }}</span>
 			</router-link>
 			<router-link to="/profile">
@@ -30,8 +34,8 @@
 				<span>{{ $t("menu.soundboard") }}</span>
 			</router-link>
 			<router-link to="/submit">
-				<img class="icon" src="../assets/icons/Add.svg" />
-				<span>{{ $t("menu.create") }}</span>
+				<img class="icon" src="../assets/icons/Send.svg" />
+				<span>{{ $t("menu.submit") }}</span>
 			</router-link>
 		</nav>
 	</aside>

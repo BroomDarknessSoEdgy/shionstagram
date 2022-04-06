@@ -1,14 +1,13 @@
 <template>
 	<main>
 		<Menu />
-		<el-card class="submit">
-			<!-- header -->
-			<template #header>
+		<section class="submit">
+			<header>
 				<h2>{{ $t("submit.message_form_title") }}</h2>
 				<p class="form_description">
 					{{ $t("submit.form_description") }}
 				</p>
-			</template>
+			</header>
 			<!-- flashed message -->
 			<el-result
 				v-if="isSubmitSuccess"
@@ -106,12 +105,28 @@
 						:auto-upload="false"
 						accept="image/gif, image/jpeg, image/png, image/apng"
 					>
-						<i class="el-icon-plus"></i>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+						>
+							<path
+								d="M12 4V20M20 12L4 12"
+								stroke="#A175A8"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
 					</el-upload>
-					<div>{{ $t("submit.image_instructions") }}</div>
 					<el-dialog center v-model="dialogVisible">
 						<image-card :src="dialogImageUrl" />
 					</el-dialog>
+					<div class="instructions img">
+						{{ $t("submit.image_instructions") }}
+					</div>
 				</el-form-item>
 				<!-- submit -->
 				<el-form-item>
@@ -120,12 +135,12 @@
 						type="primary"
 						plain
 						@click="onSubmit('form')"
-						>{{ $t("submit.submit") }}</el-button
 					>
-					<div>{{ $t("submit.general_instructions") }}</div>
+						{{ $t("submit.submit") }}
+					</el-button>
 				</el-form-item>
 			</el-form>
-		</el-card>
+		</section>
 	</main>
 </template>
 
@@ -139,7 +154,6 @@ import {
 	ElButton,
 	ElInput,
 	ElDialog,
-	ElCard,
 	ElResult,
 	ElInputNumber,
 } from "element-plus";
@@ -153,7 +167,6 @@ export default {
 		ElButton,
 		ElInput,
 		ElDialog,
-		ElCard,
 		ElResult,
 		ImageCard,
 		ElInputNumber,
@@ -297,15 +310,33 @@ main {
 	width: 100%;
 	max-width: 50rem;
 	margin: auto;
+	background-color: white;
+	padding: 2rem 1.5rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+header {
+	margin-bottom: 2rem;
 }
 
 h2 {
 	margin-bottom: 0.75rem;
 }
+
+label {
+	color: inherit;
+}
+
 .instructions {
 	margin-top: 0.5rem;
 	line-height: 1.6;
 }
+
+.instructions.img {
+	width: 100%;
+}
+
 .el-form-item {
 	margin-bottom: 2.5rem;
 }
