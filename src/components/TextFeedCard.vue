@@ -43,7 +43,7 @@ export default {
 	border-radius: 0.5rem;
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 	overflow: hidden;
-	cursor: pointer;
+	cursor: url("../assets/cursor/wand_active.png"), pointer;
 }
 
 .card-header {

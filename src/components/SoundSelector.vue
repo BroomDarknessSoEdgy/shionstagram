@@ -53,10 +53,6 @@ section {
 	height: max-content;
 }
 
-button {
-	cursor: pointer;
-}
-
 .tabs {
 	display: flex;
 	gap: 1rem;

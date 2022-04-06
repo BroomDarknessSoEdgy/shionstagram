@@ -107,6 +107,12 @@ h6 {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: var(--purple-600);
+	cursor: url("./assets/cursor/wand.png"), auto;
+}
+
+button,
+a {
+	cursor: url("./assets/cursor/wand_active.png"), pointer;
 }
 
 body::-webkit-scrollbar {

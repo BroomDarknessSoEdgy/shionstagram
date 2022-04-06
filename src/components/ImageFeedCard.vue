@@ -39,7 +39,7 @@ export default {
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 	overflow: hidden;
 	background-color: var(--purple-800);
-	cursor: pointer;
+	cursor: url("../assets/cursor/wand_active.png"), pointer;
 }
 
 .card-header {
