@@ -2,21 +2,18 @@
 	<main>
 		<Menu />
 		<FeedCardList />
-		<FeedLayoutSidebar />
 	</main>
 </template>
 
 <script>
 import Menu from "../components/Menu.vue";
 import FeedCardList from "../components/FeedCardList.vue";
-import FeedLayoutSidebar from "../components/FeedLayoutSidebar.vue";
 
 export default {
 	name: "Index",
 	components: {
 		Menu,
 		FeedCardList,
-		FeedLayoutSidebar,
 	},
 };
 </script>
@@ -40,20 +37,13 @@ main {
 @media screen and (min-width: 768px) {
 	main {
 		gap: 2rem;
-		padding: 3rem 3.5rem 3rem 2rem;
-	}
-}
-
-@media screen and (min-width: 960px) {
-	main {
-		gap: 2rem;
-		padding: 3rem 5.5rem 3rem 2rem;
+		padding: 3rem 2rem;
 	}
 }
 
 @media screen and (min-width: 1440px) {
 	main {
-		padding: 3rem 7.5rem 3rem 3rem;
+		padding: 3rem 3rem;
 	}
 }
 </style>

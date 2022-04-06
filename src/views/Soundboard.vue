@@ -66,12 +66,16 @@ main {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 1fr;
+	grid-template-areas:
+		"sidebar"
+		"messages"
+		"sounds";
 }
 
 .sidebar {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 1rem;
 	grid-area: sidebar;
 }
 
@@ -109,14 +113,19 @@ section {
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 960px) {
 	main {
 		grid-template-columns: auto 2fr 1fr;
 		grid-template-areas: "sidebar messages sounds";
-		gap: 2rem;
 		padding: 3rem 2rem;
+		gap: 2rem;
+	}
+
+	.sidebar {
+		gap: 2rem;
 	}
 }
+
 @media screen and (min-width: 1440px) {
 	main {
 		padding: 3rem;

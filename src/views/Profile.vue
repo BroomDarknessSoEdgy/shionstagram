@@ -45,12 +45,17 @@
 					allowfullscreen
 				></iframe>
 				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod neque
-					assumenda ipsum placeat cupiditate reiciendis deserunt laboriosam vel
-					esse dolorem, eaque dolores ullam dicta odio! Adipisci atque, saepe
-					maxime nisi ex eius dolor reiciendis at eveniet officia deserunt odit!
-					Consectetur doloremque reprehenderit ducimus repudiandae dignissimos
-					modi laudantium, quas suscipit nihil!
+					This project has been started with the passing thought of "Wouldn't it
+					be funny to make something that Shion hates to celebrate her getting 1
+					million subcribers?" and so we went on making an Instagram-like site
+					gathering messages of fans as well as other features for the witch we
+					all deeply appreciate. We wanted to make something original that was
+					more than just a place that gathered fan messages, and got the help of
+					multiple artists for the soundboard. People from the EN Shiokko server
+					also helped gathering fun sound clips. All in all, this is the result
+					of fans, JP and overseas, who wanted to show their appreciation to
+					Murasaki Shion who worked really hard to get where she is now. And
+					again, congratulations for getting 1 million subscribers.
 				</p>
 			</section>
 			<hr />
@@ -145,7 +150,7 @@ main {
 	align-items: center;
 	gap: 4rem;
 	margin: 0 auto;
-	color: var(--purple-300);
+	color: var(--purple-200);
 	width: 100%;
 	max-width: 55rem;
 }

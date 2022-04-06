@@ -18,7 +18,11 @@
 				<span>{{ $t("menu.feed") }}</span>
 			</router-link>
 			<router-link to="/profile">
-				<img class="icon" src="../assets/icons/Heart.svg" />
+				<img
+					class="icon"
+					src="../assets/icons/Profile_icon.png"
+					style="transform: scale(1.15)"
+				/>
 				<span>{{ $t("menu.profile") }}</span>
 			</router-link>
 			<router-link to="/soundboard">
