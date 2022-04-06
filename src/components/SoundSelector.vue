@@ -1,19 +1,12 @@
 <template>
 	<section>
 		<div class="tabs">
-			<button
-				v-for="(category, i) in sounds"
-				:key="category.en"
-				:active="i === currentCategory"
-				@click="() => (currentCategory = i)"
-			>
-				{{ category.en }}
-			</button>
+			<h4>Sounds</h4>
 		</div>
 		<TransitionGroup class="sounds" name="sounds" tag="div">
 			<SoundButton
 				@send="(img) => bubble(img)"
-				v-for="button in sounds[currentCategory].buttons"
+				v-for="button in sounds.buttons"
 				:key="button.en"
 				:button="button"
 			/>
@@ -33,11 +26,6 @@ export default {
 	props: {
 		sounds: Array,
 	},
-	data() {
-		return {
-			currentCategory: 0,
-		};
-	},
 	methods: {
 		bubble(img) {
 			this.$emit("send", { img, id: messagesSent });
@@ -49,6 +37,7 @@ export default {
 
 <style scoped>
 section {
+	grid-area: sounds;
 	overflow: hidden;
 	height: max-content;
 }
@@ -101,13 +90,6 @@ section {
 	}
 	100% {
 		opacity: 1;
-	}
-}
-
-@media screen and (min-width: 650px) {
-	section {
-		position: sticky;
-		top: 6.5rem;
 	}
 }
 

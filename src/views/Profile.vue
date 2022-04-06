@@ -8,13 +8,13 @@
 					<h2>{{ name }}</h2>
 					<ul class="profile-stats">
 						<li>
-							<span>{{ stat1 }}</span> post
+							<span>{{ posts }}</span> posts
 						</li>
 						<li>
-							<span>{{ stat2 }}</span> followers
+							<span>{{ followers }}</span> followers
 						</li>
 						<li>
-							<span>{{ stat3 }}</span> following
+							<span>{{ following }}</span> following
 						</li>
 					</ul>
 					<div class="description">{{ description }}</div>
@@ -23,11 +23,11 @@
 			<hr />
 			<section class="clip">
 				<iframe
-					width="560"
-					height="315"
 					src="https://www.youtube-nocookie.com/embed/AjbkMNO-JVQ"
 					title="YouTube video player"
 					frameborder="0"
+					style="aspect-ratio: 16 / 9"
+					class="clip-embed"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
 				></iframe>
@@ -90,11 +90,11 @@ export default {
 		avatarSrc:
 			"https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj",
 		name: "murasakishionch",
-		stat1: 0,
-		stat2: 1000000,
-		stat3: 0,
+		posts: 0,
+		followers: "1M",
+		following: 0,
 		description:
-			"Murasaku Shion, a witch dressed in purple who has the power to make everyone smile. Also a genius who graduated from Harvard.",
+			"Murasaki Shion is a Vtuber who debuted on August 17th 2018 as a member of Hololive's 2nd generation. She's a self proclaimed genius who graduated from Harvard and whose specialty is dark magic.\n\nShe's more commonly known as a brat who likes to make fun of people, but inside she's a really nice and kind girl who thinks a lot about others. Although her proficiency in dark magic has not been showcased, she certainly has the power to make everyone smile.",
 		imageSet: [],
 	}),
 };
@@ -131,7 +131,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 2rem;
+	gap: 4rem;
 	margin: 0 auto;
 	color: var(--purple-300);
 	width: 100%;
@@ -143,9 +143,8 @@ main {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 2rem;
-	width: max-content;
-	color: var(--purple-500);
-	background: rgba(255, 255, 255, 0.2);
+	color: var(--purple-400);
+	background: hsla(292, 30%, 80%, 0.2);
 	backdrop-filter: blur(6px);
 	border: 1px solid white;
 	padding: 2rem;
@@ -162,9 +161,10 @@ main {
 
 .profile-body {
 	display: flex;
-	max-width: 45ch;
+	max-width: 60ch;
 	flex-direction: column;
 	padding: 0;
+	white-space: pre-line;
 }
 
 .profile-body ul {
@@ -188,6 +188,12 @@ main {
 	align-items: center;
 	width: 100%;
 	gap: 2rem;
+}
+
+.clip-embed {
+	aspect-ratio: 16 / 9;
+	height: 100%;
+	width: 100%;
 }
 
 .clip p {

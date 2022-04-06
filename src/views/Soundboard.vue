@@ -72,6 +72,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+	grid-area: sidebar;
 }
 
 .sidebar > * {
@@ -86,9 +87,11 @@ section {
 }
 
 .messages {
+	grid-area: messages;
 	display: flex;
 	flex-direction: column;
-	height: min(80vh, 35rem);
+	height: 90vh;
+	min-height: 35rem;
 }
 
 .messages header {
@@ -99,23 +102,17 @@ section {
 
 @media screen and (min-width: 650px) {
 	main {
-		grid-template-columns: auto 2fr 1fr;
-	}
-
-	.sidebar {
-		position: sticky;
-		top: 6.5rem;
-	}
-
-	.messages {
-		position: sticky;
-		top: 6.5rem;
-		height: 35rem;
+		grid-template-columns: auto 1fr;
+		grid-template-areas:
+			"sidebar messages"
+			"sidebar sounds";
 	}
 }
 
 @media screen and (min-width: 768px) {
 	main {
+		grid-template-columns: auto 2fr 1fr;
+		grid-template-areas: "sidebar messages sounds";
 		gap: 2rem;
 		padding: 3rem 2rem;
 	}
