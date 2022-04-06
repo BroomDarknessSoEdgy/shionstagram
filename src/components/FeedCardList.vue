@@ -25,9 +25,14 @@
 			/>
 		</div>
 	</section>
-	<ExpandedPost
+	<ExpandedImgPost
+		v-if="expanded && posts[expandedId].src !== undefined"
 		:post="posts[expandedId]"
-		v-if="expanded"
+		@onClickOff="minimizePost"
+	/>
+	<ExpandedTextPost
+		v-else-if="expanded && posts[expandedId].src === undefined"
+		:post="posts[expandedId]"
 		@onClickOff="minimizePost"
 	/>
 </template>
@@ -35,13 +40,15 @@
 <script>
 import ImageFeedCard from "./ImageFeedCard.vue";
 import TextFeedCard from "./TextFeedCard.vue";
-import ExpandedPost from "./ExpandedPost.vue";
+import ExpandedImgPost from "./ExpandedImgPost.vue";
+import ExpandedTextPost from "./ExpandedTextPost.vue";
 
 export default {
 	components: {
 		ImageFeedCard,
 		TextFeedCard,
-		ExpandedPost,
+		ExpandedImgPost,
+		ExpandedTextPost,
 	},
 	data: () => ({
 		posts: [

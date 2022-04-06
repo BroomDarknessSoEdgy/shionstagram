@@ -33,7 +33,6 @@
 				<div class="actions">
 					<img src="../assets/icons/Heart.svg" />
 					<img src="../assets/icons/Comment.svg" />
-					<img src="../assets/icons/Send.svg" />
 					<img class="mg-left-auto" src="../assets/icons/Bookmark.svg" />
 				</div>
 			</header>
