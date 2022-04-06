@@ -178,7 +178,7 @@ export default {
 		isSubmitError: false,
 		dialogImageUrl: "",
 		dialogVisible: false,
-		actionUrl: `https://google.com/image`,
+		actionUrl: `https://api2.teamfruit.net/image`,
 		file: undefined,
 		form: {
 			twitter: "",
@@ -229,7 +229,7 @@ export default {
 			this.file = file;
 		},
 		handleMessageUpload() {
-			fetch(`https://google.com/message`, {
+			fetch(`https://api2.teamfruit.net/message`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -239,6 +239,7 @@ export default {
 					name: this.form.name,
 					location: this.form.location,
 					message: this.form.message,
+					pfp: this.form.pfp,
 					image: this.form.image,
 				}),
 			})
