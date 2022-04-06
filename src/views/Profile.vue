@@ -18,6 +18,20 @@
 						</li>
 					</ul>
 					<div class="description">{{ description }}</div>
+					<div class="profile-socials">
+						<a
+							href="https://www.youtube.com/channel/UCXTpFs_3PqI41qX2d9tL2Rw"
+							target="_blank"
+							rel="noopener noreferrer"
+							><img src="../assets/icons/YouTube.png" alt=""
+						/></a>
+						<a
+							href="https://twitter.com/murasakishionch"
+							target="_blank"
+							rel="noopener noreferrer"
+							><img src="../assets/icons/Twitter.png" alt=""
+						/></a>
+					</div>
 				</div>
 			</section>
 			<hr />
@@ -26,7 +40,6 @@
 					src="https://www.youtube-nocookie.com/embed/AjbkMNO-JVQ"
 					title="YouTube video player"
 					frameborder="0"
-					style="aspect-ratio: 16 / 9"
 					class="clip-embed"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
@@ -95,7 +108,6 @@ export default {
 		following: 0,
 		description:
 			"Murasaki Shion is a Vtuber who debuted on August 17th 2018 as a member of Hololive's 2nd generation. She's a self proclaimed genius who graduated from Harvard and whose specialty is dark magic.\n\nShe's more commonly known as a brat who likes to make fun of people, but inside she's a really nice and kind girl who thinks a lot about others. Although her proficiency in dark magic has not been showcased, she certainly has the power to make everyone smile.",
-		imageSet: [],
 	}),
 };
 </script>
@@ -179,6 +191,19 @@ main {
 
 .profile-body li span {
 	font-weight: bold;
+}
+
+.profile-socials {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.profile-socials img {
+	height: 2.5rem;
+	width: 2.5rem;
+	object-fit: contain;
 }
 
 .clip {
