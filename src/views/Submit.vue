@@ -72,7 +72,11 @@
 				</el-form-item>
 
 				<!-- message -->
-				<el-form-item :label="$t('submit.text_message')" required>
+				<el-form-item
+					:label="$t('submit.text_message')"
+					prop="message"
+					required
+				>
 					<el-input
 						v-model="form.message"
 						:rows="4"
@@ -209,7 +213,7 @@ export default {
 				{
 					required: true,
 					message: "Please input text message.",
-					trigger: "blur",
+					trigger: "change",
 				},
 			],
 		},
