@@ -7,7 +7,7 @@
 			<SoundButton
 				@send="(img) => bubble(img)"
 				v-for="button in sounds.buttons"
-				:key="button.en"
+				:key="button.title"
 				:button="button"
 			/>
 		</TransitionGroup>

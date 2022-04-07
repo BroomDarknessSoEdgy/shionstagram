@@ -9,11 +9,10 @@
 					: playSound(button.src);
 			}
 		"
-		:key="button.en"
 		:class="button.img ? 'withImg' : 'textOnly'"
 	>
-		<img v-if="button.img" :src="button.img" :alt="button.en" />
-		<span v-else>{{ button.en }}</span>
+		<img v-if="button.img" :src="button.img" :alt="button.title" />
+		<span v-else>{{ button.title }}</span>
 	</button>
 </template>
 

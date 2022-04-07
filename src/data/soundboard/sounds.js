@@ -3,17 +3,35 @@ export const sounds = {
 	jp: "Sounds (JP)",
 	buttons: [
 		{
-			en: "Llama",
-			jp: "Llama",
+			title: "Llama",
+			img: "/sounds/llama/art.png",
 			srcSet: [
 				"/sounds/llama/13-shion_llama_short.ogg",
 				"/sounds/llama/14-shion_llama.ogg",
 			],
-			img: "/sounds/llama/art.png",
 		},
 		{
-			en: "Pokemon",
-			jp: "Pokemon",
+			title: "Duoooooooon",
+			img: "/sounds/duoooon/art.png",
+			src: "/sounds/duoooon/10-shion-duoooooooon.ogg",
+		},
+		{
+			title: "Doorbell",
+			img: "/sounds/doorbell/art.png",
+			src: "/sounds/doorbell/17-shion_doorbell.ogg",
+		},
+		{
+			title: "Kimoo",
+			img: "/sounds/kimoo/art.png",
+			src: "/sounds/kimoo/kimoo.ogg",
+		},
+		{
+			title: "Unchi",
+			img: "/sounds/unchi/art.png",
+			src: "/sounds/unchi/19-shion_unchi.ogg",
+		},
+		{
+			title: "Pokemon",
 			srcSet: [
 				"/sounds/pokemon/00_pkmn.ogg",
 				"/sounds/pokemon/01_pkmn.ogg",
@@ -26,21 +44,6 @@ export const sounds = {
 				"/sounds/pokemon/90_pikachu.ogg",
 				"/sounds/pokemon/gogobo_gobobobobo.ogg",
 			],
-		},
-		{
-			en: "Yay",
-			jp: "Yatta",
-			src: "/sounds/yayyyy.mp3",
-		},
-		{
-			en: "Yay",
-			jp: "Yatta",
-			src: "/sounds/yayyyy.mp3",
-		},
-		{
-			en: "Yay",
-			jp: "Yatta",
-			src: "/sounds/yayyyy.mp3",
 		},
 	],
 };

@@ -51,9 +51,9 @@ module.exports = {
 		},
 	},
 	submit: {
-		message_form_title: "Shion 1 Million Subscribers Submission",
+		message_form_title: "Shiongram message submission form",
 		form_description:
-			"Welcome to international Shiokko 1 million celebration project! You can submit a message with illustration to Shion using this form! The message will be displayed on the 1 million subscribers project website.",
+			"Through this form you can submit a celebration message with or without illustration that will be displayed on Shiongram, the site based on Instagram made by fans to celebrate Shion getting 1 million subscribers.",
 
 		twitter_id: "Twitter ID",
 		twitter_id_instructions: "Twitter ID in the format {'@'}shiokko.",
