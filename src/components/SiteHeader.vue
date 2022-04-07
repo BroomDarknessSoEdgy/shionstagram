@@ -5,10 +5,23 @@
 		</router-link>
 
 		<div class="nav-icons">
-			<select name="locale" v-model="locale">
-				<option value="ja">ja</option>
-				<option value="en">en</option>
-			</select>
+			<ElSelect v-model="locale">
+				<ElOption
+					v-for="(lang, index) in languages"
+					:key="index"
+					:label="lang.label"
+					:value="lang.value"
+				/>
+			</ElSelect>
+
+			<button class="toggle-cursor" @click="toggleCustomCursor">
+				<img
+					class="icon"
+					:class="customCursor ? 'active' : ''"
+					src="../assets/icons/Mouse_Toggle_OFF.png"
+					alt="toggle custom cursor"
+				/>
+			</button>
 
 			<router-link to="/soundboard">
 				<img class="icon" src="../assets/icons/Reels.svg" />
@@ -30,8 +43,25 @@
 import { watch } from "vue";
 import { useI18n } from "vue-i18n";
 
+import { ElSelect, ElOption } from "element-plus";
+
+const languages = [
+	{
+		label: "日本語",
+		value: "ja",
+	},
+	{
+		label: "English",
+		value: "en",
+	},
+];
+
 export default {
 	name: "SiteHeader",
+	components: {
+		ElSelect,
+		ElOption,
+	},
 	// TODO: fix this scuffed code, cause it's reusing code from main.js?
 	setup() {
 		const { locale, t } = useI18n({
@@ -41,6 +71,20 @@ export default {
 			sessionStorage.setItem("locale", newVal);
 		});
 		return { locale, t };
+	},
+	data() {
+		return {
+			customCursor: true,
+			languages,
+		};
+	},
+	methods: {
+		toggleCustomCursor() {
+			document
+				.getElementsByTagName("body")[0]
+				.classList.toggle("custom-cursor");
+			this.customCursor = !this.customCursor;
+		},
 	},
 };
 </script>
@@ -71,6 +115,28 @@ a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 1rem;
+}
+
+.toggle-cursor {
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.el-select {
+	width: 7rem;
+	--el-select-input-focus-border-color: var(--purple-400);
+}
+
+.el-select-dropdown__item {
+	font-family: "Manrope", sans-serif;
+}
+
+.el-select-dropdown__item.selected {
+	color: var(--purple-400);
+	font-weight: 400;
+	font-family: "Manrope", sans-serif;
 }
 
 select {
@@ -85,11 +151,11 @@ select {
 .profile-img {
 	height: 2.5rem;
 	border-radius: 50%;
-	margin-left: 2rem;
+	margin-left: 0.5rem;
 }
 
 .icon {
-	margin-left: 1.5rem;
+	height: 1.5rem;
 }
 
 .nav-icons a {

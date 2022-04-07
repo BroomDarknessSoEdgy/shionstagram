@@ -108,11 +108,14 @@ h6 {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: var(--purple-600);
+}
+
+.custom-cursor {
 	cursor: url("./assets/cursor/wand.png"), auto;
 }
 
-button,
-a {
+.custom-cursor
+	:is(a, label, button, select, input[type="radio"], input[type="submit"], input[type="checkbox"], .el-input__inner, .el-select__caret.el-select__caret, .el-select-dropdown__item) {
 	cursor: url("./assets/cursor/wand_active.png"), pointer;
 }
 

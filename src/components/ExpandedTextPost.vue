@@ -89,7 +89,7 @@ export default {
 	grid-template-rows: auto minmax(25rem, 1fr) auto;
 	margin: 0 2rem;
 	width: 100%;
-	max-width: 55ch;
+	max-width: 45ch;
 	max-height: 80%;
 	background: var(--purple-800);
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);

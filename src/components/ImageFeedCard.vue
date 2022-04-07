@@ -1,5 +1,5 @@
 <template>
-	<div class="card">
+	<a class="card">
 		<div class="card-header">
 			<img
 				class="avatar"
@@ -18,7 +18,7 @@
 				:alt="`${name}'s image submission`"
 			/>
 		</div>
-	</div>
+	</a>
 </template>
 
 <script>
@@ -39,7 +39,6 @@ export default {
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 	overflow: hidden;
 	background-color: var(--purple-800);
-	cursor: url("../assets/cursor/wand_active.png"), pointer;
 }
 
 .card-header {
