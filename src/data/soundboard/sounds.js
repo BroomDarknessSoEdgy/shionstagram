@@ -32,6 +32,7 @@ export const sounds = {
 		},
 		{
 			title: "Pokemon",
+			img: "/sounds/pokemon/art.png",
 			srcSet: [
 				"/sounds/pokemon/00_pkmn.ogg",
 				"/sounds/pokemon/01_pkmn.ogg",
@@ -44,6 +45,21 @@ export const sounds = {
 				"/sounds/pokemon/90_pikachu.ogg",
 				"/sounds/pokemon/gogobo_gobobobobo.ogg",
 			],
+		},
+		{
+			title: "Haanya",
+			img: "/sounds/haanya/art.png",
+			src: "/sounds/haanya/40_haaaanya.ogg",
+		},
+		{
+			title: "Eh?",
+			img: "/sounds/eh/art.png",
+			src: "/sounds/eh/eh.ogg",
+		},
+		{
+			title: "Kawaii",
+			img: "/sounds/kawaii/art.png",
+			srcSet: ["/sounds/kawaii/kawaii.ogg", "/sounds/kawaii/61_KAWAII.ogg"],
 		},
 	],
 };
