@@ -6,9 +6,9 @@
 		<TransitionGroup class="sounds" name="sounds" tag="div">
 			<SoundButton
 				@send="(img) => bubble(img)"
-				v-for="button in sounds.buttons"
-				:key="button.title"
-				:button="button"
+				v-for="sound in sounds"
+				:key="sound.title"
+				:button="sound"
 			/>
 		</TransitionGroup>
 	</section>
