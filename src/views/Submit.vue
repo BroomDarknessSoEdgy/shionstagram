@@ -334,6 +334,7 @@ label {
 .instructions {
 	margin-top: 0.5rem;
 	line-height: 1.6;
+	white-space: pre-line;
 }
 
 .instructions.img {

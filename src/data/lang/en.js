@@ -75,7 +75,7 @@ module.exports = {
 
 		image: "Image",
 		image_instructions:
-			"Only one image can be added. Max. 5MB jpeg/png/gif/apng files.",
+			"Only one image can be added. Max. 5MB jpeg/png/gif/apng files.\nIf no image is submitted, we'll pick a random to display for you.",
 
 		submit: "Submit",
 		submission_received: "Submission Received",

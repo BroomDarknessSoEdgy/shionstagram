@@ -27,7 +27,7 @@
 				<img class="icon" src="../assets/icons/Reels.svg" />
 			</router-link>
 			<router-link to="/submit">
-				<img class="icon" src="../assets/icons/Add.svg" />
+				<img class="icon" src="../assets/icons/Send.svg" />
 			</router-link>
 			<router-link to="/profile">
 				<img
@@ -122,6 +122,10 @@ a {
 	background: none;
 	border: none;
 	padding: 0;
+}
+
+.toggle-cursor :not(.active) {
+	filter: grayscale(1);
 }
 
 .el-select {
