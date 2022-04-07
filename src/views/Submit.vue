@@ -145,6 +145,8 @@
 </template>
 
 <script>
+import { apiURL } from "../config/config";
+
 import ImageCard from "../components/ImageCard.vue";
 import Menu from "../components/Menu.vue";
 import {
@@ -178,7 +180,7 @@ export default {
 		isSubmitError: false,
 		dialogImageUrl: "",
 		dialogVisible: false,
-		actionUrl: `https://api2.teamfruit.net/image`,
+		actionUrl: `${apiURL}/image`,
 		file: undefined,
 		form: {
 			twitter: "",
@@ -229,7 +231,7 @@ export default {
 			this.file = file;
 		},
 		handleMessageUpload() {
-			fetch(`https://api2.teamfruit.net/message`, {
+			fetch(`${apiURL}/message`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
