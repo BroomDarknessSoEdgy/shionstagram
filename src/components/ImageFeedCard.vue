@@ -1,10 +1,7 @@
 <template>
 	<a class="card">
 		<div class="card-header">
-			<img
-				class="avatar"
-				src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
-			/>
+			<img class="avatar" src="../assets/images/messageHistory/shion.jpg" />
 			<div class="sender">
 				<h4 class="name">{{ name }}</h4>
 				<p class="location">{{ location }}</p>

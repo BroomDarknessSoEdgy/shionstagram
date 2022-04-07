@@ -2,7 +2,7 @@
 	<aside>
 		<div class="profile">
 			<img
-				src="https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj"
+				src="../assets/images/messageHistory/shion.jpg"
 				alt=""
 				class="picture"
 			/>

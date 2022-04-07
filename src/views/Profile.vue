@@ -3,7 +3,11 @@
 		<Menu />
 		<section class="profile">
 			<section class="profile-card">
-				<img class="avatar-img" :alt="alt" :src="avatarSrc" />
+				<img
+					class="avatar-img"
+					:alt="alt"
+					src="../assets/images/messageHistory/shion.jpg"
+				/>
 				<div class="profile-body">
 					<h2>{{ name }}</h2>
 					<ul class="profile-stats">
@@ -103,8 +107,6 @@ export default {
 		admin: Boolean,
 	},
 	data: () => ({
-		avatarSrc:
-			"https://yt3.ggpht.com/AyUL9W0ltc_aJr_MysuZBx8hRfb1SIVNREgU9kiOO-lqmdhYkEsllmhagertVIwHwa3UAAKy=s88-c-k-c0x00ffffff-no-rj",
 		name: "murasakishionch",
 		posts: 0,
 		followers: "1M",
