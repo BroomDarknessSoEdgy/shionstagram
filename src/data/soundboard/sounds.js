@@ -66,4 +66,9 @@ export const sounds = [
 			"/sounds/kawaii/shion_kawaii_3.ogg",
 		],
 	},
+	{
+		title: "Kara no ai dayo",
+		img: "/sounds/kara_no_ai_dayo/art.png",
+		src: "/sounds/kara_no_ai_dayo/11-shion_kara_no_ai_dayo.ogg",
+	},
 ];
