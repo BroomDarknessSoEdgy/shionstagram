@@ -5,7 +5,7 @@
 		</router-link>
 
 		<div class="nav-icons">
-			<div class="row">
+			<div class="langChange">
 				<ElSelect v-model="locale">
 					<template #prefix>
 						<img
@@ -35,14 +35,14 @@
 			<button class="reset-button clickable" @click="toggleCustomCursor">
 				<img
 					class="icon"
-					:class="customCursor ? 'active' : ''"
-					src="../assets/icons/Mouse_Toggle_OFF.png"
+					:class="customCursor ? '' : 'disabled'"
+					src="../assets/icons/CursorButton.svg"
 					alt="toggle custom cursor"
 				/>
 			</button>
 
 			<router-link to="/soundboard">
-				<img class="icon" src="../assets/icons/Reels.svg" />
+				<img class="icon" src="../assets/icons/Soundboard.svg" />
 			</router-link>
 			<router-link to="/submit">
 				<img class="icon" src="../assets/icons/Send.svg" />
@@ -151,8 +151,12 @@ a {
 	padding: 0;
 }
 
-.toggle-cursor :not(.active) {
-	filter: grayscale(1);
+.disabled {
+	filter: grayscale(1) brightness(0.5);
+}
+
+.langChange {
+	margin-right: 0.5rem;
 }
 
 .el-select {

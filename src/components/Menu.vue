@@ -30,7 +30,7 @@
 				<span>{{ $t("menu.profile") }}</span>
 			</router-link>
 			<router-link to="/soundboard">
-				<img class="icon" src="../assets/icons/Reels.svg" />
+				<img class="icon" src="../assets/icons/Soundboard.svg" />
 				<span>{{ $t("menu.soundboard") }}</span>
 			</router-link>
 			<router-link to="/submit">
