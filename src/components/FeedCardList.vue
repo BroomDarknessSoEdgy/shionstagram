@@ -59,8 +59,8 @@ export default {
 	}),
 	async mounted() {
 		const res = await fetch(`${apiURL}/messages`);
-
-		this.posts = await res.json();
+		const posts = await res.json();
+		this.posts = posts.reverse();
 	},
 	methods: {
 		minimizePost() {
