@@ -5,14 +5,24 @@
 		</router-link>
 
 		<div class="nav-icons">
-			<ElSelect v-model="locale">
-				<ElOption
-					v-for="(lang, index) in languages"
-					:key="index"
-					:label="lang.label"
-					:value="lang.value"
-				/>
-			</ElSelect>
+			<div class="row">
+				<ElSelect v-model="locale">
+					<template #prefix>
+						<img
+							class="icon-small"
+							src="../assets/icons/language-outline.svg"
+							alt=""
+						/>
+					</template>
+
+					<ElOption
+						v-for="(lang, index) in languages"
+						:key="index"
+						:label="lang.label"
+						:value="lang.value"
+					/>
+				</ElSelect>
+			</div>
 
 			<button class="reset-button clickable" @click="replayAnimation">
 				<img
@@ -55,11 +65,11 @@ import { ElSelect, ElOption } from "element-plus";
 
 const languages = [
 	{
-		label: "日本語",
+		label: "    日本語",
 		value: "ja",
 	},
 	{
-		label: "English",
+		label: "    English",
 		value: "en",
 	},
 ];
@@ -105,6 +115,8 @@ header {
 	position: sticky;
 	top: 0;
 	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
@@ -140,7 +152,7 @@ a {
 }
 
 .el-select {
-	width: 7rem;
+	width: 8rem;
 	--el-select-input-focus-border-color: var(--purple-400);
 }
 
@@ -171,6 +183,13 @@ select {
 
 .icon {
 	height: 1.5rem;
+	object-fit: contain;
+}
+
+.icon-small {
+	transform: translateX(-6px);
+	height: 1.5rem;
+	width: 1.5rem;
 }
 
 .nav-icons a {

@@ -69,6 +69,9 @@ export default {
 }
 
 .card-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: var(--purple-800);
 	background-image: linear-gradient(
 		135deg,
