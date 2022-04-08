@@ -14,7 +14,15 @@
 				/>
 			</ElSelect>
 
-			<button class="toggle-cursor" @click="toggleCustomCursor">
+			<button class="reset-button clickable" @click="replayAnimation">
+				<img
+					class="icon"
+					src="../assets/icons/refresh-outline.svg"
+					alt="Replay intro animation"
+				/>
+			</button>
+
+			<button class="reset-button clickable" @click="toggleCustomCursor">
 				<img
 					class="icon"
 					:class="customCursor ? 'active' : ''"
@@ -61,6 +69,9 @@ export default {
 	components: {
 		ElSelect,
 		ElOption,
+	},
+	props: {
+		replayAnimation: Function,
 	},
 	// TODO: fix this scuffed code, cause it's reusing code from main.js?
 	setup() {
@@ -118,7 +129,7 @@ a {
 	gap: 1rem;
 }
 
-.toggle-cursor {
+.reset-button {
 	background: none;
 	border: none;
 	padding: 0;

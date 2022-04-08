@@ -1,6 +1,6 @@
 <template>
 	<login-animation :callback="animationFinished" v-if="isAnimationPlaying" />
-	<SiteHeader />
+	<SiteHeader :replayAnimation="replayAnimation" />
 
 	<router-view v-slot="{ Component }">
 		<transition name="fade" mode="out-in">
@@ -23,16 +23,20 @@ export default {
 		animationFinished() {
 			this.isAnimationPlaying = false;
 		},
+		replayAnimation() {
+			console.log("hello");
+			this.isAnimationPlaying = true;
+		},
 	},
 	data: () => ({
 		isAnimationPlaying: false,
 	}),
 	mounted: function () {
-		// checks cookies to see if it's the first time user is accessing page
+		// checks localstorage to see if it's the first time user is accessing page
 		// and plays the animation if it is
-		if (window.document.cookie.indexOf("firstTime") === -1) {
+		if (localStorage.getItem("firstTime") === null) {
+			localStorage.setItem("firstTime", "false");
 			this.isAnimationPlaying = true;
-			window.document.cookie = "firstTime=true";
 		}
 	},
 };
