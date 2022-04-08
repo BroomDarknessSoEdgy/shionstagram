@@ -1,6 +1,6 @@
 export const profilePictures = [
-	require("../assets/images/messageHistory/aqua.png"),
-	require("../assets/images/messageHistory/chloe.png"),
-	require("../assets/images/messageHistory/fubuki.png"),
-	require("../assets/images/messageHistory/laplus.png"),
+	require("../assets/images/submissionProfiles/Shiokko_Profile_1.png"),
+	require("../assets/images/submissionProfiles/Shiokko_Profile_2.png"),
+	require("../assets/images/submissionProfiles/Shiokko_Profile_3.png"),
+	require("../assets/images/submissionProfiles/Shiokko_Profile_4.png"),
 ];

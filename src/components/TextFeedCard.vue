@@ -1,7 +1,7 @@
 <template>
 	<a class="card">
 		<div class="card-header">
-			<img class="avatar" src="../assets/images/messageHistory/shion.jpg" />
+			<img class="avatar" :src="profilePictures[pfp]" />
 			<div class="sender">
 				<h4 class="name">{{ name }}</h4>
 				<p class="location">{{ userLocation }}</p>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { profilePictures } from "../data/profilePictures";
 export default {
 	props: {
 		name: String,
@@ -23,6 +24,9 @@ export default {
 			type: String,
 		},
 	},
+	data: () => ({
+		profilePictures,
+	}),
 	computed: {
 		messagePreview() {
 			return this.message.length > 110

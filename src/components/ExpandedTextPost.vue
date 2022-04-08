@@ -8,7 +8,7 @@
 		<div class="modal-body">
 			<header>
 				<div class="profile">
-					<img class="avatar" src="../assets/images/messageHistory/shion.jpg" />
+					<img class="avatar" :src="profilePictures[post.pfp]" />
 					<div class="sender">
 						<h4 class="name">{{ post.name }}</h4>
 						<p class="location">{{ post.location }}</p>
@@ -31,10 +31,15 @@
 </template>
 
 <script>
+import { profilePictures } from "../data/profilePictures";
+
 export default {
 	props: {
 		post: Object,
 	},
+	data: () => ({
+		profilePictures,
+	}),
 };
 </script>
 

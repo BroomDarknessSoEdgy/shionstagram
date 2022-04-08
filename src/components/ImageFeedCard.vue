@@ -1,7 +1,7 @@
 <template>
 	<a class="card">
 		<div class="card-header">
-			<img class="avatar" src="../assets/images/messageHistory/shion.jpg" />
+			<img class="avatar" :src="profilePictures[pfp]" />
 			<div class="sender">
 				<h4 class="name">{{ name }}</h4>
 				<p class="location">{{ location }}</p>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { profilePictures } from "../data/profilePictures";
 import { apiURL } from "../config/config";
 
 export default {
@@ -26,9 +27,11 @@ export default {
 		src: String,
 		name: String,
 		location: String,
+		pfp: Number,
 	},
 	data: () => ({
 		apiURL,
+		profilePictures,
 	}),
 };
 </script>

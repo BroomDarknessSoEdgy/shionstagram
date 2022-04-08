@@ -17,12 +17,14 @@
 				:src="post.image"
 				:name="post.name"
 				:userLocation="post.location"
+				:pfp="post.pfp"
 			/>
 			<TextFeedCard
 				v-else
 				:message="post.message"
 				:name="post.name"
 				:userLocation="post.location"
+				:pfp="post.pfp"
 			/>
 		</div>
 	</section>
