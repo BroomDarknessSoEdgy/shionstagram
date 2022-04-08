@@ -12,13 +12,13 @@
 					<h2>{{ name }}</h2>
 					<ul class="profile-stats">
 						<li>
-							<span>{{ posts }}</span> {{ $t("profile.posts") }}
+							{{ $t("profile.posts") }}
 						</li>
 						<li>
-							<span>{{ followers }}</span> {{ $t("profile.followers") }}
+							{{ $t("profile.followers") }}
 						</li>
 						<li>
-							<span>{{ following }}</span> {{ $t("profile.following") }}
+							{{ $t("profile.following") }}
 						</li>
 					</ul>
 					<div class="description">{{ $t("profile.bio") }}</div>

@@ -8,9 +8,9 @@ module.exports = {
 		submit: "Submit",
 	},
 	profile: {
-		posts: "posts",
-		followers: "followers",
-		following: "following",
+		posts: "0 posts",
+		followers: "1M followers",
+		following: "0 following",
 		bio: "Murasaki Shion is a Vtuber who debuted on August 17th 2018 as a member of Hololive's 2nd generation. She's a self proclaimed genius who graduated from Harvard and whose specialty is dark magic.\n\nShe's more commonly known as a brat who likes to make fun of people, but inside she's a really nice and kind girl who thinks a lot about others. Although her proficiency in dark magic has not been showcased, she certainly has the power to make everyone smile.",
 		clip_description:
 			'This project has been started with the passing thought of "Wouldn\'t it be funny to make something that Shion hates to celebrate her getting 1 million subcribers?" and so we went on making an Instagram-like site gathering messages of fans as well as other features for the witch we all deeply appreciate. We wanted to make something original that was more than just a place that gathered fan messages, and got the help of multiple artists for the soundboard. People from the EN Shiokko server also helped gathering fun sound clips. All in all, this is the result of fans, JP and overseas, who wanted to show their appreciation to Murasaki Shion who worked really hard to get where she is now. And again, congratulations for getting 1 million subscribers.',

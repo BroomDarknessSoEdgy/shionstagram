@@ -146,7 +146,6 @@
 					<el-button
 						:loading="isSubmitPending"
 						type="primary"
-						class="submit"
 						plain
 						@click="onSubmit('form')"
 					>
