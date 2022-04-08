@@ -119,6 +119,14 @@ h6 {
 	cursor: url("./assets/cursor/wand_active.png"), pointer;
 }
 
+.clickable {
+	cursor: pointer;
+}
+
+.custom-cursor .clickable {
+	cursor: url("./assets/cursor/wand_active.png"), pointer;
+}
+
 body::-webkit-scrollbar {
 	width: 8px;
 }

@@ -91,7 +91,21 @@
 
 				<!-- profile picture -->
 				<el-form-item :label="$t('submit.profile_picture')">
-					<el-input-number v-model="form.pfp" :min="1" :max="8" />
+					<div class="pfp-select">
+						<a
+							@click="form.pfp = index"
+							v-for="(pfp, index) in profilePictures"
+							:key="index"
+							class="clickable"
+						>
+							<img
+								class="pfp"
+								:class="index === form.pfp ? 'active' : ''"
+								:src="pfp"
+								alt=""
+							/>
+						</a>
+					</div>
 				</el-form-item>
 
 				<!-- image -->
@@ -150,6 +164,7 @@
 
 <script>
 import { apiURL } from "../config/config";
+import { profilePictures } from "../data/profilePictures";
 
 import ImageCard from "../components/ImageCard.vue";
 import Menu from "../components/Menu.vue";
@@ -161,7 +176,6 @@ import {
 	ElInput,
 	ElDialog,
 	ElResult,
-	ElInputNumber,
 } from "element-plus";
 
 export default {
@@ -175,7 +189,6 @@ export default {
 		ElDialog,
 		ElResult,
 		ImageCard,
-		ElInputNumber,
 		Menu,
 	},
 	data: () => ({
@@ -185,6 +198,7 @@ export default {
 		dialogImageUrl: "",
 		dialogVisible: false,
 		actionUrl: `${apiURL}/image`,
+		profilePictures,
 		file: undefined,
 		form: {
 			twitter: "",
@@ -321,6 +335,35 @@ main {
 	padding: 2rem 1.5rem;
 	border-radius: 0.5rem;
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.pfp-select {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.pfp-select a {
+	display: block;
+	border: 1px solid var(--purple-600);
+	border-radius: 0.5rem;
+	width: 8rem;
+	height: 8rem;
+	overflow: hidden;
+}
+
+.pfp {
+	display: block;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	filter: grayscale(0.5) brightness(0.8);
+	transition: transform 150ms ease-out;
+}
+
+.pfp.active {
+	transform: scale(1.05);
+	filter: grayscale(0);
 }
 
 header {
