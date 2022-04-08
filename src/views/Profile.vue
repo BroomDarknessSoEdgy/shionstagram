@@ -239,6 +239,9 @@ main {
 
 .credits-body {
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 	gap: 2rem;
 }
 
@@ -247,7 +250,6 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
 	gap: 2rem;
 }
 
