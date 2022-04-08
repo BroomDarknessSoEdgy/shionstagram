@@ -1,14 +1,15 @@
 <template>
 	<section>
 		<div
-			v-for="post in posts"
-			v-bind:key="post.id"
+			v-for="(post, i) in posts"
+			:key="post.id"
 			v-on:click="
 				() => {
 					expanded = true;
 					expandedId = post.id;
 				}
 			"
+			:style="`--delay: ${i * 75}ms`"
 			class="wrapper"
 		>
 			<ImageFeedCard
@@ -91,6 +92,22 @@ section {
 @media screen and (min-width: 1440px) {
 	section {
 		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.wrapper {
+	opacity: 0;
+	animation: fadeUp 250ms var(--delay, 0) ease-out forwards;
+}
+
+@keyframes fadeUp {
+	0% {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 </style>

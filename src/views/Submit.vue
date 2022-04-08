@@ -25,7 +25,6 @@
 				v-if="isSubmitError"
 				icon="error"
 				:title="$t('submit.submission_failed')"
-				:sub-title="$t('submit.try_again_or_contact')"
 			>
 				<template #extra>
 					<el-button type="primary" size="medium" @click="onSubmitAgain">{{
@@ -97,13 +96,9 @@
 							v-for="(pfp, index) in profilePictures"
 							:key="index"
 							class="clickable"
+							:class="index === form.pfp ? 'active' : ''"
 						>
-							<img
-								class="pfp"
-								:class="index === form.pfp ? 'active' : ''"
-								:src="pfp"
-								alt=""
-							/>
+							<img class="pfp" :src="pfp" alt="" />
 						</a>
 					</div>
 				</el-form-item>
@@ -151,6 +146,7 @@
 					<el-button
 						:loading="isSubmitPending"
 						type="primary"
+						class="submit"
 						plain
 						@click="onSubmit('form')"
 					>
@@ -205,7 +201,7 @@ export default {
 			chosenMediaType: "image",
 			name: "",
 			message: "",
-			pfp: 1,
+			pfp: 0,
 			image: undefined,
 		},
 		rules: {
@@ -334,7 +330,7 @@ main {
 	background-color: white;
 	padding: 2rem 1.5rem;
 	border-radius: 0.5rem;
-	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0.25rem 0.125rem rgba(0, 0, 0, 0.25);
 }
 
 .pfp-select {
@@ -361,7 +357,11 @@ main {
 	transition: transform 150ms ease-out;
 }
 
-.pfp.active {
+.pfp-select a.active {
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.pfp-select a.active img {
 	transform: scale(1.05);
 	filter: grayscale(0);
 }
