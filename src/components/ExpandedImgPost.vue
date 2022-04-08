@@ -6,17 +6,9 @@
 			v-on:click="$emit('onClickOff')"
 		/>
 		<div class="modal-body">
-			<div v-if="post.src" class="content">
-				<img
-					class="main"
-					:src="require(`@/assets/submissions/${post.src}`)"
-					alt=""
-				/>
-				<img
-					class="bg"
-					:src="require(`@/assets/submissions/${post.src}`)"
-					alt=""
-				/>
+			<div class="content">
+				<img class="main" :src="`${apiURL}/images/${post.image}`" alt="" />
+				<img class="bg" :src="`${apiURL}/images/${post.image}`" alt="" />
 			</div>
 
 			<header>
@@ -44,10 +36,15 @@
 </template>
 
 <script>
+import { apiURL } from "../config/config";
+
 export default {
 	props: {
 		post: Object,
 	},
+	data: () => ({
+		apiURL,
+	}),
 };
 </script>
 
@@ -101,7 +98,7 @@ export default {
 	margin: 0 2rem;
 	width: 100%;
 	max-width: 70rem;
-	max-height: 80%;
+	height: 70%;
 	background: var(--purple-800);
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 	border-radius: 0.5rem;

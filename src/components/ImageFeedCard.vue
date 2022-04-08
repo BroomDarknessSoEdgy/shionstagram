@@ -10,7 +10,7 @@
 		</div>
 		<div class="card-body">
 			<img
-				:src="require(`@/assets/submissions/${src}`)"
+				:src="`${apiURL}/images/${src}`"
 				loading="lazy"
 				:alt="`${name}'s image submission`"
 			/>
@@ -19,12 +19,17 @@
 </template>
 
 <script>
+import { apiURL } from "../config/config";
+
 export default {
 	props: {
 		src: String,
 		name: String,
 		location: String,
 	},
+	data: () => ({
+		apiURL,
+	}),
 };
 </script>
 
