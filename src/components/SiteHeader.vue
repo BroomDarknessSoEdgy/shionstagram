@@ -72,6 +72,10 @@ const languages = [
 		label: "    English",
 		value: "en",
 	},
+	{
+		label: "    中文",
+		value: "cn",
+	},
 ];
 
 export default {
