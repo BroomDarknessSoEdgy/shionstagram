@@ -15,6 +15,7 @@
 			<ImageFeedCard
 				v-if="post.image !== undefined"
 				:src="post.image"
+				:message="post.message"
 				:name="post.name"
 				:location="post.location"
 				:pfp="post.pfp"
