@@ -55,7 +55,7 @@ module.exports = {
 		form_description:
 			"このフォームを通して、紫咲シオンの登録者数100万人突破に際して作られた本ウェブサイト、シオングラムへご自身のお祝いメッセージを送ることができます（画像も一枚まで追加可能）",
 
-		twitter_id: "Twitterのユーザー名",
+		twitter_id: "Twitterの\nユーザー名",
 		twitter_id_instructions: "ご自身のTwitterのユーザー名。{'@'}も記入してください。",
 
 		name: "ニックネーム",
@@ -71,12 +71,14 @@ module.exports = {
 		text_message: "メッセージ",
 		text_instructions: "シオンへのメッセージ。500字以内にまとめてください。",
 
-		profile_picture: "プロフィール画像",
+		profile_picture: "プロフィール\n画像",
 
 		image: "添付画像",
 		image_instructions:
 			"一枚まで、5MB以下。jpeg/png/gif/apngのみ対応可能。\nメッセージの添付画像です。添付しない場合、ランダムな画像が表示されます。",
 
+		preview: "プレビュー",
+		
 		submit: "送信",
 		submission_received: "投稿を受け取りました",
 

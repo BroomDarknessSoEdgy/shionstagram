@@ -76,6 +76,8 @@ module.exports = {
 		image_instructions:
 			"只限一副，5MB以下。接受 jpeg/png/gif/apng 檔案。\n如沒有附上圖片，將會隨機顯示一副圖片。",
 
+		preview: "預覽",
+		
 		submit: "確認",
 		submission_received: "成功提交",
 

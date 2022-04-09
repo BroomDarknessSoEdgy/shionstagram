@@ -144,7 +144,7 @@
 
 				<el-form-item>
 					<div class="preview">
-						<h3>Preview</h3>
+						<h3>{{ $t("submit.preview") }}</h3>
 						<PostPreview
 							:name="form.name"
 							:location="form.location"
