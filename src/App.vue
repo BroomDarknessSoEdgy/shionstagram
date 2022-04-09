@@ -2,7 +2,7 @@
 	<login-animation :callback="animationFinished" v-if="isAnimationPlaying" />
 	<SiteHeader :replayAnimation="replayAnimation" />
 
-	<router-view v-slot="{ Component }">
+	<router-view v-if="!isAnimationPlaying" v-slot="{ Component }">
 		<transition name="fade" mode="out-in">
 			<component :is="Component" />
 		</transition>
