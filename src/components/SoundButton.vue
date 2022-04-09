@@ -28,7 +28,6 @@ export default {
 			const audio = new Howl({
 				src: [src],
 				preload: true,
-				html5: true,
 			});
 			audio.play();
 		},
