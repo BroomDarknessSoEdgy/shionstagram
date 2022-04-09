@@ -71,4 +71,12 @@ export const sounds = [
 		img: "/sounds/kara_no_ai_dayo/art.png",
 		src: "/sounds/kara_no_ai_dayo/11-shion_kara_no_ai_dayo.mp3",
 	},
+	{
+		title: "Kara no ai dayo",
+		img: "/sounds/moemoekyun/art.png",
+		srcSet: [
+			"/sounds/moemoekyun/70_moemoekyun.mp3",
+			"/sounds/moemoekyun/72_cuter_moemoekyun.mp3",
+		],
+	},
 ];
