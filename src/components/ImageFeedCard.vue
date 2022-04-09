@@ -14,7 +14,7 @@
 				loading="lazy"
 				:alt="`${name}'s image submission`"
 			/>
-			<span  class="message" v-bind:class="{ leaveMessage: !displayMessage() }">{{ messagePreview }}</span>
+			<span  class="message" v-bind:class="{ leaveMessage: !displayMessage() }">{{ message }}</span>
 		</div>
 	</a>
 </template>
@@ -116,11 +116,16 @@ export default {
 .message {
 	bottom: 0;
 	position: absolute;
-	padding: 0.5rem;
+	padding: 0.5em;
 	background-color: rgba(255, 255, 255, .7);
 	color: #81478a;
 	font-weight: bold;
 	width: 100%;
+	max-height: 4.9em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 
 .leaveMessage {
