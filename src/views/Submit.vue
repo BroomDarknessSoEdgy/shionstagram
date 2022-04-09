@@ -141,6 +141,20 @@
 						{{ $t("submit.image_instructions") }}
 					</div>
 				</el-form-item>
+
+				<el-form-item>
+					<div class="preview">
+						<h3>Preview</h3>
+						<PostPreview
+							:name="form.name"
+							:location="form.location"
+							:pfp="form.pfp"
+							:src="file ? createPostPreview(file) : ''"
+							:message="form.message"
+						/>
+					</div>
+				</el-form-item>
+
 				<!-- submit -->
 				<el-form-item>
 					<el-button
@@ -161,6 +175,7 @@
 import { apiURL } from "../config/config";
 import { profilePictures } from "../data/profilePictures";
 
+import PostPreview from "../components/PostPreview";
 import ImageCard from "../components/ImageCard.vue";
 import Menu from "../components/Menu.vue";
 import {
@@ -185,6 +200,7 @@ export default {
 		ElResult,
 		ImageCard,
 		Menu,
+		PostPreview,
 	},
 	data: () => ({
 		isSubmitPending: false,
@@ -242,6 +258,12 @@ export default {
 		},
 		handleOnChange(file) {
 			this.file = file;
+		},
+		createPostPreview(ev) {
+			const imgFile = ev.target.files[0];
+			const url = URL.createObjectURL(imgFile);
+
+			return url;
 		},
 		handleMessageUpload() {
 			fetch(`${apiURL}/message`, {
@@ -345,6 +367,15 @@ main {
 	width: 8rem;
 	height: 8rem;
 	overflow: hidden;
+}
+
+.preview {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+	max-width: 25rem;
+	margin-bottom: 2rem;
 }
 
 .pfp {
