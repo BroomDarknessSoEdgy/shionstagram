@@ -21,7 +21,7 @@
 							{{ $t("profile.following") }}
 						</li>
 					</ul>
-					<div class="description">{{ $t("profile.bio") }}</div>
+					<p class="description">{{ $t("profile.bio") }}</p>
 					<div class="profile-socials">
 						<a
 							href="https://www.youtube.com/channel/UCXTpFs_3PqI41qX2d9tL2Rw"
@@ -48,9 +48,11 @@
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
 				></iframe>
-				<p>
-					{{ $t("profile.clip_description") }}
-				</p>
+				<div class="clip-desc">
+					<p>
+						{{ $t("profile.clip_description") }}
+					</p>
+				</div>
 			</section>
 			<hr />
 			<section class="credits">
@@ -59,33 +61,53 @@
 					<div class="credits-col">
 						<h4>{{ $t("profile.artists") }}</h4>
 						<ul>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
+							<li :key="artist" v-for="artist in credits.artists">
+								{{ artist.name }}
+								<a
+									v-if="artist.twitter"
+									:href="`https://twitter.com/${artist.twitter}`"
+									>(@{{ artist.twitter }})</a
+								>
+							</li>
 						</ul>
 					</div>
 					<div class="credits-col">
 						<h4>{{ $t("profile.developers") }}</h4>
 						<ul>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
+							<li :key="developer" v-for="developer in credits.developers">
+								{{ developer.name }}
+								<a
+									v-if="developer.twitter"
+									:href="`https://twitter.com/${developer.twitter}`"
+									>(@{{ developer.twitter }})</a
+								>
+							</li>
 						</ul>
 					</div>
 					<div class="credits-col">
 						<h4>{{ $t("profile.leads") }}</h4>
 						<ul>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
+							<li :key="lead" v-for="lead in credits.leads">
+								{{ lead.name }}
+								<a
+									v-if="lead.twitter"
+									:href="`https://twitter.com/${lead.twitter}`"
+									>(@{{ lead.twitter }})</a
+								>
+							</li>
 						</ul>
 					</div>
 					<div class="credits-col">
 						<h4>{{ $t("profile.assistants") }}</h4>
 						<ul>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
-							<li>matthew tao</li>
+							<li :key="assistant" v-for="assistant in credits.assistants">
+								{{ assistant.name }}
+								<a
+									v-if="assistant.twitter"
+									:href="`https://twitter.com/${assistant.twitter}`"
+									>(@{{ assistant.twitter }})</a
+								>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -111,6 +133,71 @@ export default {
 		posts: 0,
 		followers: "1M",
 		following: 0,
+		credits: {
+			artists: [
+				{
+					name: "TBD",
+				},
+			],
+			developers: [
+				{
+					name: "Cen",
+				},
+				{
+					name: "matthew tao",
+				},
+				{
+					name: "べべ",
+					twitter: "sj67899745",
+				},
+			],
+			leads: [
+				{
+					name: "BananaKyun",
+					twitter: "Real_Bananakyun",
+				},
+				{
+					name: "Coral Reef",
+					twitter: "comfy_broom",
+				},
+				{
+					name: "シーナ",
+					twitter: "Shiina__S",
+				},
+			],
+			assistants: [
+				{
+					name: "Neil",
+				},
+				{
+					name: "Ao-Tan",
+					twitter: "Ao_Tilt",
+				},
+				{
+					name: "Ser",
+				},
+				{
+					name: "Sunny・サニー",
+					twitter: "Tsunnyrise",
+				},
+				{
+					name: "Kusogaclips",
+					twitter: "kusogaclips",
+				},
+				{
+					name: "Mileina",
+					twitter: "_Mileina",
+				},
+				{
+					name: "りんたろ",
+					twitter: "shion_kirinuki",
+				},
+				{
+					name: "MAESH1M4",
+					twitter: "Shionsukiiimask",
+				},
+			],
+		},
 	}),
 };
 </script>
@@ -148,9 +235,9 @@ main {
 	align-items: center;
 	gap: 4rem;
 	margin: 0 auto;
-	color: var(--purple-200);
 	width: 100%;
 	max-width: 55rem;
+	color: var(--purple-200);
 }
 
 .profile-card {
@@ -224,33 +311,65 @@ main {
 	width: 100%;
 }
 
+.clip-desc {
+	width: 100%;
+
+	padding: 2rem 1rem;
+	background: hsla(292, 30%, 80%, 0.7);
+	border: 1px solid white;
+	border-radius: 0.5rem;
+}
+
 .clip p {
 	max-width: 70ch;
+	margin: auto;
 }
 
 .credits {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	width: 100%;
-	gap: 2rem;
+	background: hsla(292, 30%, 80%, 0.7);
+	border: 1px solid white;
+	border-radius: 0.5rem;
+	text-align: center;
+}
+
+.credits h3 {
+	padding: 1rem;
+	border-bottom: white 1px solid;
 }
 
 .credits-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+	padding: 1.5rem 1rem;
+	display: grid;
+	grid-template-columns: 1fr;
 	gap: 2rem;
+}
+
+@media screen and (min-width: 800px) {
+	.credits-body {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
 .credits-col {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 2rem;
+	gap: 0.5rem;
+}
+
+.credits ul {
+	list-style: none;
+	padding: 0;
+	line-height: 1.8;
+}
+
+.credits a {
+	color: hsl(197, 30%, 40%);
+	font-style: italic;
+	text-decoration: none;
+	font-size: 0.9rem;
 }
 
 hr {
