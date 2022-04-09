@@ -16,6 +16,9 @@
 					<img class="avatar" :src="profilePictures[post.pfp]" />
 					<div class="sender">
 						<h4 class="name">{{ post.name }}</h4>
+						<p class="twitter">
+							{{ post.twitter[0] === "@" ? post.twitter : "@" + post.twitter }}
+						</p>
 						<p class="location">{{ post.location }}</p>
 					</div>
 				</div>
@@ -161,6 +164,11 @@ header {
 .profile {
 	display: flex;
 	align-items: center;
+}
+
+.twitter {
+	font-size: 0.75rem;
+	color: #ada6ad;
 }
 
 .avatar {
