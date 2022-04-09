@@ -62,7 +62,7 @@ aside {
 .history {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 0.25rem;
 	margin-top: 1.5rem;
 }
 
@@ -75,12 +75,12 @@ aside {
 	width: 3.5rem;
 	height: 3.5rem;
 	border-radius: 50%;
+	margin-bottom: 0.75rem;
 }
 
 .profile-info {
 	position: relative;
 	margin-left: 0.5rem;
-	margin-top: -0.25rem;
 	padding: 0.5rem;
 }
 

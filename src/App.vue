@@ -143,6 +143,10 @@ body::-webkit-scrollbar-thumb {
 	background: var(--purple-500);
 }
 
+p {
+	line-height: 1.6;
+}
+
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 250ms ease-out;
