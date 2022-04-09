@@ -10,7 +10,7 @@ export const sounds = [
 	{
 		title: "Duoooooooon",
 		img: "/sounds/duoooon/art.png",
-		src: "/sounds/duoooon/10-shion-duoooooooon.mp3",
+		src: "/sounds/duoooon/10-shion_duoooooooon.mp3",
 	},
 	{
 		title: "Doorbell",
