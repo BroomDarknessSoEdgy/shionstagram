@@ -16,14 +16,14 @@
 				v-if="post.image !== undefined"
 				:src="post.image"
 				:name="post.name"
-				:userLocation="post.location"
+				:location="post.location"
 				:pfp="post.pfp"
 			/>
 			<TextFeedCard
 				v-else
 				:message="post.message"
 				:name="post.name"
-				:userLocation="post.location"
+				:location="post.location"
 				:pfp="post.pfp"
 			/>
 		</div>
