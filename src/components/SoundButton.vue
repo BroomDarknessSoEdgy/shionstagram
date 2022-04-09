@@ -17,15 +17,19 @@
 </template>
 
 <script>
+import { Howl } from "howler";
+
 export default {
 	props: {
 		button: Object,
 	},
 	methods: {
 		playSound(src) {
-			const audio = new Audio();
-			audio.preload = true;
-			audio.src = src;
+			const audio = new Howl({
+				src: [src],
+				preload: true,
+				html5: true,
+			});
 			audio.play();
 		},
 		randomInteger(min, max) {
