@@ -42,13 +42,6 @@ export default {
 			this.initialHover = false;
 		}, 1500)
 	},
-	computed: {
-		messagePreview() {
-			return this.message.length > 50
-				? this.message.substring(0, 50) + "..."
-				: this.message;
-		},
-	},
 	methods: {
 		displayMessage() {
 			return this.initialHover || this.hover;
