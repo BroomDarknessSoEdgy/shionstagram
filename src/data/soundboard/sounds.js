@@ -3,8 +3,8 @@ export const sounds = [
 		title: "Llama",
 		img: "/sounds/llama/art.png",
 		srcSet: [
-			"/sounds/llama/13-shion_llama_short.ogg",
-			"/sounds/llama/14-shion_llama.ogg",
+			"/sounds/llama/13-shion_llama_short.mp3",
+			"/sounds/llama/14-shion_llama.mp3",
 		],
 	},
 	{
