@@ -73,9 +73,9 @@ module.exports = {
 
 		profile_picture: "プロフィール画像",
 
-		image: "画像",
+		image: "添付画像",
 		image_instructions:
-			"一枚まで、5MB以下。jpeg/png/gif/apngのみ対応可能。\n画像を添付しない場合、ランダムの画像が表示されることになります。",
+			"一枚まで、5MB以下。jpeg/png/gif/apngのみ対応可能。\nメッセージの添付画像です。添付しない場合、ランダムな画像が表示されます。",
 
 		submit: "送信",
 		submission_received: "投稿を受け取りました",
