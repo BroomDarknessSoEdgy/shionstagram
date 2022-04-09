@@ -8,12 +8,13 @@
 			</div>
 			<img class="more" src="../assets/icons/more.svg" />
 		</div>
-		<div class="card-body">
+		<div class="card-body" v-on:mouseover="onHover" v-on:mouseleave="onLeave">
 			<img
 				:src="`${apiURL}/images/${src}`"
 				loading="lazy"
 				:alt="`${name}'s image submission`"
 			/>
+			<span  class="message" v-bind:class="{ leaveMessage: !displayMessage() }">{{ messagePreview }}</span>
 		</div>
 	</a>
 </template>
@@ -25,6 +26,7 @@ import { apiURL } from "../config/config";
 export default {
 	props: {
 		src: String,
+		message: String,
 		name: String,
 		location: String,
 		pfp: Number,
@@ -32,7 +34,32 @@ export default {
 	data: () => ({
 		apiURL,
 		profilePictures,
+		initialHover: true,
+		hover: false,
 	}),
+	mounted() {
+		setTimeout(() => {
+			this.initialHover = false;
+		}, 1000)
+	},
+	computed: {
+		messagePreview() {
+			return this.message.length > 50
+				? this.message.substring(0, 50) + "..."
+				: this.message;
+		},
+	},
+	methods: {
+		displayMessage() {
+			return this.initialHover || this.hover;
+		},
+		onHover() {
+			this.hover = true;
+		},
+		onLeave() {
+			this.hover = false;
+		}
+	}
 };
 </script>
 
@@ -44,6 +71,7 @@ export default {
 	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 	overflow: hidden;
 	background-color: var(--purple-800);
+	height: 100%;
 }
 
 .card-header {
@@ -74,6 +102,8 @@ export default {
 
 .card .card-body {
 	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
 .card-body img {
@@ -81,5 +111,30 @@ export default {
 	height: 100%;
 	object-fit: cover;
 	aspect-ratio: 6 / 5;
+}
+
+.message {
+	bottom: 0;
+	position: absolute;
+	padding: 0.5rem;
+	background-color: rgba(255, 255, 255, .7);
+	color: #81478a;
+	font-weight: bold;
+	width: 100%;
+}
+
+.leaveMessage {
+	opacity: 0;
+	animation-name: fadeOut;
+	animation-duration: 1s;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
 </style>
