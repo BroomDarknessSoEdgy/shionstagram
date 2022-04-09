@@ -196,6 +196,7 @@ section {
 	grid-area: message;
 	background: #fff;
 	padding: 1rem;
+	white-space: pre-line;
 }
 
 @media screen and (min-width: 768px) {
