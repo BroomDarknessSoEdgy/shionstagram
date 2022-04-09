@@ -97,7 +97,7 @@ export default {
 
 .location {
 	font-size: 0.75rem;
-	color: #ada6ad;
+	color: #787878;
 }
 
 .card .card-body {

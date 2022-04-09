@@ -168,7 +168,7 @@ header {
 
 .twitter {
 	font-size: 0.75rem;
-	color: #ada6ad;
+	color: #787878;
 }
 
 .avatar {
