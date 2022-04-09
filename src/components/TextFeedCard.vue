@@ -23,6 +23,7 @@ export default {
 		message: {
 			type: String,
 		},
+		pfp: Number,
 	},
 	data: () => ({
 		profilePictures,
