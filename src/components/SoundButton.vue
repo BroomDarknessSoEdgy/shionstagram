@@ -23,7 +23,9 @@ export default {
 	},
 	methods: {
 		playSound(src) {
-			const audio = new Audio(src);
+			const audio = new Audio();
+			audio.preload = true;
+			audio.src = src;
 			audio.play();
 		},
 		randomInteger(min, max) {
