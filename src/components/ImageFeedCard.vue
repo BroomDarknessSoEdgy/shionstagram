@@ -14,7 +14,9 @@
 				loading="lazy"
 				:alt="`${name}'s image submission`"
 			/>
-			<span  class="message" v-bind:class="{ leaveMessage: !displayMessage() }">{{ message }}</span>
+			<span class="message" :class="initialHover ? 'show' : ''">{{
+				messagePreview
+			}}</span>
 		</div>
 	</a>
 </template>
@@ -40,19 +42,15 @@ export default {
 	mounted() {
 		setTimeout(() => {
 			this.initialHover = false;
-		}, 1500)
+		}, 1500);
 	},
-	methods: {
-		displayMessage() {
-			return this.initialHover || this.hover;
+	computed: {
+		messagePreview() {
+			return this.message.length > 70
+				? this.message.substring(0, 70) + " ..."
+				: this.message;
 		},
-		onHover() {
-			this.hover = true;
-		},
-		onLeave() {
-			this.hover = false;
-		}
-	}
+	},
 };
 </script>
 
@@ -109,31 +107,26 @@ export default {
 .message {
 	bottom: 0;
 	position: absolute;
-	padding: .2em .5em 0 .5em;
+	padding: 1rem 0.5rem;
 	line-height: 1.5em;
-	background-color: rgba(255, 255, 255, .7);
+	background: rgba(255, 255, 255, 0.7);
 	color: #81478a;
 	font-weight: bold;
 	width: 100%;
-	max-height: 5em;
-	overflow: hidden;
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-}
-
-.leaveMessage {
 	opacity: 0;
-	animation-name: fadeOut;
-	animation-duration: 1s;
+	transition: opacity 250ms ease-out, transform 250ms ease-out;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	transform: translateY(100%);
 }
 
-@keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+.card:hover .message {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.message.show {
+	opacity: 1;
+	transform: translateY(0);
 }
 </style>
