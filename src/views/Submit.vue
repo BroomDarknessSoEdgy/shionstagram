@@ -112,6 +112,7 @@
 						:on-preview="handlePictureCardPreview"
 						:on-remove="handlePictureCardRemove"
 						:on-success="handleSuccesfulUpload"
+						:on-error="handleErroredUpload"
 						:on-change="handleOnChange"
 						:multiple="false"
 						:limit="1"
@@ -255,6 +256,12 @@ export default {
 		handleSuccesfulUpload(response) {
 			this.form.image = response.id;
 			this.handleMessageUpload();
+		},
+		handleErroredUpload() {
+			this.form.image = undefined;
+			this.file = undefined;
+			this.isSubmitPending = false;
+			this.isSubmitError = true;
 		},
 		handleOnChange(file) {
 			this.file = file;
