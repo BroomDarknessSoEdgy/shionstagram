@@ -40,7 +40,7 @@ export default {
 	mounted() {
 		setTimeout(() => {
 			this.initialHover = false;
-		}, 1000)
+		}, 1500)
 	},
 	computed: {
 		messagePreview() {
