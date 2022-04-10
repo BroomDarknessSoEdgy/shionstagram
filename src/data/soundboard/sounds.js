@@ -135,4 +135,17 @@ export const sounds = [
 		img: "/sounds/a_a/art.png",
 		srcSet: ["/sounds/a_a/7-shion_aaa.mp3", "/sounds/a_a/8-shion_aaaa.mp3"],
 	},
+	{
+		title: "Suki",
+		img: "/sounds/suki/art.png",
+		srcSet: [
+			"/sounds/suki/18-shion_suki.mp3",
+			"/sounds/suki/shion_chuki_chuki_daichuki.mp3",
+			"/sounds/suki/shion_daishuki_1.mp3",
+			"/sounds/suki/shion_i_love_you_1.mp3",
+			"/sounds/suki/shion_i_love_you_2.mp3",
+			"/sounds/suki/shion_i_love_you_3.mp3",
+			"/sounds/suki/shion_i_love_you_4.mp3",
+		],
+	},
 ];
