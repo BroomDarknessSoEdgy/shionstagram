@@ -109,4 +109,25 @@ export const sounds = [
 			"/sounds/sneezes/Sneeze_19.mp3",
 		],
 	},
+	{
+		title: "Hanyanyanya",
+		img: "/sounds/hanyanyanya/art.png",
+		srcSet: [
+			"/sounds/hanyanyanya/50_hanyanyaonib.mp3",
+			"/sounds/hanyanyanya/51_hanyaonya.mp3",
+			"/sounds/hanyanyanya/52_HANYA.mp3",
+			"/sounds/hanyanyanya/53_nyanyanyanya.mp3",
+			"/sounds/hanyanyanya/54_hanyanyanya.mp3",
+			"/sounds/hanyanyanya/55_hAnyanyanya.mp3",
+		],
+	},
+	{
+		title: "Baka",
+		img: "/sounds/baka/art.png",
+		srcSet: [
+			"/sounds/baka/9_baka.mp3",
+			"/sounds/baka/shion_kaere_baka.mp3",
+			"/sounds/baka/shion_baaka.mp3",
+		],
+	},
 ];
