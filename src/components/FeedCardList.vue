@@ -9,7 +9,7 @@
 					expandedId = post.id;
 				}
 			"
-			:style="`--delay: ${i * 75}ms`"
+			:style="`--delay: ${i < 20 ? i * 75 : 20 * 75}ms`"
 			class="wrapper"
 		>
 			<ImageFeedCard
