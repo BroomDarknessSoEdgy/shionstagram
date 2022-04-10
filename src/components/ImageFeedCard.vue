@@ -8,15 +8,15 @@
 			</div>
 			<img class="more" src="../assets/icons/more.svg" />
 		</div>
-		<div class="card-body" v-on:mouseover="onHover" v-on:mouseleave="onLeave">
+		<div class="card-body">
 			<img
 				:src="`${apiURL}/images/${src}`"
 				loading="lazy"
 				:alt="`${name}'s image submission`"
 			/>
-			<span class="message" :class="initialHover ? 'show' : ''">{{
-				messagePreview
-			}}</span>
+			<div class="message" :class="initialHover ? 'show' : ''"><p>{{
+				message
+			}}</p></div>
 		</div>
 	</a>
 </template>
@@ -37,7 +37,6 @@ export default {
 		apiURL,
 		profilePictures,
 		initialHover: true,
-		hover: false,
 	}),
 	mounted() {
 		setTimeout(() => {
@@ -128,5 +127,12 @@ export default {
 .message.show {
 	opacity: 1;
 	transform: translateY(0);
+}
+
+.message p {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
 }
 </style>
