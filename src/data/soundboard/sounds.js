@@ -130,4 +130,9 @@ export const sounds = [
 			"/sounds/baka/shion_baaka.mp3",
 		],
 	},
+	{
+		title: "aaa",
+		img: "/sounds/a_a/art.png",
+		srcSet: ["/sounds/a_a/7-shion_aaa.mp3", "/sounds/a_a/8-shion_aaaa.mp3"],
+	},
 ];
