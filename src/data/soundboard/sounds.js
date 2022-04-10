@@ -146,6 +146,11 @@ export const sounds = [
 			"/sounds/suki/shion_i_love_you_2.mp3",
 			"/sounds/suki/shion_i_love_you_3.mp3",
 			"/sounds/suki/shion_i_love_you_4.mp3",
+			"/sounds/suki/daisuki.mp3",
+			"/sounds/suki/hontouni_daisuki_2.mp3",
+			"/sounds/suki/hontouni_daisuki.mp3",
+			"/sounds/suki/majide_daisuki.mp3",
+			"/sounds/suki/minna_daisuki.mp3",
 		],
 	},
 ];
