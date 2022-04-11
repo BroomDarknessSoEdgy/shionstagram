@@ -15,6 +15,7 @@
 					:inactive-text="$t('soundboard.offline')"
 					v-model="enabled"
 					active-color="#a275a9"
+					v-on:change="(val) => (val ? connect() : unsubscribe())"
 					>{{ enabled ? "online" : "offline" }}</el-switch
 				>
 			</header>
@@ -92,6 +93,23 @@ export default {
 		};
 	},
 	methods: {
+		connect() {
+			// listen for changes in chat db, then update
+			this.unsubscribe = onValue(query(dbRef, limitToLast(20)), (snapshot) => {
+				let data = snapshot.val();
+				let messages = [];
+				if (data)
+					Object.keys(data).forEach((key) => {
+						messages.push({
+							id: key,
+							...data[key],
+						});
+					});
+				this.messages = messages;
+				this.scrollDown();
+				this.playLast();
+			});
+		},
 		isOwnMessage(message) {
 			return message.username == this.username;
 		},
@@ -143,21 +161,7 @@ export default {
 		},
 	},
 	mounted() {
-		// listen for changes in chat db, then update
-		this.unsubscribe = onValue(query(dbRef, limitToLast(20)), (snapshot) => {
-			let data = snapshot.val();
-			let messages = [];
-			if (data)
-				Object.keys(data).forEach((key) => {
-					messages.push({
-						id: key,
-						...data[key],
-					});
-				});
-			this.messages = messages;
-			this.scrollDown();
-			this.playLast();
-		});
+		this.connect();
 	},
 	unmounted() {
 		this.unsubscribe();
