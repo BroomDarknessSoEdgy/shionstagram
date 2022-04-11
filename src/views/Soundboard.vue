@@ -40,13 +40,13 @@
 				</TransitionGroup>
 			</div>
 			<footer>
-				<h4>{{ $t("soundboard.volume_self") }}</h4>
+				<p>{{ $t("soundboard.volume_self") }}</p>
 				<el-slider
 					v-model="volume_self"
 					label="adjust volume"
 					:format-tooltip="(val) => `${val}%`"
 				/>
-				<h4>{{ $t("soundboard.volume_others") }}</h4>
+				<p>{{ $t("soundboard.volume_others") }}</p>
 				<el-slider
 					v-model="volume_others"
 					label="adjust volume"
@@ -114,7 +114,6 @@ export default {
 			});
 		},
 		disconnect() {
-			console.log(this.messages);
 			this.messages = this.messages.filter((message) =>
 				this.isOwnMessage(message)
 			);

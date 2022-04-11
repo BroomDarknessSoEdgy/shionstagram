@@ -78,7 +78,10 @@ body {
 }
 
 body {
+	font-family: "Manrope", sans-serif;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var(--purple-600);
 }
 
 img,
@@ -105,13 +108,6 @@ h4,
 h5,
 h6 {
 	overflow-wrap: break-word;
-}
-
-#app {
-	font-family: "Manrope", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	color: var(--purple-600);
 }
 
 .custom-cursor {

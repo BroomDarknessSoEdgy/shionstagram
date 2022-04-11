@@ -164,14 +164,9 @@ a {
 	--el-select-input-focus-border-color: var(--purple-400);
 }
 
-.el-select-dropdown__item {
-	font-family: "Manrope", sans-serif;
-}
-
 .el-select-dropdown__item.selected {
 	color: var(--purple-400);
 	font-weight: 400;
-	font-family: "Manrope", sans-serif;
 }
 
 select {
