@@ -36,22 +36,18 @@
 				</TransitionGroup>
 			</div>
 			<footer>
-				<div class="slider-container">
-					<h4>{{ $t("soundboard.volume_self") }}</h4>
-					<el-slider
-						v-model="volume_self"
-						label="adjust volume"
-						:format-tooltip="(val) => `${val}%`"
-					/>
-				</div>
-				<div class="slider-container">
-					<h4>{{ $t("soundboard.volume_others") }}</h4>
-					<el-slider
-						v-model="volume_others"
-						label="adjust volume"
-						:format-tooltip="(val) => `${val}%`"
-					/>
-				</div>
+				<h4>{{ $t("soundboard.volume_self") }}</h4>
+				<el-slider
+					v-model="volume_self"
+					label="adjust volume"
+					:format-tooltip="(val) => `${val}%`"
+				/>
+				<h4>{{ $t("soundboard.volume_others") }}</h4>
+				<el-slider
+					v-model="volume_others"
+					label="adjust volume"
+					:format-tooltip="(val) => `${val}%`"
+				/>
 			</footer>
 		</section>
 		<SoundSelector @send="sendMessage" :sounds="sounds" />
@@ -217,11 +213,8 @@ section {
 	background: white;
 	padding: 0.5rem 1.5rem;
 	border-top: var(--purple-700) 2px solid;
-}
-
-.slider-container {
 	display: grid;
-	gap: 1.5rem;
+	gap: 0 1.5rem;
 	align-items: center;
 	grid-template-columns: auto 1fr;
 }
