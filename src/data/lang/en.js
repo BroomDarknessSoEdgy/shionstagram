@@ -26,6 +26,8 @@ module.exports = {
 		sounds: "Sounds",
 		online: "Online",
 		offline: "Offline",
+		volume_self: "Volume (self)",
+		volume_others: "Volume (others)",
 		aqua: {
 			name: "Minato Aqua",
 			message: "Shion-chan congrats on reaching 1 million!!",

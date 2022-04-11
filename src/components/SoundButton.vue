@@ -4,9 +4,6 @@
 		@click="
 			() => {
 				$emit('send', button.img);
-				/*button.srcSet
-					? playSound(button.srcSet[randomInteger(0, button.srcSet.length - 1)])
-					: playSound(button.src);*/
 			}
 		"
 		:class="button.img ? 'withImg' : 'textOnly'"
@@ -22,18 +19,6 @@
 export default {
 	props: {
 		button: Object,
-	},
-	methods: {
-		// playSound(src) {
-		// 	const audio = new Howl({
-		// 		src: [src],
-		// 		preload: true,
-		// 	});
-		// 	audio.play();
-		// },
-		// randomInteger(min, max) {
-		// 	return Math.floor(Math.random() * (max - min + 1)) + min;
-		// },
 	},
 };
 </script>

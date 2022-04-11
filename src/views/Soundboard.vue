@@ -23,7 +23,7 @@
 					<div
 						v-for="(message, i) in messages"
 						:key="message.id ?? i"
-						:class="message.username == this.username ? 'self-msg' : 'msg'"
+						:class="isOwnMessage(message) ? 'self-msg' : 'msg'"
 						:style="`--hue: ${parseInt(message.username) % 360}`"
 					>
 						<h5>{{ "Shiokko n°" + parseInt(message.username) }}</h5>
@@ -35,6 +35,24 @@
 					</div>
 				</TransitionGroup>
 			</div>
+			<footer>
+				<div class="slider-container">
+					<h4>{{ $t("soundboard.volume_self") }}</h4>
+					<el-slider
+						v-model="volume_self"
+						label="adjust volume"
+						:format-tooltip="(val) => `${val}%`"
+					/>
+				</div>
+				<div class="slider-container">
+					<h4>{{ $t("soundboard.volume_others") }}</h4>
+					<el-slider
+						v-model="volume_others"
+						label="adjust volume"
+						:format-tooltip="(val) => `${val}%`"
+					/>
+				</div>
+			</footer>
 		</section>
 		<SoundSelector @send="sendMessage" :sounds="sounds" />
 	</main>
@@ -50,7 +68,7 @@ import fdb from "../config/firebase.js";
 import { ref, push, onValue, query, limitToLast } from "firebase/database";
 import { Howl } from "howler";
 
-import { ElSwitch } from "element-plus";
+import { ElSwitch, ElSlider } from "element-plus";
 
 export default {
 	name: "Soundboard",
@@ -59,6 +77,7 @@ export default {
 		MessageHistory,
 		SoundSelector,
 		ElSwitch,
+		ElSlider,
 	},
 	created: function () {
 		this.username = Math.floor(Math.random() * 100000);
@@ -67,11 +86,16 @@ export default {
 		return {
 			sounds,
 			messages: [],
+			volume_self: 100,
+			volume_others: 100,
 			enabled: true, // choice between online/offline
 			allowedToSend: true, // avoid db spam
 		};
 	},
 	methods: {
+		isOwnMessage(message) {
+			return message.username == this.username;
+		},
 		sendMessage(message) {
 			const m = {
 				soundId: message,
@@ -98,17 +122,23 @@ export default {
 			setTimeout(() => {
 				const soundsContainer = this.$refs.sounds;
 				soundsContainer.scrollTop = soundsContainer.scrollHeight;
-			}, 5);
+			}, 25);
 		},
 		// play last message's sound
 		playLast() {
-			const sound = sounds[this.messages[this.messages.length - 1].soundId];
+			const latestMessage = this.messages[this.messages.length - 1];
+
+			const sound = sounds[latestMessage.soundId];
 			const src = sound.srcSet
 				? sound.srcSet[Math.floor(Math.random() * sound.srcSet.length)]
 				: sound.src;
+
 			const audio = new Howl({
 				src: [src],
 				preload: true,
+				volume: this.isOwnMessage(latestMessage)
+					? this.volume_self / 100
+					: this.volume_others / 100,
 			});
 			audio.play();
 		},
@@ -170,7 +200,7 @@ section {
 	grid-area: messages;
 	display: flex;
 	flex-direction: column;
-	height: 90vh;
+	height: 100vh;
 	min-height: 35rem;
 }
 
@@ -180,6 +210,20 @@ section {
 	border-bottom: var(--purple-700) 2px solid;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+}
+
+.messages footer {
+	background: white;
+	padding: 0.5rem 1.5rem;
+	border-top: var(--purple-700) 2px solid;
+}
+
+.slider-container {
+	display: grid;
+	gap: 1.5rem;
+	align-items: center;
+	grid-template-columns: auto 1fr;
 }
 
 @media screen and (min-width: 650px) {
