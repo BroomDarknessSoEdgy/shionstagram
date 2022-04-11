@@ -66,6 +66,8 @@ import { Howl } from "howler";
 
 import { ElSwitch, ElSlider } from "element-plus";
 
+const dbRef = ref(fdb, "messages");
+
 export default {
 	name: "Soundboard",
 	components: {
@@ -86,6 +88,7 @@ export default {
 			volume_others: 100,
 			enabled: true, // choice between online/offline
 			allowedToSend: true, // avoid db spam
+			unsubscribe: null,
 		};
 	},
 	methods: {
@@ -141,8 +144,7 @@ export default {
 	},
 	mounted() {
 		// listen for changes in chat db, then update
-		const dbRef = ref(fdb, "messages");
-		onValue(query(dbRef, limitToLast(20)), (snapshot) => {
+		this.unsubscribe = onValue(query(dbRef, limitToLast(20)), (snapshot) => {
 			let data = snapshot.val();
 			let messages = [];
 			if (data)
@@ -156,6 +158,9 @@ export default {
 			this.scrollDown();
 			this.playLast();
 		});
+	},
+	unmounted() {
+		this.unsubscribe();
 	},
 };
 </script>
