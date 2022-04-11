@@ -24,6 +24,8 @@ module.exports = {
 		history: "History",
 		messages: "Messages",
 		sounds: "Sounds",
+		online: "Online",
+		offline: "Offline",
 		aqua: {
 			name: "Minato Aqua",
 			message: "Shion-chan congrats on reaching 1 million!!",
@@ -78,7 +80,7 @@ module.exports = {
 			"Only one image can be added. Max. 5MB jpeg/png/gif/apng files.\nIf no image is submitted, we'll pick a random to display for you.",
 
 		preview: "Preview",
-		
+
 		submit: "Submit",
 		submission_received: "Submission Received",
 

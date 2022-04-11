@@ -11,8 +11,8 @@
 			<header>
 				<h4>{{ $t("soundboard.messages") }}</h4>
 				<el-switch
-					active-text="Online"
-					inactive-text="Offline"
+					:active-text="$t('soundboard.online')"
+					:inactive-text="$t('soundboard.offline')"
 					v-model="enabled"
 					active-color="#a275a9"
 					>{{ enabled ? "online" : "offline" }}</el-switch
@@ -24,6 +24,7 @@
 						v-for="(message, i) in messages"
 						:key="message.id ?? i"
 						:class="message.username == this.username ? 'self-msg' : 'msg'"
+						:style="`--hue: ${parseInt(message.username) % 360}`"
 					>
 						<h5>{{ "Shiokko n°" + parseInt(message.username) }}</h5>
 						<img
@@ -253,6 +254,7 @@ section {
 }
 
 .msg {
+	color: hsl(var(--hue, 292), 70%, 50%);
 	margin-right: auto;
 }
 
