@@ -15,7 +15,10 @@
 					:inactive-text="$t('soundboard.offline')"
 					v-model="enabled"
 					active-color="#a275a9"
-					v-on:change="(val) => (val ? connect() : unsubscribe())"
+					v-on:change="
+						(val) => (val ? connect() : disconnect())
+						// eslint-disable-next-line no-mixed-spaces-and-tabs
+					"
 					>{{ enabled ? "online" : "offline" }}</el-switch
 				>
 			</header>
@@ -109,6 +112,13 @@ export default {
 				this.scrollDown();
 				this.playLast();
 			});
+		},
+		disconnect() {
+			console.log(this.messages);
+			this.messages = this.messages.filter((message) =>
+				this.isOwnMessage(message)
+			);
+			this.unsubscribe();
 		},
 		isOwnMessage(message) {
 			return message.username == this.username;
@@ -258,6 +268,7 @@ section {
 
 .sounds {
 	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 	align-items: flex-end;
 	gap: 0.5rem;
