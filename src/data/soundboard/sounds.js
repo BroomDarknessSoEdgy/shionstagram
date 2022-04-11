@@ -41,6 +41,9 @@ export const sounds = [
 			"/sounds/pokemon/64_Kyoon.mp3",
 			"/sounds/pokemon/90_pikachu.mp3",
 			"/sounds/pokemon/gogobo_gobobobobo.mp3",
+			"/sounds/pokemon/kupoo.mp3",
+			"/sounds/pokemon/pshuu.mp3",
+			"/sounds/pokemon/runaan.mp3",
 		],
 	},
 	{
@@ -152,5 +155,10 @@ export const sounds = [
 			"/sounds/suki/majide_daisuki.mp3",
 			"/sounds/suki/minna_daisuki.mp3",
 		],
+	},
+	{
+		title: "Goshujinsama",
+		img: "/sounds/goshujinsama/art.png",
+		src: "/sounds/goshujinsama/20_goshujinsama.mp3",
 	},
 ];
