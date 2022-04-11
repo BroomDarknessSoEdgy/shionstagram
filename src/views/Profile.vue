@@ -150,6 +150,9 @@ export default {
 					name: "べべ",
 					twitter: "sj67899745",
 				},
+				{
+					name: "Rice-sama",
+				},
 			],
 			leads: [
 				{
