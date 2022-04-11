@@ -215,7 +215,7 @@ section {
 	grid-area: messages;
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 80vh;
 	min-height: 35rem;
 }
 
