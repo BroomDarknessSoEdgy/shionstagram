@@ -7,20 +7,22 @@
 		<section class="messages">
 			<header>
 				<h4>{{ $t("soundboard.messages") }}</h4>
+				<button @click="enabled=!enabled">{{enabled ? "online" : "offline"}}</button>
 			</header>
 			<div class="sounds" ref="sounds">
 				<TransitionGroup name="sounds">
-					<img
-						v-for="message in sentMessages"
-						:key="message.id"
-						:src="message.img"
-						class="sound-art"
-						alt=""
-					/>
+					<div v-for="(message,i) in messages" :key="message.id ?? i" :class="message.username == this.username ? 'self-msg' : 'msg'">
+						<h5>{{"Shiokko n°"+parseInt(message.username)}}</h5>
+						<img
+							:src="sounds[parseInt(message.soundId)]?.img"
+							class="sound-art"
+							alt=""
+						/>
+					</div>
 				</TransitionGroup>
 			</div>
 		</section>
-		<SoundSelector @send="addMessage" :sounds="sounds" />
+		<SoundSelector @send="sendMessage" :sounds="sounds" />
 	</main>
 </template>
 
@@ -30,6 +32,10 @@ import { sounds } from "../data/soundboard/sounds";
 import Menu from "../components/Menu.vue";
 import MessageHistory from "../components/MessageHistory.vue";
 import SoundSelector from "../components/SoundSelector.vue";
+import fdb from "../config/firebase.js";
+import { ref, push, onValue, query, limitToLast } from "firebase/database";
+import { Howl } from "howler";
+
 
 export default {
 	name: "Soundboard",
@@ -38,24 +44,77 @@ export default {
 		MessageHistory,
 		SoundSelector,
 	},
+	created: function () {
+		this.username = Math.floor(Math.random()*100000);
+	},
 	data() {
 		return {
 			sounds,
-			sentMessages: [],
+			messages: [],
+			enabled: true, // choice between online/offline
+			allowedToSend: true // avoid db spam
 		};
 	},
 	methods: {
-		addMessage(message) {
-			this.sentMessages.push(message);
+		sendMessage(message) {
+			const m = {
+				soundId: message,
+				username: this.username
+			};
+			const dbRef =  ref(fdb, 'messages');
 
-			// wait for update before scrolling to bottom
+			// only send online if allowed to
+			if(this.enabled && this.allowedToSend) {
+				push(dbRef, m);
+				this.allowedToSend = false;
+
+				// delay of 1 sec between sending online messages
+				setTimeout(() => {
+					this.allowedToSend = true;
+				}, 1000);
+			} else if(!this.enabled) {
+				this.messages.push(m);
+				this.playLast();
+			}
+			this.scrollDown();
+		},
+		scrollDown(){
 			setTimeout(() => {
-				const soundsContainer = this.$refs.sounds;
-				soundsContainer.scrollTop = soundsContainer.scrollHeight;
+					const soundsContainer = this.$refs.sounds;
+					soundsContainer.scrollTop = soundsContainer.scrollHeight;
 			}, 5);
 		},
+		// play last message's sound
+		playLast(){
+			const sound = sounds[this.messages[this.messages.length-1].soundId];
+			const src = (sound.srcSet) ? sound.srcSet[Math.floor(Math.random()*sound.srcSet.length)] : sound.src;
+			const audio = new Howl({
+				src: [src],
+				preload: true,
+			});
+			audio.play();
+		}
 	},
+	mounted() {
+		// listen for changes in chat db, then update
+		const dbRef = ref(fdb,"messages");
+		onValue(query(dbRef,limitToLast(20)), (snapshot) => {
+			let data = snapshot.val();
+			let messages = [];
+			if(data) 
+				Object.keys(data).forEach(key => {
+					messages.push({
+						id: key,
+						...data[key]
+					});
+				});
+			this.messages = messages;
+			this.scrollDown();
+			this.playLast();
+		});
+	}
 };
+
 </script>
 
 <style scoped>
@@ -102,6 +161,8 @@ section {
 	background: white;
 	padding: 1rem 1.5rem;
 	border-bottom: var(--purple-700) 2px solid;
+	display: flex;
+	justify-content: space-between;
 }
 
 @media screen and (min-width: 650px) {
@@ -173,5 +234,14 @@ section {
 .sounds-leave-to {
 	opacity: 0;
 	transform: translateY(0.5rem);
+}
+
+.msg{
+	margin-right:auto
+}
+
+.self-msg{
+	color: var(--purple-700);
+	text-align: right
 }
 </style>

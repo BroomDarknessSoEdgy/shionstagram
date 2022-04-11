@@ -11,6 +11,7 @@
 	"dependencies": {
 		"core-js": "^3.6.5",
 		"element-plus": "^2.1.6",
+		"firebase": "^9.6.10",
 		"howler": "^2.2.3",
 		"lottie-web": "^5.7.13",
 		"vue": "^3.0.0",

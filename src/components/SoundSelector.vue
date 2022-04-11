@@ -5,8 +5,8 @@
 		</div>
 		<TransitionGroup class="sounds" name="sounds" tag="div">
 			<SoundButton
-				@send="(img) => bubble(img)"
-				v-for="sound in sounds"
+				@send="() => bubble(index)"
+				v-for="(sound, index) in sounds"
 				:key="sound.title"
 				:button="sound"
 			/>
@@ -17,8 +17,6 @@
 <script>
 import SoundButton from "./SoundButton.vue";
 
-let messagesSent = 0;
-
 export default {
 	components: {
 		SoundButton,
@@ -27,9 +25,8 @@ export default {
 		sounds: Array,
 	},
 	methods: {
-		bubble(img) {
-			this.$emit("send", { img, id: messagesSent });
-			messagesSent++;
+		bubble(index) {
+			this.$emit("send", index );
 		},
 	},
 };
