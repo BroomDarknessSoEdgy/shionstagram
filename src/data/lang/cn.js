@@ -26,8 +26,8 @@ module.exports = {
 		sounds: "聲音",
 		online: "Online",
 		offline: "Offline",
-		volume_self: "Volume (self)",
-		volume_others: "Volume (others)",
+		volume_self: "聲量 (自己)",
+		volume_others: "聲量 (其他)",
 		aqua: {
 			name: "湊阿庫婭",
 			message: "シオンちゃん100万人おめでとう！！",
