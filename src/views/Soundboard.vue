@@ -4,15 +4,28 @@
 			<Menu />
 			<MessageHistory />
 		</aside>
-		<section class="messages">
+		<section
+			class="messages"
+			style="--el-color-primary: #7c4785; --el-text-color-primary: #aaa"
+		>
 			<header>
 				<h4>{{ $t("soundboard.messages") }}</h4>
-				<button @click="enabled=!enabled">{{enabled ? "online" : "offline"}}</button>
+				<el-switch
+					active-text="Online"
+					inactive-text="Offline"
+					v-model="enabled"
+					active-color="#a275a9"
+					>{{ enabled ? "online" : "offline" }}</el-switch
+				>
 			</header>
 			<div class="sounds" ref="sounds">
 				<TransitionGroup name="sounds">
-					<div v-for="(message,i) in messages" :key="message.id ?? i" :class="message.username == this.username ? 'self-msg' : 'msg'">
-						<h5>{{"Shiokko n°"+parseInt(message.username)}}</h5>
+					<div
+						v-for="(message, i) in messages"
+						:key="message.id ?? i"
+						:class="message.username == this.username ? 'self-msg' : 'msg'"
+					>
+						<h5>{{ "Shiokko n°" + parseInt(message.username) }}</h5>
 						<img
 							:src="sounds[parseInt(message.soundId)]?.img"
 							class="sound-art"
@@ -36,6 +49,7 @@ import fdb from "../config/firebase.js";
 import { ref, push, onValue, query, limitToLast } from "firebase/database";
 import { Howl } from "howler";
 
+import { ElSwitch } from "element-plus";
 
 export default {
 	name: "Soundboard",
@@ -43,28 +57,29 @@ export default {
 		Menu,
 		MessageHistory,
 		SoundSelector,
+		ElSwitch,
 	},
 	created: function () {
-		this.username = Math.floor(Math.random()*100000);
+		this.username = Math.floor(Math.random() * 100000);
 	},
 	data() {
 		return {
 			sounds,
 			messages: [],
 			enabled: true, // choice between online/offline
-			allowedToSend: true // avoid db spam
+			allowedToSend: true, // avoid db spam
 		};
 	},
 	methods: {
 		sendMessage(message) {
 			const m = {
 				soundId: message,
-				username: this.username
+				username: this.username,
 			};
-			const dbRef =  ref(fdb, 'messages');
+			const dbRef = ref(fdb, "messages");
 
 			// only send online if allowed to
-			if(this.enabled && this.allowedToSend) {
+			if (this.enabled && this.allowedToSend) {
 				push(dbRef, m);
 				this.allowedToSend = false;
 
@@ -72,49 +87,50 @@ export default {
 				setTimeout(() => {
 					this.allowedToSend = true;
 				}, 1000);
-			} else if(!this.enabled) {
+			} else if (!this.enabled) {
 				this.messages.push(m);
 				this.playLast();
 			}
 			this.scrollDown();
 		},
-		scrollDown(){
+		scrollDown() {
 			setTimeout(() => {
-					const soundsContainer = this.$refs.sounds;
-					soundsContainer.scrollTop = soundsContainer.scrollHeight;
+				const soundsContainer = this.$refs.sounds;
+				soundsContainer.scrollTop = soundsContainer.scrollHeight;
 			}, 5);
 		},
 		// play last message's sound
-		playLast(){
-			const sound = sounds[this.messages[this.messages.length-1].soundId];
-			const src = (sound.srcSet) ? sound.srcSet[Math.floor(Math.random()*sound.srcSet.length)] : sound.src;
+		playLast() {
+			const sound = sounds[this.messages[this.messages.length - 1].soundId];
+			const src = sound.srcSet
+				? sound.srcSet[Math.floor(Math.random() * sound.srcSet.length)]
+				: sound.src;
 			const audio = new Howl({
 				src: [src],
 				preload: true,
 			});
 			audio.play();
-		}
+		},
 	},
 	mounted() {
 		// listen for changes in chat db, then update
-		const dbRef = ref(fdb,"messages");
-		onValue(query(dbRef,limitToLast(20)), (snapshot) => {
+		const dbRef = ref(fdb, "messages");
+		onValue(query(dbRef, limitToLast(20)), (snapshot) => {
 			let data = snapshot.val();
 			let messages = [];
-			if(data) 
-				Object.keys(data).forEach(key => {
+			if (data)
+				Object.keys(data).forEach((key) => {
 					messages.push({
 						id: key,
-						...data[key]
+						...data[key],
 					});
 				});
 			this.messages = messages;
 			this.scrollDown();
 			this.playLast();
 		});
-	}
+	},
 };
-
 </script>
 
 <style scoped>
@@ -236,12 +252,12 @@ section {
 	transform: translateY(0.5rem);
 }
 
-.msg{
-	margin-right:auto
+.msg {
+	margin-right: auto;
 }
 
-.self-msg{
+.self-msg {
 	color: var(--purple-700);
-	text-align: right
+	text-align: right;
 }
 </style>
