@@ -37,6 +37,10 @@
 				<img class="icon" src="../assets/icons/Send.svg" />
 				<span>{{ $t("menu.submit") }}</span>
 			</router-link>
+			<router-link to="/projects">
+				<img class="icon" src="../assets/icons/ShionGlobe.svg" />
+				<span>{{ $t("menu.other_projects") }}</span>
+			</router-link>
 		</nav>
 	</aside>
 </template>

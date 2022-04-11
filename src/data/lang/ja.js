@@ -6,6 +6,7 @@ module.exports = {
 		soundboard: "サウンドボード",
 		profile: "プロフィール",
 		submit: "投稿フォーム",
+		other_projects: "Other Projects",
 	},
 	profile: {
 		posts: "投稿0件",

@@ -6,6 +6,7 @@ module.exports = {
 		soundboard: "聲音庫",
 		profile: "個人檔案",
 		submit: "投稿",
+		other_projects: "Other Projects",
 	},
 	profile: {
 		posts: "帖子數0件",

@@ -358,7 +358,7 @@ main {
 	background-color: white;
 	padding: 2rem 1.5rem;
 	border-radius: 0.5rem;
-	box-shadow: 0 0.25rem 0.125rem rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.15);
 }
 
 .pfp-select {

@@ -3,6 +3,7 @@ import Index from "../views/Index.vue";
 import Submit from "../views/Submit.vue";
 import Profile from "../views/Profile.vue";
 import Soundboard from "../views/Soundboard.vue";
+import Projects from "../views/Projects.vue";
 
 const routes = [
 	{
@@ -24,6 +25,11 @@ const routes = [
 		path: "/soundboard",
 		name: "Soundboard",
 		component: Soundboard,
+	},
+	{
+		path: "/projects",
+		name: "Other Projects",
+		component: Projects,
 	},
 ];
 

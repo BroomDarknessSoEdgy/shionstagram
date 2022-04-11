@@ -124,10 +124,6 @@ export default {
 	components: {
 		Menu,
 	},
-	props: {
-		token: String,
-		admin: Boolean,
-	},
 	data: () => ({
 		name: "murasakishionch",
 		posts: 0,
