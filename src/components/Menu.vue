@@ -83,6 +83,9 @@ aside {
 }
 
 nav {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 	padding-left: 1rem;
 }
 
@@ -92,7 +95,6 @@ nav a {
 	align-items: center;
 	text-decoration: none;
 	padding: 0.25rem 0;
-	margin-bottom: 1.5rem;
 }
 
 nav a:last-of-type {
