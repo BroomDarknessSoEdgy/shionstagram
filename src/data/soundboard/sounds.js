@@ -44,6 +44,7 @@ export const sounds = [
 			"/sounds/pokemon/kupoo.mp3",
 			"/sounds/pokemon/pshuu.mp3",
 			"/sounds/pokemon/runaan.mp3",
+			"/sounds/pokemon/Shion_Kricketune_impression.mp3",
 		],
 	},
 	{
@@ -67,6 +68,9 @@ export const sounds = [
 			"/sounds/kawaii/shion_kawaii_1.mp3",
 			"/sounds/kawaii/shion_kawaii_2.mp3",
 			"/sounds/kawaii/shion_kawaii_3.mp3",
+			"/sounds/kawaii/a_kawaii.mp3",
+			"/sounds/kawaii/kawaiii.mp3",
+			"/sounds/kawaii/kawaiiii.mp3",
 		],
 	},
 	{
@@ -131,6 +135,7 @@ export const sounds = [
 			"/sounds/baka/9_baka.mp3",
 			"/sounds/baka/shion_kaere_baka.mp3",
 			"/sounds/baka/shion_baaka.mp3",
+			"/sounds/baka/baaka.mp3",
 		],
 	},
 	{
