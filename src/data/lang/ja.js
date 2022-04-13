@@ -94,4 +94,8 @@ module.exports = {
 		try_again: "再送信",
 		submit_another_message: "新しい投稿を送信",
 	},
+	projects: {
+		comemorative_video_desc:
+			"この動画は、当サイトとは別に海外の塩っ子たちがシオンちゃんデビューから登録者100万人までの活動の軌跡と魅了ポイントをテーマにしたお祝い動画です。良かったら是非見てください！ ",
+	},
 };

@@ -90,4 +90,8 @@ module.exports = {
 		try_again: "重新投稿",
 		submit_another_message: "再投稿",
 	},
+	projects: {
+		comemorative_video_desc:
+			"這部影片是海外的鹽子們以詩音出道以來到100萬訂閱為止的以活動軌跡及其魅力為主題的慶祝影片，若有時間的話請一起來慶祝吧！",
+	},
 };

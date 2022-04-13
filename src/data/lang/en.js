@@ -92,4 +92,8 @@ module.exports = {
 		try_again: "Try again",
 		submit_another_message: "Submit another message",
 	},
+	projects: {
+		comemorative_video_desc:
+			"Brought to you by a collection of overseas shiokkos, a video documenting Murasaki Shion's road to a million, including some memorable and endearing moments. Be sure to check it out, enjoy!!",
+	},
 };

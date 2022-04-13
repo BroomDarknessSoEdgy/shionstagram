@@ -26,16 +26,16 @@
 					<h2>紫咲シオンちゃん100万人記念動画！</h2>
 					<h3>Murasaki Shion 1 Million comemorative video</h3>
 				</header>
-				<img src="../assets/images/bg-dark.jpg" alt="" />
+				<iframe
+					src="https://www.youtube-nocookie.com/embed/EHxpqK1CeH4"
+					title="YouTube video player"
+					frameborder="0"
+					class="clip-embed"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lorem
-					tellus, ultrices feugiat tempus non, sodales ac quam. Curabitur sed
-					ultricies augue. Quisque nec aliquet dui, ac congue lorem. Phasellus
-					vel dignissim ex, sit amet ultrices erat. Vivamus in metus vel enim
-					aliquam iaculis. In tellus mauris, lacinia vel dictum quis, efficitur
-					vel orci. Integer lobortis, ante vel fermentum ultricies, elit nunc
-					placerat urna, vitae faucibus tellus enim at mi. Etiam nec mi eget
-					justo pharetra aliquam.
+					{{ $t("projects.comemorative_video_desc") }}
 				</p>
 			</section>
 			<section class="project">
@@ -128,6 +128,13 @@ hr {
 	width: 100%;
 	border-radius: 0.5rem;
 	margin-bottom: 1.5rem;
+}
+.project iframe {
+	border-radius: 0.5rem;
+	margin-bottom: 1.5rem;
+	aspect-ratio: 16 / 9;
+	height: 100%;
+	width: 100%;
 }
 
 .project-title {
