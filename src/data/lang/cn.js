@@ -24,6 +24,7 @@ module.exports = {
 	soundboard: {
 		history: "歷史",
 		messages: "信息",
+		sounds: "聲音",
 		single: "Single",
 		multiple: "Multiple",
 		online: "Online",

@@ -1,29 +1,30 @@
 <template>
 	<section>
 		<div class="tabs">
-			<button
-				:active="currentCategory === 'single'"
-				@click="() => (currentCategory = 'single')"
-			>
-				{{ $t("soundboard.single") }}
-			</button>
-			<button
-				:active="currentCategory === 'multi'"
-				@click="() => (currentCategory = 'multi')"
-			>
-				{{ $t("soundboard.multiple") }}
-			</button>
+			<h4>{{ $t("soundboard.sounds") }}</h4>
 		</div>
-		<TransitionGroup class="sounds" name="sounds" tag="div">
+		<div class="category">
+			<h4>{{ $t("soundboard.single") }}</h4>
+		</div>
+		<div class="sounds">
 			<SoundButton
 				@send="() => bubble(sound.id)"
-				v-for="sound in soundsWithId.filter((sound) =>
-					currentCategory === 'single' ? !sound.srcSet : sound.srcSet
-				)"
+				v-for="sound in singleSounds"
 				:key="sound.title"
 				:button="sound"
 			/>
-		</TransitionGroup>
+		</div>
+		<div class="category">
+			<h4>{{ $t("soundboard.multiple") }}</h4>
+		</div>
+		<div class="sounds" style="margin-bottom: 1.5rem">
+			<SoundButton
+				@send="() => bubble(sound.id)"
+				v-for="sound in multipleSounds"
+				:key="sound.title"
+				:button="sound"
+			/>
+		</div>
 	</section>
 </template>
 
@@ -37,17 +38,18 @@ export default {
 	props: {
 		sounds: Array,
 	},
-	data() {
-		return {
-			currentCategory: "single",
-		};
-	},
 	computed: {
 		soundsWithId() {
-			return this.sounds.map((sound, index) => ({
+			return this.sounds.map((sound, i) => ({
 				...sound,
-				id: index,
+				id: i,
 			}));
+		},
+		singleSounds() {
+			return this.soundsWithId.filter((sound) => !sound.srcSet);
+		},
+		multipleSounds() {
+			return this.soundsWithId.filter((sound) => sound.srcSet);
 		},
 	},
 	methods: {
@@ -68,9 +70,8 @@ section {
 .tabs {
 	display: flex;
 	gap: 1rem;
-	justify-content: space-around;
 	align-items: center;
-	padding: 1rem 1.5rem;
+	padding: 1rem;
 	border-bottom: var(--purple-700) 2px solid;
 }
 
@@ -104,7 +105,23 @@ section {
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
-	padding: 1.5rem 1rem;
+	padding: 0 1rem;
+}
+
+.category {
+	display: flex;
+	align-items: center;
+	color: var(--purple-700);
+	padding: 1rem;
+	gap: 1rem;
+}
+
+.category::after {
+	content: "";
+	height: 1px;
+	width: 100%;
+	background: var(--purple-800);
+	border-radius: 999px;
 }
 
 @keyframes fadeIn {
