@@ -16,8 +16,8 @@
 		</div>
 		<TransitionGroup class="sounds" name="sounds" tag="div">
 			<SoundButton
-				@send="() => bubble(index)"
-				v-for="(sound, index) in sounds.filter((sound) =>
+				@send="() => bubble(sound.id)"
+				v-for="sound in soundsWithId.filter((sound) =>
 					currentCategory === 'single' ? !sound.srcSet : sound.srcSet
 				)"
 				:key="sound.title"
@@ -41,6 +41,14 @@ export default {
 		return {
 			currentCategory: "single",
 		};
+	},
+	computed: {
+		soundsWithId() {
+			return this.sounds.map((sound, index) => ({
+				...sound,
+				id: index,
+			}));
+		},
 	},
 	methods: {
 		bubble(index) {
