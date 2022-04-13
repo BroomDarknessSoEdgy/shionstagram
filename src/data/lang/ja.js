@@ -6,7 +6,7 @@ module.exports = {
 		soundboard: "サウンドボード",
 		profile: "プロフィール",
 		submit: "投稿フォーム",
-		other_projects: "Other Projects",
+		other_projects: "他の企画",
 	},
 	profile: {
 		posts: "投稿0件",
@@ -95,7 +95,11 @@ module.exports = {
 		submit_another_message: "新しい投稿を送信",
 	},
 	projects: {
+		one_million_shiokko_desc:
+			"Brought to you by the organizers and creators of Shion's birthday celebration projects and third anniversary mosaic art, a virtual globe has been created to feature messages from around the world, commemorating Shion reaching 1 million subscribers! Make yourself at home on the wonderful Shiokko Globe!!",
 		comemorative_video_desc:
 			"この動画は、当サイトとは別に海外の塩っ子たちがシオンちゃんデビューから登録者100万人までの活動の軌跡と魅了ポイントをテーマにしたお祝い動画です。良かったら是非見てください！ ",
+		collage_desc:
+			"To celebrate Shion reaching 1 Million, Shiokkos on Twitter have joined forces and created this wonderful Shiokko collage art!! Go visit the tweet to view this amazing art along with their heartfelt messages to Shion!!",
 	},
 };
