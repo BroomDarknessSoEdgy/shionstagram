@@ -166,4 +166,14 @@ export const sounds = [
 		img: "/sounds/kiss/art.png",
 		src: "/sounds/kiss/12-shion_kiss.mp3",
 	},
+	{
+		title: "UWAH",
+		img: "/sounds/uwah/art.png",
+		src: "/sounds/uwah/60_UWAH.mp3",
+	},
+	{
+		title: "Na nan na nan",
+		img: "/sounds/nananana/art.png",
+		src: "/sounds/nananana/80_na-nan-na-Nan.mp3",
+	},
 ];
