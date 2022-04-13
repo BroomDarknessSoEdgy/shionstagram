@@ -109,7 +109,8 @@ section {
 }
 
 .category {
-	display: flex;
+	display: grid;
+	grid-template-columns: max-content 1fr;
 	align-items: center;
 	color: var(--purple-700);
 	padding: 1rem;
