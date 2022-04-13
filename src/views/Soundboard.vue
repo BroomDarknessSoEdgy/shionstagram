@@ -110,7 +110,7 @@ export default {
 					});
 				this.messages = messages;
 				this.scrollDown();
-				this.playLast();
+				this.playSound(messages[messages.length - 1]);
 			});
 		},
 		disconnect() {
@@ -140,7 +140,7 @@ export default {
 				}, 1000);
 			} else if (!this.enabled) {
 				this.messages.push(m);
-				this.playLast();
+				this.console.log(m);
 			}
 			this.scrollDown();
 		},
@@ -150,11 +150,8 @@ export default {
 				soundsContainer.scrollTop = soundsContainer.scrollHeight;
 			}, 25);
 		},
-		// play last message's sound
-		playLast() {
-			const latestMessage = this.messages[this.messages.length - 1];
-
-			const sound = sounds[latestMessage.soundId];
+		playSound(message) {
+			const sound = sounds[message.soundId];
 			const src = sound.srcSet
 				? sound.srcSet[Math.floor(Math.random() * sound.srcSet.length)]
 				: sound.src;
@@ -162,7 +159,7 @@ export default {
 			const audio = new Howl({
 				src: [src],
 				preload: true,
-				volume: this.isOwnMessage(latestMessage)
+				volume: this.isOwnMessage(message)
 					? this.volume_self / 100
 					: this.volume_others / 100,
 			});
