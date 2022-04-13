@@ -39,7 +39,7 @@ export default {
 	},
 	data() {
 		return {
-			currentCategory: 0,
+			currentCategory: "single",
 		};
 	},
 	methods: {
