@@ -1,12 +1,25 @@
 <template>
 	<section>
 		<div class="tabs">
-			<h4>{{ $t("soundboard.sounds") }}</h4>
+			<button
+				:active="currentCategory === 'single'"
+				@click="() => (currentCategory = 'single')"
+			>
+				{{ $t("soundboard.single") }}
+			</button>
+			<button
+				:active="currentCategory === 'multi'"
+				@click="() => (currentCategory = 'multi')"
+			>
+				{{ $t("soundboard.multiple") }}
+			</button>
 		</div>
 		<TransitionGroup class="sounds" name="sounds" tag="div">
 			<SoundButton
 				@send="() => bubble(index)"
-				v-for="(sound, index) in sounds"
+				v-for="(sound, index) in sounds.filter((sound) =>
+					currentCategory === 'single' ? !sound.srcSet : sound.srcSet
+				)"
 				:key="sound.title"
 				:button="sound"
 			/>
@@ -24,9 +37,14 @@ export default {
 	props: {
 		sounds: Array,
 	},
+	data() {
+		return {
+			currentCategory: 0,
+		};
+	},
 	methods: {
 		bubble(index) {
-			this.$emit("send", index );
+			this.$emit("send", index);
 		},
 	},
 };
@@ -42,7 +60,7 @@ section {
 .tabs {
 	display: flex;
 	gap: 1rem;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	padding: 1rem 1.5rem;
 	border-bottom: var(--purple-700) 2px solid;

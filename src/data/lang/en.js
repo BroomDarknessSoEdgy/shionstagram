@@ -24,7 +24,8 @@ module.exports = {
 	soundboard: {
 		history: "History",
 		messages: "Messages",
-		sounds: "Sounds",
+		single: "Single",
+		multiple: "Multiple",
 		online: "Online",
 		offline: "Offline",
 		volume_self: "Volume (self)",

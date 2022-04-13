@@ -24,7 +24,8 @@ module.exports = {
 	soundboard: {
 		history: "履歴",
 		messages: "メッセージ",
-		sounds: "音声",
+		single: "Single",
+		multiple: "Multiple",
 		online: "オンライン",
 		offline: "オフライン",
 		volume_self: "音量(自分)",
