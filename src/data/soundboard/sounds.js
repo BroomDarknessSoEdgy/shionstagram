@@ -161,4 +161,9 @@ export const sounds = [
 		img: "/sounds/goshujinsama/art.png",
 		src: "/sounds/goshujinsama/20_goshujinsama.mp3",
 	},
+	{
+		title: "Kiss",
+		img: "/sounds/kiss/art.png",
+		src: "/sounds/kiss/12-shion_kiss.mp3",
+	},
 ];
