@@ -15,7 +15,9 @@
 						<h3>Where are a million Shiokkos</h3>
 					</header>
 
-					<img src="../assets/projects/whereareamillion.jpg" alt="" />
+					<div class="img-wrapper">
+						<img src="../assets/projects/whereareamillion.jpg" alt="" />
+					</div>
 				</a>
 				<p>
 					{{ $t("projects.one_million_shiokko_desc") }}
@@ -48,7 +50,9 @@
 						<h2>集まれ塩っ子。塩っ子コラージュ</h2>
 						<h3>Shiokko collage art project</h3>
 					</header>
-					<img src="../assets/projects/collage.jpg" alt="" />
+					<div class="img-wrapper">
+						<img src="../assets/projects/collage.jpg" alt="" />
+					</div>
 				</a>
 				<p>
 					{{ $t("projects.collage_desc") }}
@@ -130,9 +134,21 @@ hr {
 
 .project img {
 	width: 100%;
+	filter: grayscale(0.2) brightness(0.8);
+	transition: transform 150ms ease-out, filter 150ms ease-out;
+}
+
+.img-wrapper {
+	overflow: hidden;
 	border-radius: 0.5rem;
 	margin-bottom: 1.5rem;
 }
+
+.img-wrapper:hover img {
+	transform: scale(1.03);
+	filter: grayscale(0) brightness(1);
+}
+
 .project iframe {
 	border-radius: 0.5rem;
 	margin-bottom: 1.5rem;

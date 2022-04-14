@@ -94,10 +94,10 @@ module.exports = {
 	},
 	projects: {
 		one_million_shiokko_desc:
-			"Brought to you by the organizers and creators of Shion's birthday celebration projects and third anniversary mosaic art, a virtual globe has been created to feature messages from around the world, commemorating Shion reaching 1 million subscribers! Make yourself at home on the wonderful Shiokko Globe!!",
+			"為紀念シオン達到百萬訂閱，由シオン生日慶祝企劃，以及三週年馬賽克畫的組織者與創作者們所製作，附上來自世界各地訊息的虛擬地球儀已經完成了！自由在塩っ子地球儀上留下你的足跡吧！",
 		comemorative_video_desc:
 			"這部影片是海外的鹽子們以詩音出道以來到100萬訂閱為止的以活動軌跡及其魅力為主題的慶祝影片，若有時間的話請一起來慶祝吧！",
 		collage_desc:
-			"To celebrate Shion reaching 1 Million, Shiokkos on Twitter have joined forces and created this wonderful Shiokko collage art!! Go visit the tweet to view this amazing art along with their heartfelt messages to Shion!!",
+			"為慶祝シオン達到百萬訂閱，推特上的塩っ子們共同出力製作了這張美妙的塩っ子拼貼畫！！快去推特看看這份驚人的作品以及那些送給シオン的暖心留言吧！",
 	},
 };
