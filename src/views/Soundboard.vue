@@ -127,7 +127,6 @@ export default {
 				soundId: message,
 				username: this.username,
 			};
-			const dbRef = ref(fdb, "messages");
 
 			// only send online if allowed to
 			if (this.enabled && this.allowedToSend) {
@@ -140,7 +139,7 @@ export default {
 				}, 1000);
 			} else if (!this.enabled) {
 				this.messages.push(m);
-				this.console.log(m);
+				this.playSound(m);
 			}
 			this.scrollDown();
 		},
