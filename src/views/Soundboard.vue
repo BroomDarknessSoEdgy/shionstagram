@@ -101,16 +101,21 @@ export default {
 			this.unsubscribe = onValue(query(dbRef, limitToLast(20)), (snapshot) => {
 				let data = snapshot.val();
 				let messages = [];
-				if (data)
+				if (data) {
 					Object.keys(data).forEach((key) => {
 						messages.push({
 							id: key,
 							...data[key],
 						});
 					});
-				this.messages = messages;
+				}
+				if (this.messages.length === 0 && this.enabled) {
+					this.messages = messages;
+				} else {
+					this.messages = messages;
+					this.playSound(messages[messages.length - 1]);
+				}
 				this.scrollDown();
-				this.playSound(messages[messages.length - 1]);
 			});
 		},
 		disconnect() {
