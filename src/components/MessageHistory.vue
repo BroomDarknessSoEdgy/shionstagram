@@ -3,7 +3,12 @@
 		<h4>{{ $t("soundboard.history") }}</h4>
 		<div class="history">
 			<div class="profile">
-				<img src="../assets/images/messageHistory/aqua.png" alt="" />
+				<img
+					class="clickable"
+					@click="playEasterEgg"
+					src="../assets/images/messageHistory/aqua.png"
+					alt=""
+				/>
 				<div class="profile-info">
 					<h4>{{ $t("soundboard.aqua.name") }}</h4>
 					<p>{{ $t("soundboard.aqua.message") }}</p>
@@ -49,6 +54,24 @@
 		</div>
 	</aside>
 </template>
+
+<script>
+import { Howl } from "howler";
+
+export default {
+	methods: {
+		playEasterEgg() {
+			const src = "/sounds/easter_egg/awawawa.mp3";
+
+			const audio = new Howl({
+				src: [src],
+				preload: true,
+			});
+			audio.play();
+		},
+	},
+};
+</script>
 
 <style scoped>
 aside {
