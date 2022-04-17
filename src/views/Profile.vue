@@ -132,7 +132,48 @@ export default {
 		credits: {
 			artists: [
 				{
-					name: "TBD",
+					name: "シーナ",
+					twitter: "Shiina__S",
+				},
+				{
+					name: "侑",
+					twitter: "oisiimizu_3",
+				},
+				{
+					name: "たむろ",
+					twitter: "tam_0315",
+				},
+				{
+					name: "おうどん",
+					twitter: "udonnaiyo",
+				},
+				{
+					name: "ねこた",
+					twitter: "Nekotaririn_EX",
+				},
+				{
+					name: "しおこねこ",
+					twitter: "ShiokkoNekko",
+				},
+				{
+					name: "とりぷる/Tripl3",
+					twitter: "toripuru_3",
+				},
+				{
+					name: "100トン",
+					twitter: "100ton250",
+				},
+				{
+					name: "icicca",
+					twitter: "aaln_1",
+				},
+				{
+					name: "nanaco",
+					twitter: "nanaco_41n",
+				},
+				{
+					name: "ぽこぽこ",
+					twitter: "pocopocoing",
 				},
 			],
 			developers: [
