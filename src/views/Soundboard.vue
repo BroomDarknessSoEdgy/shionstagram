@@ -14,6 +14,7 @@
 					:active-text="$t('soundboard.online')"
 					:inactive-text="$t('soundboard.offline')"
 					v-model="enabled"
+					size="small"
 					active-color="#a275a9"
 					v-on:change="
 						(val) => (val ? connect() : disconnect())

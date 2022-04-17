@@ -3,27 +3,29 @@
 		<div class="tabs">
 			<h4>{{ $t("soundboard.sounds") }}</h4>
 		</div>
-		<div class="category">
-			<h4>{{ $t("soundboard.single") }}</h4>
-		</div>
-		<div class="sounds">
-			<SoundButton
-				@send="() => bubble(sound.id)"
-				v-for="sound in singleSounds"
-				:key="sound.title"
-				:button="sound"
-			/>
-		</div>
-		<div class="category">
-			<h4>{{ $t("soundboard.multiple") }}</h4>
-		</div>
-		<div class="sounds" style="margin-bottom: 1.5rem">
-			<SoundButton
-				@send="() => bubble(sound.id)"
-				v-for="sound in multipleSounds"
-				:key="sound.title"
-				:button="sound"
-			/>
+		<div class="sounds_container">
+			<div class="category">
+				<h4>{{ $t("soundboard.single") }}</h4>
+			</div>
+			<div class="sounds">
+				<SoundButton
+					@send="() => bubble(sound.id)"
+					v-for="sound in singleSounds"
+					:key="sound.title"
+					:button="sound"
+				/>
+			</div>
+			<div class="category">
+				<h4>{{ $t("soundboard.multiple") }}</h4>
+			</div>
+			<div class="sounds" style="margin-bottom: 1.5rem">
+				<SoundButton
+					@send="() => bubble(sound.id)"
+					v-for="sound in multipleSounds"
+					:key="sound.title"
+					:button="sound"
+				/>
+			</div>
 		</div>
 	</section>
 </template>
@@ -62,16 +64,19 @@ export default {
 
 <style scoped>
 section {
+	display: flex;
+	flex-direction: column;
 	grid-area: sounds;
 	overflow: hidden;
-	height: max-content;
+	height: 80vh;
+	min-height: 35rem;
 }
 
 .tabs {
 	display: flex;
 	gap: 1rem;
 	align-items: center;
-	padding: 1rem;
+	padding: calc(1rem + 1px) 1rem;
 	border-bottom: var(--purple-700) 2px solid;
 }
 
@@ -99,6 +104,29 @@ section {
 
 .tabs button[active="true"]::after {
 	opacity: 1;
+}
+
+.sounds_container {
+	overflow-y: auto;
+}
+
+.sounds_container::-webkit-scrollbar {
+	background-color: white;
+	width: 16px;
+}
+
+.sounds_container::-webkit-scrollbar-track {
+	background-color: white;
+}
+
+.sounds_container::-webkit-scrollbar-thumb {
+	background-color: var(--purple-700);
+	border-radius: 16px;
+	border: 4px solid white;
+}
+
+.sounds_container::-webkit-scrollbar-button {
+	display: none;
 }
 
 .sounds {
