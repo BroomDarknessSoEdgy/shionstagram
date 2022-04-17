@@ -72,14 +72,14 @@
 						</ul>
 					</div>
 					<div class="credits-col">
-						<h4>{{ $t("profile.developers") }}</h4>
+						<h4>{{ $t("profile.assistants") }}</h4>
 						<ul>
-							<li :key="developer" v-for="developer in credits.developers">
-								{{ developer.name }}
+							<li :key="assistant" v-for="assistant in credits.assistants">
+								{{ assistant.name }}
 								<a
-									v-if="developer.twitter"
-									:href="`https://twitter.com/${developer.twitter}`"
-									>(@{{ developer.twitter }})</a
+									v-if="assistant.twitter"
+									:href="`https://twitter.com/${assistant.twitter}`"
+									>(@{{ assistant.twitter }})</a
 								>
 							</li>
 						</ul>
@@ -97,15 +97,16 @@
 							</li>
 						</ul>
 					</div>
+
 					<div class="credits-col">
-						<h4>{{ $t("profile.assistants") }}</h4>
+						<h4>{{ $t("profile.developers") }}</h4>
 						<ul>
-							<li :key="assistant" v-for="assistant in credits.assistants">
-								{{ assistant.name }}
+							<li :key="developer" v-for="developer in credits.developers">
+								{{ developer.name }}
 								<a
-									v-if="assistant.twitter"
-									:href="`https://twitter.com/${assistant.twitter}`"
-									>(@{{ assistant.twitter }})</a
+									v-if="developer.twitter"
+									:href="`https://twitter.com/${developer.twitter}`"
+									>(@{{ developer.twitter }})</a
 								>
 							</li>
 						</ul>
