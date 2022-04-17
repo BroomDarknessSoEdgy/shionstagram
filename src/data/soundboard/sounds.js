@@ -192,7 +192,7 @@ export const sounds = [
 	},
 	{
 		title: "Laugh",
-		img: "/sounds/humming/art.png",
+		img: "/sounds/laugh/art.png",
 		srcSet: [
 			"/sounds/laugh/1-kousui1_(laugh).mp3",
 			"/sounds/laugh/1.mp3",
