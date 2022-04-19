@@ -58,6 +58,9 @@ module.exports = {
 		},
 	},
 	submit: {
+		submissions_closed: "Submissions Closed",
+		closed_subtitle: "Thanks to everyone who participated!",
+
 		message_form_title: "Shiongram 投稿表格",
 		form_description:
 			"為慶祝詩音達成100萬人訂閲，可透過此表格投稿個人祝福信息，並可附上一幅照片，投稿後會在首頁顯示。",

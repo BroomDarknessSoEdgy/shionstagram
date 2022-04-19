@@ -58,6 +58,9 @@ module.exports = {
 		},
 	},
 	submit: {
+		submissions_closed: "受付を終了いたしました",
+		closed_subtitle: "投稿してくださった皆様、ありがとうございました！",
+
 		message_form_title: "シオングラム投稿フォーム",
 		form_description:
 			"このフォームを通して、紫咲シオンの登録者数100万人突破に際して作られた本ウェブサイト、シオングラムへご自身のお祝いメッセージを送ることができます（画像も一枚まで追加可能）",

@@ -58,6 +58,9 @@ module.exports = {
 		},
 	},
 	submit: {
+		submissions_closed: "Submissions Closed",
+		closed_subtitle: "Thanks to everyone who participated!",
+
 		message_form_title: "Shiongram message submission form",
 		form_description:
 			"Through this form you can submit a celebration message—with an optional accompanying image—that will be displayed on Shiongram, the Instagram-inspired site made by fans to celebrate Shion's one million subscribers.",
