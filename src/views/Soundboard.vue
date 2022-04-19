@@ -99,6 +99,7 @@ export default {
 	methods: {
 		connect() {
 			// listen for changes in chat db, then update
+
 			this.unsubscribe = onValue(query(dbRef, limitToLast(20)), (snapshot) => {
 				let data = snapshot.val();
 				let messages = [];
@@ -143,7 +144,20 @@ export default {
 				setTimeout(() => {
 					this.allowedToSend = true;
 				}, 1000);
-			} else if (!this.enabled) {
+
+				setTimeout(() => {
+					if (
+						this.messages.filter(
+							(message) => message.username !== this.username
+						).length === 0
+					) {
+						this.enabled = false;
+						this.messages.push(m);
+						this.playSound(m);
+					}
+				}, 100);
+			}
+			if (!this.enabled) {
 				this.messages.push(m);
 				this.playSound(m);
 			}
