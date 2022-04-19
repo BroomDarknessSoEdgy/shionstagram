@@ -58,8 +58,8 @@ module.exports = {
 		},
 	},
 	submit: {
-		submissions_closed: "Submissions Closed",
-		closed_subtitle: "Thanks to everyone who participated!",
+		submissions_closed: "投稿結束",
+		closed_subtitle: "感謝各位參與",
 
 		message_form_title: "Shiongram 投稿表格",
 		form_description:
